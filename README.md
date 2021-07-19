@@ -1,5 +1,5 @@
 # Trybe
-Este repositório contém todas as atividades de Breno da Cunha Campanha (https://www.linkedin.com/in/brenocunha/) enquanto estudava na [Trybe] (https://www.betrybe.com/) :rocket:
+Este repositório contém todas as atividades de [Breno da Cunha Campanha](https://www.linkedin.com/in/brenocunha/) enquanto estudava na [Trybe] (https://www.betrybe.com/) :rocket:
 A Trybe conta com mais de 1.500 horas de aulas online, aborda introdução ao desenvolvimento de software, front-end, back-end, ciência da computação, engenharia de software, metodologias ágeis e habilidades comportamentais.
 ## Fundamentos do Desenvolvimento Web
 
