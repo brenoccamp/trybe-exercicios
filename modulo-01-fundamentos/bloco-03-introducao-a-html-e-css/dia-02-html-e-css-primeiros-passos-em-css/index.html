@@ -19,9 +19,26 @@
           }
           #p2 {
             font-size: 3em;
+            font-style: inherit;
+            text-decoration: underline;
           }
           body {
             font-size: 16px;
+          }
+          ul {
+            line-height: 40px;
+          }
+          .align {
+            text-align: center;
+          }
+          #amarelo {
+            background-color: yellow;
+          }
+          #vermelho {
+            background-color: red;
+          }
+          #marrom {
+            background-color:saddlebrown;
           }
         </style>
     </head>
@@ -40,7 +57,7 @@
         <li>Marrom</li>
       </ul>
       <h2>Exercícios 3.2.2 - Primeiros passos em CSS - Propriedades de texto no CSS</h2>
-      <ol>
+      <ol class="align">
         <li>Modifique a família do h2 para sans-serif.</li>
         <li>Deixe o parágrafo (p2) com font-weight 600.</li>
         <li>Modifique o font-size do body para 16px.</li>
@@ -49,10 +66,10 @@
         <li>Troque a cor de fundo de cada item da lista para a cor correspondente ao texto.</li>
       </ol>
       <p id="p2">Qual é a sua cor favorita?</p>
-    <ul>
-      <li>Amarelo</li>
-      <li>Vermelho</li>
-      <li>Marrom</li>
+    <ul class="align">
+      <li id="amarelo">Amarelo</li>
+      <li id="vermelho">Vermelho</li>
+      <li id="marrom">Marrom</li>
     </ul>
     </body>
 </html>
