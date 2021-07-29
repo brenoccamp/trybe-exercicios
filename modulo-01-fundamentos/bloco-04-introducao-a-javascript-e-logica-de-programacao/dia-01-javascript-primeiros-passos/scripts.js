@@ -122,7 +122,7 @@
 //     console.log('O lucro da empresa foi: ' + lucroTotal + 'R$');
 // }
 
-// Uma pessoa que trabalha de carteira assinada no Brasil tem descontados de seu salário bruto o INSS e o IR. Faça um programa que, dado um salário bruto, calcule o líquido a ser recebido.
+// 11-Uma pessoa que trabalha de carteira assinada no Brasil tem descontados de seu salário bruto o INSS e o IR. Faça um programa que, dado um salário bruto, calcule o líquido a ser recebido.
 // A notação para um salário de R$1500,10, por exemplo, deve ser 1500.10. Para as faixas de impostos, use as seguintes referências:
 // INSS (Instituto Nacional do Seguro Social)
 // Salário bruto até R$ 1.556,94: alíquota de 8%
@@ -146,25 +146,39 @@
 // O último cálculo para conseguir o salário líquido é R$ 2.670,00 - R$ 57,45 (salário-base - valor IR) = R$ 2.612,55.
 // Resultado: R$ 2.612,55.
 
-let salarioBruto = 1500;
-let salarioDeduzidoINSS;
-let aliquotaINSS1 = 0.92;
-let aliquotaINSS2 = 0.91;
-let aliquotaINSS3 = 0.89;
-let aliquotaINSS4 = 570.88;
-// let salarioDeduzidoInss = salarioBruto - (salarioBruto * );
-// let deducaoIr = (salarioDeduzidoInss * 0.15) - 354.80;
-// let salarioLiquido = salarioDeduzidoInss - deducaoIr;
-// console.log(salarioLiquido);
-if (salarioBruto <= 1556.94 && salarioBruto >= 0) {
-    salarioBruto * aliquotaINSS1;
-    salarioBruto >> salarioDeduzidoINSS;
-    console.log(salarioDeduzidoINSS)
-} else if (salarioBruto >= 1556.95 && salarioBruto <= 2594.92) {
-    salarioBruto * aliquotaINSS2;
-} else if (salarioBruto >= 2594.93 && salarioBruto <= 5189.82) {
-    salarioBruto * aliquotaINSS3;
-} else if (salarioBruto > 5189.52) {
-    salarioBruto * aliquotaINSS4;
-};
-    
+// let glossSalary = 3000;
+// let calculatedSalaryBasedOnAliquotINSS;
+// let calculatedSalaryBasedOnAliquotIR;
+// if (glossSalary <= 1556.94 && glossSalary >= 0) {
+//     calculatedSalaryBasedOnAliquotINSS = glossSalary * 0.92;
+//     console.log('if1',calculatedSalaryBasedOnAliquotINSS);
+// } else if (glossSalary >= 1556.95 && glossSalary <= 2594.92) {
+//     calculatedSalaryBasedOnAliquotINSS = glossSalary * 0.91;
+//     console.log('if2',calculatedSalaryBasedOnAliquotINSS);
+// } else if (glossSalary >= 2594.92 && glossSalary <= 5189.82) {
+//     calculatedSalaryBasedOnAliquotINSS = glossSalary * 0.89;
+//     console.log('if3',calculatedSalaryBasedOnAliquotINSS);
+// } else if (glossSalary > 5189.82) {
+//     calculatedSalaryBasedOnAliquotINSS = glossSalary - 570.88;
+//     concols.log('if4',calculatedSalaryBasedOnAliquotINSS);
+// } else {
+//     console.log('Valor salarial inválido.')
+// }
+
+// if (calculatedSalaryBasedOnAliquotINSS <= 1903.98) {
+//     console.log('if1','Isento da taxa de imposto de renda');
+// } else if (calculatedSalaryBasedOnAliquotINSS >= 1903.99 && calculatedSalaryBasedOnAliquotINSS <= 2826.65) {
+//     calculatedSalaryBasedOnAliquotIR = (calculatedSalaryBasedOnAliquotINSS * 0.925) + 142.80;
+//     console.log('if2',calculatedSalaryBasedOnAliquotIR);
+// } else if (calculatedSalaryBasedOnAliquotINSS >= 2826.66 && calculatedSalaryBasedOnAliquotINSS <= 3751.05) {
+//     calculatedSalaryBasedOnAliquotIR = (calculatedSalaryBasedOnAliquotINSS * 0.85) + 354.80;
+//     console.log('if3',calculatedSalaryBasedOnAliquotIR);
+// } else if (calculatedSalaryBasedOnAliquotINSS >= 3751.06 && calculatedSalaryBasedOnAliquotINSS <= 4664.68) {
+//     calculatedSalaryBasedOnAliquotIR = (calculatedSalaryBasedOnAliquotINSS * 0.775) + 636.13;
+//     console.log('if4',calculatedSalaryBasedOnAliquotIR);
+// } else if(calculatedSalaryBasedOnAliquotINSS > 4664.68) {
+//     calculatedSalaryBasedOnAliquotIR = (calculatedSalaryBasedOnAliquotINSS * 0.725) + 869.36;
+//     console.log('if5',calculatedSalaryBasedOnAliquotIR);
+// } else {
+//     console.log('if6','Valor salarial inválido.')
+// }
