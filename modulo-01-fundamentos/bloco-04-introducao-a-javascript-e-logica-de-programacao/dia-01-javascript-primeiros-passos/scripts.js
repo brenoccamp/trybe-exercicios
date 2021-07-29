@@ -116,7 +116,7 @@
 // let custoTotal = custoProduto + (custoProduto * 0.2);
 // let lucro = (venda - custoTotal);
 // let lucroTotal = lucro * 1000;
-// if (custoProduto < 0 || venda < 0) {
+// if (custoProduto <= 0 || venda <= 0) {
 //     console.log('Erro! Valor inválido.');
 // } else {
 //     console.log('O lucro da empresa foi: ' + lucroTotal + 'R$');
