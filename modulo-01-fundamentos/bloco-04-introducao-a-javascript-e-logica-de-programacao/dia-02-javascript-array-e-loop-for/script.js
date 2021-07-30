@@ -32,6 +32,14 @@
 // console.log(indexOfPortfolio);
 
 // Exercício-3 Adicione o valor "Contato" no final do array menu:
-let menu = ['Home', 'Serviços', 'Portfólio', 'Links'];
-menu.push('Contato');
-console.log(menu);
+// let menu = ['Home', 'Serviços', 'Portfólio', 'Links'];
+// menu.push('Contato');
+// console.log(menu);
+
+
+//Exercícios de fixação do bloco4.2 - For
+//Exercício 1- Utilize o for para imprimir os elementos da lista groceryList com o console.log() :
+// let groceryList = ['Arroz', 'Feijão', 'Alface', 'Melancia'];
+// for (index = 0; index < groceryList.length; index += 1) {
+//     console.log(groceryList[index])
+// };
