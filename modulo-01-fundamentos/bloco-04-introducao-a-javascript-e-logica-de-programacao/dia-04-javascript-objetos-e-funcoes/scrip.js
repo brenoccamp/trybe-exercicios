@@ -117,16 +117,16 @@
 
 //EXERCÌCIOS DO BLOCO 4 - PARTE 1 - OBJETOS E FOR/IN
 // Usando o objeto abaixo, faça os exercícios a seguir:
-let info = {
-  personagem: 'Margarida',
-  origem: 'Pato Donald',
-  nota: 'Namorada do personagem principal nos quadrinhos do Pato Donald',
-};
+// let info = {
+//   personagem: 'Margarida',
+//   origem: 'Pato Donald',
+//   nota: 'Namorada do personagem principal nos quadrinhos do Pato Donald',
+// };
 // 1- Imprima no console uma mensagem de boas-vindas para a personagem acima, incluindo seu nome. Valor esperado no console:
 // console.log('Bem vinda ' + info.personagem)
 
 // 2- Insira no objeto uma nova propriedade com o nome de chave 'recorrente' e o valor 'Sim' e, em seguida, imprima o objeto no console.
-info.recorrente = 'Sim'
+// info.recorrente = 'Sim'
 // console.log(info)
 
 // 3- Faça um for/in que mostre todas as chaves do objeto.
@@ -177,3 +177,46 @@ info.recorrente = 'Sim'
 // }
 // console.log(palindrome('cabo'))
 // console.log(verifyPalindrome('arara'))
+
+// 2- Crie uma função que receba um array de inteiros e retorne o índice do maior valor.
+// let array = [2, 3, 6, 7, 10, 1];
+// let bigger = 0;
+// console.log(bigger)
+// function biggerValue (param) {
+//     for (let index in array) {
+//         if (array[index] > bigger) {
+//             bigger = index
+//         }
+//     }
+//     return bigger
+// }
+// console.log(biggerValue(array))
+
+// 3- Crie uma função que receba um array de inteiros e retorne o índice do menor valor.
+// let arrayTeste = [2, 4, 6, 7, 10, 0, -3];
+// let smallest = 0;
+// function smallestValue (param) {
+//     for (let index in arrayTeste) {
+//         if (arrayTeste[index] < smallest) {
+//             smallest = index
+//             console.log(arrayTeste[index])
+//         }
+//     }
+//     return smallest;
+// }
+// console.log(smallestValue(arrayTeste))
+
+// 4- Crie uma função que receba um array de nomes e retorne o nome com a maior quantidade de caracteres.
+// let arrayTeste = ['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana'];
+// function maisCaracteres (param) {
+//     let maiorPalavra = arrayTeste[0]
+//     for (let index in arrayTeste) {
+//         if (maiorPalavra.length < arrayTeste[index].length) {
+//             maiorPalavra = arrayTeste[index]
+//         }
+//     }
+//     return maiorPalavra
+// }
+// console.log(maisCaracteres(arrayTeste))
+
+// 5- Crie uma função que receba um array de inteiros e retorne o inteiro que mais se repete.
