@@ -220,3 +220,54 @@
 // console.log(maisCaracteres(arrayTeste))
 
 // 5- Crie uma função que receba um array de inteiros e retorne o inteiro que mais se repete.
+// let arrayTeste = [2, 3, 2, 5, 8, 2, 3];
+// function countRepeatNumber (arrayTeste) {
+//     let countRepeat = 0;
+//     let indexRepeat = 0;
+//     let contador = 0;
+//     for (let index in arrayTeste) {
+//         let checkNumber = arrayTeste[index] 
+//         for (let index2 in arrayTeste) {
+//             if (checkNumber === arrayTeste[index2]) {
+//                 contador += 1;
+//             }
+//         }
+//         if (contador > countRepeat) {
+//             countRepeat = contador
+//             indexRepeat = arrayTeste[index]
+//         }
+//         contador = 0;
+//     }
+//     return indexRepeat
+// }
+// console.log(countRepeatNumber(arrayTeste))
+
+// 6- Crie uma função que receba um número inteiro N e retorne o somatório de todos os números de 1 até N.
+// let n = 5;
+// function sumAllValues () {
+//     let total = 0;
+//     for (let index = 0; index <= 5; index += 1) {
+//         total += index
+//     }
+//     return total
+// }
+// console.log(sumAllValues(n))
+
+// 7- Crie uma função que receba uma string 'word' e outra string 'ending' . Verifique se a string ending é o final da string word . Considere que a string ending sempre será menor que a string word.
+let word = 'trybe';
+let ending = 'be';
+function verificaFimPalavra (param1, param2) {
+    param1 = param1.split('');
+    console.log('param1 '+param1)
+    param2 = param2.split('');
+    console.log('param2: '+param2)
+    let controle = true;
+    for (let index = 0; index < param2.length; index += 1) {
+        if (param1[param1.length - param2.length + index] !== param2[index]) {
+            console.log(param1[param1.length - param2.length + index]);
+            controle = false
+        }
+    }
+    return controle
+}
+console.log(verificaFimPalavra(word, ending))
