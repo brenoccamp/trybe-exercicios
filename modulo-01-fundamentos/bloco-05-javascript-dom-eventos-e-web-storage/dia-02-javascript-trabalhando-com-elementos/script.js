@@ -50,3 +50,8 @@ for (let i = 1; i < 4; i += 1) {
     addElementH3.innerHTML = i;
     addTagMain.appendChild(addElementH3);
 }
+
+//10
+addTagH1.className = 'title';
+
+//11
