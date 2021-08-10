@@ -19,3 +19,6 @@ addTagP.innerText = 'Texto da Tag P';
 addTagSection.appendChild(addTagP);
 
 //5
+const addTagSection2 = document.createElement('section');
+addTagSection2.className = 'left-content';
+addTagMain.appendChild(addTagSection2);
