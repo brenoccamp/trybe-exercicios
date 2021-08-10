@@ -30,4 +30,4 @@ document.getElementById('elementoOndeVoceEsta').nextSibling
 document.getElementById('elementoOndeVoceEsta').nextElementSibling
 
 //8
-// document.getElementById('pai')
+document.getElementById('pai').childElementCount[5];
