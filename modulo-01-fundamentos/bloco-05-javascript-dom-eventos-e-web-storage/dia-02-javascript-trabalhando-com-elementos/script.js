@@ -43,3 +43,10 @@ for (let i = 0; i < arrayNumbers.length; i++) {
     addElementLi.innerHTML = arrayNumbers[i];;
     addElementUl.appendChild(addElementLi);
 }
+
+//9
+for (let i = 1; i < 4; i += 1) {
+    const addElementH3 = document.createElement('h3');
+    addElementH3.innerHTML = i;
+    addTagMain.appendChild(addElementH3);
+}
