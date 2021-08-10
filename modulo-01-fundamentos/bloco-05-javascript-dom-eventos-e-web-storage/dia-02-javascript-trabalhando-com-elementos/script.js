@@ -29,3 +29,8 @@ addTagSection3.className = 'right-content';
 addTagMain.appendChild(addTagSection3);
 
 //7
+const addImg = document.createElement('img');
+addImg.className = 'small-image';
+addImg.src = 'https://picsum.photos/200';
+addTagSection2.appendChild(addImg);
+
