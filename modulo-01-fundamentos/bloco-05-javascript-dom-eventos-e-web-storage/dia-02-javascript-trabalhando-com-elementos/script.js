@@ -9,3 +9,13 @@ addTagMain.className = 'main-content';
 document.body.appendChild(addTagMain);
 
 //3
+const addTagSection = document.createElement('section');
+addTagSection.className = 'center-content';
+addTagMain.appendChild(addTagSection);
+
+//4
+const addTagP = document.createElement('p');
+addTagP.innerText = 'Texto da Tag P';
+addTagSection.appendChild(addTagP);
+
+//5
