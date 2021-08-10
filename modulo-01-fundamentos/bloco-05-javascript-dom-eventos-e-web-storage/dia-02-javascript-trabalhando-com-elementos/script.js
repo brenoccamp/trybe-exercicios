@@ -22,3 +22,10 @@ addTagSection.appendChild(addTagP);
 const addTagSection2 = document.createElement('section');
 addTagSection2.className = 'left-content';
 addTagMain.appendChild(addTagSection2);
+
+//6
+const addTagSection3 = document.createElement('section');
+addTagSection3.className = 'right-content';
+addTagMain.appendChild(addTagSection3);
+
+//7
