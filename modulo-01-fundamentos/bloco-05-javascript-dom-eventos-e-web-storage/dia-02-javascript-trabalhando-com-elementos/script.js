@@ -34,3 +34,12 @@ addImg.className = 'small-image';
 addImg.src = 'https://picsum.photos/200';
 addTagSection2.appendChild(addImg);
 
+//8
+const addElementUl = document.createElement('ul');
+addTagSection3.appendChild(addElementUl);
+const arrayNumbers = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+for (let i = 0; i < arrayNumbers.length; i++) {
+    const addElementLi = document.createElement('li');
+    addElementLi.innerHTML = arrayNumbers[i];;
+    addElementUl.appendChild(addElementLi);
+}
