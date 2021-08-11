@@ -52,6 +52,11 @@ for (let i = 1; i < 4; i += 1) {
 }
 
 //10
-addTagH1.className = 'title';
+const title = document.querySelector('h1')
+title.className = 'title';
 
 //11
+const classH3 = document.getElementsByTagName('h3');
+for (let i = 0; i < 3; i += 1) {
+    classH3[i].className = 'description';
+}
