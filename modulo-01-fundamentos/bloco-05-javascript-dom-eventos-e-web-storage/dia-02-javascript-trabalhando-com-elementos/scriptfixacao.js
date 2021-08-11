@@ -56,3 +56,23 @@ primeiroFilhoDoFilho.appendChild(primeiroFilhoDoNeto);
 //4
 const bisneto = primeiroFilhoDoNeto;
 bisneto.parentElement.parentElement.nextElementSibling;
+
+// PARTE III - REMOVENDO ELEMENTOS
+// 1- Remova todos os elementos filhos de paiDoPai exceto pai , elementoOndeVoceEsta e primeiroFilhoDoFilho.
+
+// 1
+const pai1 = document.getElementById('pai');
+for (let index = pai1.childNodes.length - 1; index >= 0; index -= 1) {
+    const currentChildren = pai1.childNodes[index];
+    if (currentChildren.id !== 'elementoOndeVoceEsta') {
+        currentChildren.remove();
+    }
+}
+
+const removeNetosDePai = document.getElementById('elementoOndeVoceEsta');
+for (let index = 0; index < removeNetosDePai.childNodes.length; index += 1) {
+    const currentChildren = removeNetosDePai.childNodes[index];
+    if (currentChildren.id === 'segundoEUltimoFilhoDoFilho' || currentChildren.id === 'filhoDoElementoOndeEstou') {
+        currentChildren.remove();
+    }
+}
