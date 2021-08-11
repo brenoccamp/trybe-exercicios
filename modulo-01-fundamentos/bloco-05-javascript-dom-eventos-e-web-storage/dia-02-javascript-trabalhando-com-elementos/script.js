@@ -70,3 +70,7 @@ const centralizeSection3 = document.getElementsByClassName('right-content')[0];
 centralizeSection3.style.marginRight = 'auto';
 
 //14
+const changeBackgroundColorSection = document.getElementsByClassName('center-content')[0];
+changeBackgroundColorSection.style.backgroundColor = 'green';
+
+//15
