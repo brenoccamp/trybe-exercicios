@@ -31,3 +31,28 @@ document.getElementById('elementoOndeVoceEsta').nextElementSibling
 
 //8
 document.getElementById('pai').childElementCount[5];
+
+//PARTE II
+// 1- Crie um irmão para elementoOndeVoceEsta .
+// 2- Crie um filho para elementoOndeVoceEsta .
+// 3- Crie um filho para primeiroFilhoDoFilho .
+// 4- A partir desse filho criado, acesse terceiroFilho .
+
+//1
+const addNewSection = document.createElement('section');
+addNewSection.id = 'quintoFilho'
+pai.appendChild(addNewSection);
+
+//2
+const newSon = document.createElement('section');
+newSon.id = 'filhoDoElementoOndeEstou';
+elementoOndeVoceEsta.appendChild(newSon);
+
+//3
+const primeiroFilhoDoNeto = document.createElement('section');
+primeiroFilhoDoNeto.id = 'bisneto'
+primeiroFilhoDoFilho.appendChild(primeiroFilhoDoNeto);
+
+//4
+const bisneto = primeiroFilhoDoNeto;
+bisneto.parentElement.parentElement.nextElementSibling;
