@@ -74,3 +74,6 @@ const changeBackgroundColorSection = document.getElementsByClassName('center-con
 changeBackgroundColorSection.style.backgroundColor = 'green';
 
 //15
+const removeChildUl = document.getElementsByTagName('ul')[0];
+removeChildUl.lastChild.remove();
+removeChildUl.lastChild.remove();
