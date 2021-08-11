@@ -64,3 +64,9 @@ for (let i = 0; i < 3; i += 1) {
 //12
 const removeSection2 = document.getElementsByClassName('left-content')[0];
 addTagMain.removeChild(removeSection2);
+
+//13
+const centralizeSection3 = document.getElementsByClassName('right-content')[0];
+centralizeSection3.style.marginRight = 'auto';
+
+//14
