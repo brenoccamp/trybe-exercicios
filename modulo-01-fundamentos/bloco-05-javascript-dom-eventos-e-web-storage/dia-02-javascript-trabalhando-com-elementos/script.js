@@ -60,3 +60,7 @@ const classH3 = document.getElementsByTagName('h3');
 for (let i = 0; i < 3; i += 1) {
     classH3[i].className = 'description';
 }
+
+//12
+const removeSection2 = document.getElementsByClassName('left-content')[0];
+addTagMain.removeChild(removeSection2);
