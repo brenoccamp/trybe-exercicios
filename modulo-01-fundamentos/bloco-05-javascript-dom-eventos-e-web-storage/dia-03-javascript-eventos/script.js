@@ -66,3 +66,38 @@ function styleBtnHoliday () {
     
   }
 }
+
+// Exercício 4:
+// Implemente uma função que receba como parâmetro a string "Sexta-feira" e crie dinamicamente um botão com o nome "Sexta-feira".
+// Adicione a este botão o ID "btn-friday" .
+// Adicione este botão como filho/filha da tag <div> com classe "buttons-container" .
+function createFridayButton (string) {
+  const callDiv = document.querySelector('.buttons-container');
+  let fridayButton = document.createElement('button');
+  callDiv.appendChild(fridayButton);
+  fridayButton.id = 'btn-friday';
+  fridayButton.innerHTML = string;
+}
+createFridayButton ('Sexta-feira');
+
+// Exercício 5:
+// Implemente uma função que adicione ao botão "Sexta-feira" um evento de "click" que modifica o texto exibido nos dias que são Sexta-feira.
+// É interessante que este botão possua também a lógica inversa. Ao ser clicado novamente ele retorna à configuração inicial exibindo os dias.
+function newEventOnFridaysButton (friday) {
+  let getButtonFriday = document.querySelector('#btn-friday');
+  let getFridayDays = document.getElementsByClassName('friday');
+  let newText = 'MUFASAA DAY /o/';
+
+  getButtonFriday.addEventListener ('click', function () {
+    for (let index = 0; index < getFridayDays; index += 1) {
+      if (getFridayDays[index].innerHTL !== newText) {
+        getFridayDays[index].innerHTML = newText;
+      } else {
+        getFridayDays[index].innerHTML = friday[index];
+      }
+    }
+  })
+};
+
+let fridaysArray = [4, 11, 18, 25];
+newEventOnFridaysButton (fridaysArray);
