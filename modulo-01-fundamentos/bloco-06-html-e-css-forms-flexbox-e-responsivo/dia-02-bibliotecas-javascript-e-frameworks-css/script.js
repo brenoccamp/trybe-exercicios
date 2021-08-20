@@ -34,7 +34,6 @@ function checkData(event) {
 function verifyPersonDice() {
   const getAllInput = document.querySelectorAll('input');
   for (let index = 0; index < getAllInput.length; index += 1) {
-    console.log(getAllInput[index]);
     if (getAllInput[index].value === '') {
       alert(`O campo '${getAllInput[index].name}' precisa ser preenchido.`)
     }

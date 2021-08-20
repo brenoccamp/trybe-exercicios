@@ -5,81 +5,86 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style-dia-02.css">
 </head>
 <body>
   <form>
+    <div class='container'>
     <fieldset id='pessoa'>
+      <div>
       <label for="nome1">Nome:
-        <input type="text" name='nome' id='nome1' maxlength="40" required>
+        <input class="form-control form-control-sm" type="text" name='nome' id='nome1' maxlength="40" required>
       </label>
-      <br>
+    </div>
+    <div>
       <label for="input-email">Email:
-        <input type="text" name='email' id='input-email' maxlength="50" required>
+        <input class="form-control form-control-sm" type="text" name='email' id='input-email' maxlength="50" required>
       </label>
-      <br>
+    </div>
+    <div>
       <label for="input-cpf">EPF:
-        <input type="text" name='cpf' id='input-cpf' maxlength="11" required>
+        <input class="form-control form-control-sm" type="text" name='cpf' id='input-cpf' maxlength="11" required>
       </label>
-      <br>
-      <br>
-      <label for="input-endereço" class='label-container'>Endereço:
-        <br>
-        <textarea name="endereço" id="input-endereço" cols="20" rows="10" maxlength="200" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="input-endereço" class='label-container'>Endereço:
+        <textarea class="form-control" name="endereço" id="input-endereço" cols="20" rows="10" maxlength="200" required></textarea>
       </label>
-      <br>
-      <br>
+    </div>
+    <div>
       <label for="cidade">Cidade:
-        <input type="text" name="cidade" id="name-cidade" maxlength="28" required>
+        <input class="form-control form-control-sm" type="text" name="cidade" id="name-cidade" maxlength="28" required>
       </label>
-      <br>
-      <br>
+    </div>
+    <div>
       <label for="select-estado">Escolha seu Estado:
-        <select name="estado" id="select-estado" required></select>
+        <select class="form-select form-select-sm" name="estado" id="select-estado" required></select>
       </label>
-        <br>
-        <br>
-      <label for="input-casa">Selecione o tipo de moradia:
-        <input type="radio" id='input-casa' name='moradia' required>Casa
-      </label>
-      <label for="input-apartamento">
-        <input type="radio" id='input-apartamento' name='moradia' required>Apartamento
-      </label>
+    </div>
+    <div class='container'>Selecione o tipo de moradia:
+      <div class="form-check">
+        <label class="form-check-label" for="input-casa">
+          <input class="form-check-input" type="radio" id='input-casa' name='moradia' required>Casa
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="input-apartamento">
+          <input class="form-check-input" type="radio" id='input-apartamento' name='moradia' required>Apartamento
+        </label>
+      </div>
+    </div>
     </fieldset>
-
+  </div>
+  <div class='container'>
     <fieldset id='curriculo'>
-      <label for="curriculo">Resuma seu currículo:
-        <br>
-        <textarea name="curriculo" id="curriculo" cols="30" rows="10" maxlength="1000" required></textarea>
+    <div class="mb-3">
+      <label class="form-label" for="curriculo">Resuma seu currículo:
+        <textarea class="form-control" name="curriculo" id="curriculo" cols="30" rows="10" maxlength="1000" required></textarea>
       </label>
-
-      <br>
-
-      <label for="cargo">Cargo:
-        <br>
-        <textarea name="cargo" id="cargo" cols="30" rows="10" maxlength="40" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="cargo">Cargo:
+        <textarea class="form-control" name="cargo" id="cargo" cols="30" rows="10" maxlength="40" required></textarea>
       </label>
-
-      <br>
-
-      <label for="descricao-cargo">Descrição do cargo:
-        <br>
-        <textarea name="descrição-cargo" id="descricao-cargo" cols="30" rows="10" maxlength="500" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="descricao-cargo">Descrição do cargo:
+        <textarea class="form-control" name="descrição-cargo" id="descricao-cargo" cols="30" rows="10" maxlength="500" required></textarea>
       </label>
-
-      <br>
-
+    </div>
+    <div class='mb-3'>
       <label for="input-data">Data de início:
-        <br>
-        <input type="text" id='input-data' placeholder="dd/mm/aaaa" required>
+        <input class="form-control form-control-sm" type="text" id='input-data' placeholder="dd/mm/aaaa" required>
       </label>
-
+    </div>
     </fieldset>
-
-    <button id='submit'>Enviar</button>
+  </div>
+  <div class='container'>
+    <button class="btn btn-success" id='submit'>Enviar</button>
+  </div>
 
   </form>
-
   <script src='script.js'></script>
 </body>
 </html>
