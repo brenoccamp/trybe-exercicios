@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form>
+    <fieldset id='pessoa'>
+      <label for="nome1">Nome:
+        <input type="text" name='nome' id='nome1' maxlength="40" required>
+      </label>
+      <br>
+      <label for="input-email">Email:
+        <input type="text" name='email' id='input-email' maxlength="50" required>
+      </label>
+      <br>
+      <label for="input-cpf">EPF:
+        <input type="text" name='cpf' id='input-cpf' maxlength="11" required>
+      </label>
+      <br>
+      <br>
+      <label for="input-endereço" class='label-container'>Endereço:
+        <br>
+        <textarea name="endereço" id="input-endereço" cols="20" rows="10" maxlength="200" required></textarea>
+      </label>
+      <br>
+      <br>
+      <label for="cidade">Cidade:
+        <input type="text" name="cidade" id="name-cidade" maxlength="28" required>
+      </label>
+      <br>
+      <br>
+      <label for="select-estado">Escolha seu Estado:
+        <select name="estado" id="select-estado" required></select>
+      </label>
+        <br>
+        <br>
+      <label for="input-casa">Selecione o tipo de moradia:
+        <input type="radio" id='input-casa' name='moradia' required>Casa
+      </label>
+      <label for="input-apartamento">
+        <input type="radio" id='input-apartamento' name='moradia' required>Apartamento
+      </label>
+    </fieldset>
+
+    <fieldset id='curriculo'>
+      <label for="curriculo">Resuma seu currículo:
+        <br>
+        <textarea name="curriculo" id="curriculo" cols="30" rows="10" maxlength="1000" required></textarea>
+      </label>
+
+      <br>
+
+      <label for="cargo">Cargo:
+        <br>
+        <textarea name="cargo" id="cargo" cols="30" rows="10" maxlength="40" required></textarea>
+      </label>
+
+      <br>
+
+      <label for="descricao-cargo">Descrição do cargo:
+        <br>
+        <textarea name="descrição-cargo" id="descricao-cargo" cols="30" rows="10" maxlength="500" required></textarea>
+      </label>
+
+      <br>
+
+      <label for="input-data">Data de início:
+        <br>
+        <input type="text" id='input-data' placeholder="dd/mm/aaaa" required>
+      </label>
+
+    </fieldset>
+
+    <button id='submit'>Enviar</button>
+
+  </form>
+
+  <script src='script.js'></script>
+</body>
+</html>
