@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="popup-validation/bin/validation.min.css">
+  <link rel="stylesheet" href="DatePickerX/dist/css/DatePickerX.min.css">
   <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="style-dia-02.css">
 </head>
@@ -17,10 +19,14 @@
         <input class="form-control form-control-sm" type="text" name='nome' id='nome1' maxlength="40" required>
       </label>
     </div>
-    <div>
+    <!-- <div>
       <label for="input-email">Email:
         <input class="form-control form-control-sm" type="text" name='email' id='input-email' maxlength="50" required>
       </label>
+    </div> -->
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" class="validate form-control form-control-sm" data-validate="required,email"/>
     </div>
     <div>
       <label for="input-cpf">EPF:
@@ -85,6 +91,8 @@
   </div>
 
   </form>
+  <script src='popup-validation/bin/validation.min.js'></script>
+  <script src='DatePickerX/dist/js/DatePickerX.min.js'></script>
   <script src='script.js'></script>
 </body>
 </html>

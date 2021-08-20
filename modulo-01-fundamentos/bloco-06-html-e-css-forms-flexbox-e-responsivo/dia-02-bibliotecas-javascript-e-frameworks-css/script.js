@@ -15,20 +15,20 @@ generateOption();
 
 function checkData(event) {
   event.preventDefault();
-  let dataValue = getInputData.value;
-  const day = parseInt(dataValue.substring(0, 2)) || '';
-  const month = parseInt(dataValue.substring(3, 5)) || '';
-  const year = parseInt(dataValue.substring(6, 10)) || '';
-  if (typeof(day) !== 'number' || typeof(month) !== 'number' || typeof(year) !== 'number') {
-    alert('ERRO: A DATA precisa ter o seguinte formato: "dd/mm/aaaa" e conter somente NUMEROS entre as barras.');
-  }
-  if (day < 0 || day > 31) {
-    alert('ERRO: O dia da Data precisa estar entre 1 e 31.');
-  } else if (month < 0 || month > 12) {
-    alert('ERRO: O mês da Data precisa estar entre 1 e 12');
-  } else if (year < 0) {
-    alert('ERRO: O ano da Data precisa ser positivo');
-  }
+  // let dataValue = getInputData.value;
+  // const day = parseInt(dataValue.substring(0, 2)) || '';
+  // const month = parseInt(dataValue.substring(3, 5)) || '';
+  // const year = parseInt(dataValue.substring(6, 10)) || '';
+  // if (typeof(day) !== 'number' || typeof(month) !== 'number' || typeof(year) !== 'number') {
+  //   alert('ERRO: A DATA precisa ter o seguinte formato: "dd/mm/aaaa" e conter somente NUMEROS entre as barras.');
+  // }
+  // if (day < 0 || day > 31) {
+  //   alert('ERRO: O dia da Data precisa estar entre 1 e 31.');
+  // } else if (month < 0 || month > 12) {
+  //   alert('ERRO: O mês da Data precisa estar entre 1 e 12');
+  // } else if (year < 0) {
+  //   alert('ERRO: O ano da Data precisa ser positivo');
+  // }
 }
 // Verifica se os dados dos <input> foram preenchidos.
 function verifyPersonDice() {
@@ -45,11 +45,13 @@ function verifyCurriculumDice() {
   const getAllTextarea = document.querySelectorAll('textarea');
   for (let index = 0; index < getAllTextarea.length; index += 1) {
     if (getAllTextarea[index].value === '') {
-      alert(`O campo '${getAllTextarea[index].name}' precisa ser preenchido.`)
+      alert(`O campo '${getAllTextarea[index].name}' precisa ser preenchido.`);
     }
   }
 }
 
-getButton.addEventListener('click', checkData);
-getButton.addEventListener('click', verifyPersonDice)
-getButton.addEventListener('click', verifyCurriculumDice)
+getButton.addEventListener('click', checkData);;
+// getButton.addEventListener('click', verifyPersonDice);
+// getButton.addEventListener('click', verifyCurriculumDice);
+
+let datePicker = getInputData.DatePickerX.init({format: 'dd/mm/yyyy'});
