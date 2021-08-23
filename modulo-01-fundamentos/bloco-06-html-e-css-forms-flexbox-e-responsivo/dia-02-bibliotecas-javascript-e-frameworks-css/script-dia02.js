@@ -54,3 +54,6 @@ function verifyCurriculumDice() {
 getButton.addEventListener('click', checkData);
 getButton.addEventListener('click', verifyPersonDice)
 getButton.addEventListener('click', verifyCurriculumDice)
+
+document.getElementById('input-data').DatePickerX.init();
+window.DatePickerX.setDefaults(format)
