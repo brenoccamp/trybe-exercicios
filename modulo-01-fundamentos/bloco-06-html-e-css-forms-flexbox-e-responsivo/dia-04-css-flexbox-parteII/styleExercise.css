@@ -56,6 +56,7 @@ body {
 .movie-container h2 {
   margin: 40px 0;
   text-align: center;
+  flex-basis: 700px;
 }
 
 .card-container {
@@ -72,6 +73,7 @@ body {
   height: 150px;
   justify-content: center;
   margin: 10px;
+  flex-basis: 16%;
 }
 
 .aside-container {
