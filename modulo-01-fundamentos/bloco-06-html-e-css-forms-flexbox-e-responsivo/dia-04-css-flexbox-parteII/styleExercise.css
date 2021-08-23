@@ -51,12 +51,13 @@ body {
 .movie-container {
   display: flex;
   flex-direction: column;
+  flex-basis: 700px;
+  flex-grow: 10;
 }
 
 .movie-container h2 {
   margin: 40px 0;
   text-align: center;
-  flex-basis: 700px;
 }
 
 .card-container {
