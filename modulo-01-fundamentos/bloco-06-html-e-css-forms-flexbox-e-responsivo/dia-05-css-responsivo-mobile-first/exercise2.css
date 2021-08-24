@@ -34,3 +34,31 @@ div header nav {
   display: none;
 }
 
+div hr {
+  margin: 0px;
+}
+
+aside {
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+aside h2 {
+  margin: 0px;
+  padding: 20px;
+}
+
+aside ul {
+  padding: 0;
+  margin: 0;
+}
+
+aside ul li {
+  list-style: none;
+}
+
+aside ul li:nth-of-type(5) {
+  padding-bottom: 20px;
+}
+
