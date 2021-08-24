@@ -1,11 +1,12 @@
 body {
-  font-size: 23px;
+  font-size: 25px;
+  margin: 15px;
 }
 h1 {
-  font-size: 35px;
+  font-size: 30px;
 }
 h2 {
-
+  font-size: 25px;
 }
 
 img {
@@ -14,5 +15,43 @@ img {
 
 figure {
     margin: 0;
-    padding: 20px 0px;
+    padding: 25px 0px;
+}
+
+@media screen and (min-width: 680px) {
+  body {
+    font-size: 36px;
+    margin: 45px;
+    background-color: aliceblue;
+  }
+
+  h1 {
+    font-size: 68px;
+  }
+
+  h2 {
+    font-size: 53px;
+  }
+
+  figure {
+    float: left;
+    width: 45%;
+    margin-right: 4.5%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  body {
+    font-size: 36px;
+    margin: 45px;
+    background-color: aliceblue;
+  }
+
+  h1 {
+    font-size: 68px;
+  }
+
+  h2 {
+    font-size: 55px;
+  }
 }
