@@ -40,18 +40,30 @@ figure {
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1200px) {
   body {
-    font-size: 36px;
-    margin: 45px;
-    background-color: aliceblue;
+    text-align: center;
+    font-size: 35px;
+    margin: 50px;
+    background-color: black;
+    color: rgb(226, 224, 224);
   }
 
   h1 {
-    font-size: 68px;
+    font-size: 85px;
   }
 
   h2 {
     font-size: 55px;
+  }
+
+  figure {
+    float: left;
+    width: 45%;
+    text-align: center;
+  }
+
+  figure img {
+    width: 65%
   }
 }
