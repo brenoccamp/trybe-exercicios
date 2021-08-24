@@ -1,0 +1,1 @@
+width 680px: Quando a largura for 680px as <h1>, <h2>, <figure> devem centralizar. Além disse as fontes devem se ajustar.
