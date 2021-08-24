@@ -1,8 +1,8 @@
 body {
-
+  font-size: 23px;
 }
 h1 {
-
+  font-size: 35px;
 }
 h2 {
 
@@ -14,4 +14,5 @@ img {
 
 figure {
     margin: 0;
+    padding: 20px 0px;
 }
