@@ -1,0 +1,36 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: aliceblue;
+}
+
+div .container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+div header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+div header h1 {
+  margin: 15px 0px 0px 0px;
+  padding: 35px;
+  font-size: 36px;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+div header nav {
+  display: none;
+}
+

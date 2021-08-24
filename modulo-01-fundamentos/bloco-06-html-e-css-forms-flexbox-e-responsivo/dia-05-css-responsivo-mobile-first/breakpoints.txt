@@ -1,0 +1,10 @@
+EXERCISE 1
+> width 680px: Breakpoint.1;
+
+> width 900px: Breakpoint.2;
+
+
+EXERCISE 2
+>width 500px: Breakpoint.1 - Small Screens;
+
+
