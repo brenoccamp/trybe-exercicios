@@ -56,6 +56,7 @@ aside ul {
 
 aside ul li {
   list-style: none;
+  font-size: 18px;
 }
 
 aside ul li:nth-of-type(5) {
@@ -81,4 +82,16 @@ div article p {
   padding: 22px 22px 0px 22px;
   margin: 0px;
   font-size: 20px;
+}
+
+div article p:nth-of-type(17) {
+  padding-bottom: 22px;
+}
+
+div footer {
+  font-size: 18px;
+  text-align: center;
+  background-color: black;
+  color: rgb(231, 229, 229);
+  padding: 5px 20px 20px 10px;
 }
