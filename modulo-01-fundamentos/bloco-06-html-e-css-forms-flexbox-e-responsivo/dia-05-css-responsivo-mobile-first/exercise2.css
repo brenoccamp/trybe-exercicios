@@ -59,6 +59,10 @@ aside ul li {
   font-size: 18px;
 }
 
+aside ul li:nth-of-type(12) {
+  padding-bottom: 5px;
+}
+
 aside ul li:nth-of-type(5) {
   padding-bottom: 20px;
 }
