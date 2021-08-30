@@ -96,4 +96,43 @@ const verifyKeyAndValue = (obj, key, value) => {
 }
 // console.log(verifyKeyAndValue(lesson2, 'materia', 'História'));
 
+// ------BÔNUS------
+// 1 - Crie uma função para contar quantos estudantes assistiram às aulas de Matemática. Use o objeto criado no exercício 5.
+const countViwersOfClass = obj => {
+  let totalViwers = 0;
+  const keysOfObj = Object.keys(obj);
+  for (let index in keysOfObj) {
+    if (obj[keysOfObj[index]].materia === 'Matemática') totalViwers += obj[keysOfObj[index]].numeroEstudantes;
+  }
+  return totalViwers
+}
+// console.log(countViwersOfClass(newObj));
 
+// 2 - Crie uma função que deverá retornar um objeto que representa o relatório do professor ou professora, as aulas que ele ou ela ministrou e o número total de estudantes. Use o objeto criado no exercício 5:
+/*
+console.log(createReport(allLessons, 'Maria Clara'))
+{
+  professor: 'Maria Clara',
+  aulas: [ 'Matemática', 'Matemática' ],
+  estudantes: 30
+} */
+const getInfo = (obj, teacher) => {
+  const allLessons = [];
+  let allStudent = 0;
+  const arrayOfValues = Object.values(obj);
+  for (let index in arrayOfValues) {
+    if (arrayOfValues[index].professor === teacher) {
+      allLessons.push(arrayOfValues[index].materia);
+      allStudent += arrayOfValues[index].numeroEstudantes;
+    }
+  }
+  return {materia: allLessons, estudantes: allStudent};
+}
+
+const createReport = (newObj, name) => {
+  const report = {};
+  report.professor = name;
+  Object.assign(report, getInfo(newObj, name));
+  return report;
+}
+// console.log(createReport(newObj, 'Carlos'));
