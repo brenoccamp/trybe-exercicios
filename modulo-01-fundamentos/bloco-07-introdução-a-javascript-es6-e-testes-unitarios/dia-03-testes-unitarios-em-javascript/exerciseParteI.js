@@ -10,7 +10,7 @@ function sum(a, b) {
   return a + b;
 }
 // implemente seus testes aqui
-// 1.1 - A função sum(a, b) retorna a soma do parâmetro a com o b
+// 1 - A função sum(a, b) retorna a soma do parâmetro a com o b
 assert.strictEqual(typeof sum, 'function');
 
 // 1.2 - Teste se o retorno de sum(4, 5) é 9
@@ -31,7 +31,7 @@ assert.throws(() => {
 
 
 // EXERÍCIOS 2 DA PARTE I
-// A função myRemove(arr, item) recebe um array arr e retorna uma cópia desse array sem o elemento item caso ele exista no array
+// 2 - A função myRemove(arr, item) recebe um array arr e retorna uma cópia desse array sem o elemento item caso ele exista no array
 // const assert = require('assert');
 function myRemove(arr, item) {
   let newArr = [];
@@ -67,7 +67,7 @@ assert.deepStrictEqual(test, [1, 2, 3, 4]);
 
 
 // EXERCÍCIOS 3 DA PARTE I
-// A função myRemoveWithoutCopy(arr, item) recebe um array arr e retorna o próprio array sem o elemento item caso ele exista no array
+// 3 - A função myRemoveWithoutCopy(arr, item) recebe um array arr e retorna o próprio array sem o elemento item caso ele exista no array
 // const assert = require('assert');
 function myRemoveWithoutCopy(arr, item) {
   // console.log(arr, item)
@@ -105,3 +105,28 @@ assert.deepStrictEqual(myRemoveWithoutCopy([1, 2, 3, 4], 5), [1, 2, 3, 4]);
 
 
 
+// EXERCÍCIOS 4 DA PARTE I
+// 4 - A função myFizzBuzz(num) recebe um número num e retorna "fizzbuzz" se o número for divisível por 3 e 5 , retorna "fizz" se for divisível apenas por 3 , retorna "buzz" se divisível apenas por 5 , retorna o próprio número caso não seja divisível por 3 ou 5 e retorna false caso num não seja um número
+// const assert = require('assert');
+function myFizzBuzz(num) {
+  if (typeof num !== 'number') return false;
+  if (num % 3 === 0 && num % 5 === 0) return 'fizzbuzz';
+  if (num % 3 === 0) return 'fizz';
+  if (num % 5 === 0) return 'buzz';
+  return num;
+}
+// implemente seus testes aqui
+// 4.1 - Faça uma chamada com um número divisível por 3 e 5 e verifique se o retorno é o esperado
+assert.deepStrictEqual(myFizzBuzz(15), 'fizzbuzz');
+
+// 4.2 - Faça uma chamada com um número divisível por 3 e verifique se o retorno é o esperado
+assert.deepStrictEqual(myFizzBuzz(9), 'fizz');
+
+// 4.3 - Faça uma chamada com um número divisível por 5 e verifique se o retorno é o esperado
+assert.strictEqual(myFizzBuzz(25), 'buzz');
+
+// 4.4 - Faça uma chamada com um número que não é divisível por 3 ou 5 e verifique se o retorno é o esperado
+assert.strictEqual(myFizzBuzz(13), 13);
+
+// 4.5 - Faça uma chamada com um parâmetro que não é um número e verifique se o retorno é o esperado
+assert.strictEqual(myFizzBuzz('Trybe'), false)
