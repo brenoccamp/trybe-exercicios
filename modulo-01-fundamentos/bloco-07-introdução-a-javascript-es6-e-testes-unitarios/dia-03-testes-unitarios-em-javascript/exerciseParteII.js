@@ -65,3 +65,30 @@ assert.strictEqual(output2, expected2);
 
 
 // 4 - Escreva a função findTheNeedle para passar nos testes já implementados.
+// const assert = require('assert');
+// escreva a função findTheNeedle aqui
+const findTheNeedle = (param1, param2) => {
+  let freshOutput = -1;
+  for (let item in param1) {
+    if (param1[item] === param2) {
+      freshOutput = Number(item)
+    }
+  }
+  return freshOutput;
+}
+// findTheNeedle(words2, 'needle')
+
+let words2 = ['house', 'train', 'slide', 'needle', 'book'];
+let expected4 = 3;
+let output4 = findTheNeedle(words2, 'needle');
+assert.strictEqual(output4, expected4);
+
+words2 = ['plant', 'shelf', 'arrow', 'bird'];
+expected4 = 0;
+output4 = findTheNeedle(words2, 'plant');
+assert.strictEqual(output4, expected4);
+
+words2 = ['plant', 'shelf', 'arrow', 'bird'];
+expected4 = -1;
+output4 = findTheNeedle(words2, 'plat');
+assert.strictEqual(output4, expected4);
