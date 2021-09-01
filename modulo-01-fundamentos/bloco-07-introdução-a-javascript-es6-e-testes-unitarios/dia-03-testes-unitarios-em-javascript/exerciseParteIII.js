@@ -10,6 +10,7 @@ const greetPeople = (people) => {
   }
   return newResult;
 };
+
 const parameter = ['Irina', 'Ashleigh', 'Elsa'];
 const result = ['Hello Irina', 'Hello Ashleigh', 'Hello Elsa'];
 
@@ -47,3 +48,40 @@ const result2 = 'D1y2n3';
 
 assert.strictEqual(typeof(removeVowels), 'function');
 assert.strictEqual(removeVowels(parameter2), result2);
+
+
+
+// 3 - Use a variável parameter como parâmetro da função abaixo, escreva testes para verificar se a mesma está retornando como se vê na variável result e, caso não esteja, altere o código para que ele passe nos testes.
+const greaterThanTen = (array) => {
+  let results = [];
+  for (let index = 0; index < array.length; index += 1) {
+    if (array[index] > 10) {
+      results.push(array[index]);
+    }
+  }
+  return results;
+};
+
+const parameter3 = [4, 10, 32, 9, 21];
+const result3 = [32, 21];
+
+assert.strictEqual(typeof(greaterThanTen), 'function');
+assert.deepStrictEqual(greaterThanTen(parameter3), result3);
+
+
+
+// 4 - Use a variável parameter como parâmetro da função abaixo, escreva testes para verificar se a mesma está retornando como se vê na variável result e, caso não esteja, altere o código para que ele passe nos testes.
+function secondThirdSmallest(array) {
+  let results = []
+  array.sort(function (x, y) {
+      return x - y;
+  });
+  results = [array[1], array[2]];
+  return results;
+};
+
+const parameter4 = [4, 10, 32, 9, 21, 90, 5, 11, 8, 6];
+const result4 = [5, 6];
+
+assert.strictEqual(typeof(secondThirdSmallest), 'function');
+assert.deepStrictEqual(secondThirdSmallest(parameter4), result4);
