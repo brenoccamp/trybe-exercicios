@@ -33,17 +33,19 @@ const STUDENT_ANSWERS = ['A', 'N.A', 'B', 'D', 'A', 'C', 'N.A', 'A', 'D', 'B'];
 const testGrade = (template, studentAnswer, func) => {
   let contador = 0;
   for (let i = 0; i < template.length; i += 1) {
-    const funcCompare = func(template[i], studentAnswer[i]);
-    contador += funcCompare;
+    const compareAnswers = func(template[i], studentAnswer[i]);
+    contador += compareAnswers;
   }
   return `Sua nota é: ${contador}`;
-}
+};
 
-console.log(testGrade(RIGHT_ANSWERS, STUDENT_ANSWERS, (right, studentAnswer) => {
-  if (right === studentAnswer) {
+const func = (param1, param2) => {
+  if (param1 === param2) {
     return 1;
-  } if (studentAnswer === 'N.A') {
+  } if (param2 === 'N.A') {
     return 0;
   }
   return -0.5;
-}))
+};
+
+console.log(testGrade(RIGHT_ANSWERS, STUDENT_ANSWERS, func));
