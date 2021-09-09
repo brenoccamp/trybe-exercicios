@@ -7,10 +7,10 @@ const names = [
   'Abegildo', 'Adicellia', 'Aladonata',
   'Abeladerco', 'Adieidy', 'Alarucha',
 ];
-console.log(names.join('').split(''));
+// console.log(names.join('').split(''));
 function containsA() {
   // escreva seu código aqui
-  return names.join('').split('').reduce((accumulator, current) => (current.toLowerCase() === 'a') ? accumulator += 1 : accumulator += 0, 0);
+  return names.join('').split('').reduce((accumulator, current) => (current.toLowerCase() === 'a') ? accumulator += 1 : accumulator, 0);
 }
 
 assert.deepStrictEqual(containsA(), 20);
