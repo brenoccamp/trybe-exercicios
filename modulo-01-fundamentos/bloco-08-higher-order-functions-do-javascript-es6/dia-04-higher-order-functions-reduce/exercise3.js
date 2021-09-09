@@ -7,7 +7,7 @@ const expectedResult = 43;
 function averageAge() {
   // escreva seu código aqui
   const numberOfAuthors = books.length
-  const sumOfAges = books.reduce((accumulator, current) => accumulator + (current.releaseYear - current.author.birthYear), 0);
+  const sumOfAges = books.reduce((accumulator, current) => accumulator += (current.releaseYear - current.author.birthYear), 0);
   return sumOfAges / numberOfAuthors;
 }
 
