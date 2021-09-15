@@ -8,7 +8,7 @@
 
 // crie a função sendMarsTemperature abaixo
 // function sendMarsTemperature() {
-//   console.log(`Mars temperature is: 20 degree Celsius`)
+//   getMarsTemperature()
 // }
 
 // sendMarsTemperature(); // imprime "Mars temperature is: 20 degree Celsius", por exemplo
@@ -31,8 +31,7 @@ const greet = (temperature) =>
 
 // definição da função sendMarsTemperature...
 function sendMarsTemperature(actions) {
-    // console.log(`Mars temperature is: 20 degree Celsius`)
-    actions(9)
+    actions(getMarsTemperature())
   }
 
 sendMarsTemperature(temperatureInFahrenheit); // imprime "It is currently 47ºF at Mars", por exemplo
