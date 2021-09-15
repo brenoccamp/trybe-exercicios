@@ -19,13 +19,15 @@ const handleError = (errorReason) =>
 
 // definição da função sendMarsTemperature...
 function sendMarsTemperature(actions, errorMessage) {
-  const testError = Math.random()  < 0.5;
-  if (testError === true) {
-    actions(getMarsTemperature());
-  } else {
-    const message = 'Robot is busy'
-    errorMessage(message);
-  }
+  setTimeout(() => {
+    const testError = Math.random()  < 0.5;
+    if (testError === true) {
+      actions(getMarsTemperature());
+    } else {
+      const message = 'Robot is busy'
+      errorMessage(message);
+    }
+  }, messageDelay());
 }
 
 // imprime "It is currently 47ºF at Mars", por exemplo, ou "Error getting temperature: Robot is busy"
