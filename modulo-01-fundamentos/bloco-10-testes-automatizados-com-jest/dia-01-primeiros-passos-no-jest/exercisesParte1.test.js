@@ -1,4 +1,6 @@
-const { sum, myRemove } = require('./exercisesParte1');
+const { sum, myRemove, myRemoveWithoutCopy } = require('./exercisesParte1');
+
+// Exercicio 1
 describe('Verifica se a função "sum" retorna a soma de "a" + "b"', () => {
   // 1.1
   it('Verifica se sum(4, 5) retorna 9', () => {
@@ -18,6 +20,7 @@ describe('Verifica se a função "sum" retorna a soma de "a" + "b"', () => {
   });
 })
 
+// Exercicio 2
 describe('Verifica se a função "myRemove" retorna o resultado esperado para cada verificação', () => {
   // 2/1
   it('Verifica se a chamada myRemove([1, 2, 3, 4], 3) retorna o array sem o 3', () => {
@@ -36,5 +39,28 @@ describe('Verifica se a função "myRemove" retorna o resultado esperado para ca
   // 2.4
   it('Verifica se a chamada myRemove([1, 2, 3, 4], 5) retorna [1, 2, 3, 4]', () => {
     expect(myRemove([1, 2, 3, 4], 5)).toEqual([1, 2, 3, 4]);
+  });
+});
+
+// Exercicio 3
+describe('Verifica se a função "myRemoveWithoutCopy" recebe um array e retorna o próprio array sem o elemento item caso ele exista no array', () => {
+  // 3.1
+  it('Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) retorna o array esperado', () => {
+    const arrayToModifie = [1, 2, 3, 4]
+    expect(myRemoveWithoutCopy(arrayToModifie, 3)).toEqual([1, 2, 4]);
+  });
+  // 3.2
+  it('Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) não retorna o array [1, 2, 3, 4]', () => {
+    expect(myRemoveWithoutCopy([1, 2, 3, 4], 3)).not.toContain(3);
+  });
+  // 3.3
+  it('Faça uma chamada para a função myRemoveWithoutCopy e verifique se o array passado por parâmetro sofreu alterações', () => {
+    const arrayToModifie = [1, 2, 3, 4];
+    myRemoveWithoutCopy(arrayToModifie, 3);
+    expect(arrayToModifie).not.toContain(3);
+  });
+  // 3.4
+  it('Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 5) retorna o array esperado', () => {
+    expect(myRemoveWithoutCopy([1, 2, 3, 4], 5)).toEqual([1, 2, 3, 4]);
   });
 });

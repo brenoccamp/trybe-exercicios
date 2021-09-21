@@ -26,10 +26,28 @@ function myRemove(arr, item) {
   }
   return newArr;
 }
-console.log(myRemove([1, 2, 3, 4], 5))
-module.exports = { sum, myRemove }
 // implemente seus testes aqui
 // 2.1 - Verifique se a chamada myRemove([1, 2, 3, 4], 3) retorna o array esperado
 // 2.2 - Verifique se a chamada myRemove([1, 2, 3, 4], 3) não retorna o array [1, 2, 3, 4]
 // 2.3 - Verifique se o array passado por parâmetro não sofreu alterações
 // 2.4 - Verifique se a chamada myRemove([1, 2, 3, 4], 5) retorna o array esperado
+
+
+// 3 - A função myRemoveWithoutCopy(arr, item) recebe um array arr e retorna o próprio array sem o elemento item caso ele exista no array.
+function myRemoveWithoutCopy(arr, item) {
+  for (let index = 0, len = arr.length; index < len; index += 1) {
+    if (arr[index] === item) {
+      arr.splice(index, 1);
+      index -= 1;
+      len -= 1;
+    }
+  }
+
+  return arr;
+}
+// implemente seus testes aqui
+// 3.1 - Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) retorna o array esperado
+// 3.2 - Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) não retorna o array [1, 2, 3, 4]
+// 3.3 - Faça uma chamada para a função myRemoveWithoutCopy e verifique se o array passado por parâmetro sofreu alterações
+// 3.4 - Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 5) retorna o array esperado
+module.exports = { sum, myRemove, myRemoveWithoutCopy };
