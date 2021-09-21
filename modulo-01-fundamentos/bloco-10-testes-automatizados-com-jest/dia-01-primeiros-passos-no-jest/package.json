@@ -1,8 +1,8 @@
 {
-  "name": "my_new_project",
+  "name": "dia-01-primeiros-passos-no-jest",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "exercisesParte1.js",
   "scripts": {
     "test": "jest"
   },
