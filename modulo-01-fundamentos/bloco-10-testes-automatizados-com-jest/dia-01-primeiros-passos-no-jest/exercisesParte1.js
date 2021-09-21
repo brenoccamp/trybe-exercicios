@@ -68,4 +68,23 @@ function myFizzBuzz(num) {
 // 4.3 - Faça uma chamada com um número divisível por 5 e verifique se o retorno é o esperado
 // 4.4 - Faça uma chamada com um número que não é divisível por 3 ou 5 e verifique se o retorno é o esperado
 // 4.5 - Faça uma chamada com um parâmetro que não é um número e verifique se o retorno é o esperado
-module.exports = { sum, myRemove, myRemoveWithoutCopy, myFizzBuzz };
+
+
+// 5 - Compare dois objetos para verificar se são idênticos ou não
+const obj1 = {
+  title: 'My Title',
+  description: 'My Description',
+};
+
+const obj2 = {
+  description: 'My Description',
+  title: 'My Title',
+};
+
+const obj3 = {
+  title: 'My Different Title',
+  description: 'My Description',
+};
+
+// implemente os testes no arquivo exercisesParte1.test.js
+module.exports = { sum, myRemove, myRemoveWithoutCopy, myFizzBuzz, obj1, obj2, obj3 };
