@@ -26,7 +26,7 @@ function myRemove(arr, item) {
   }
   return newArr;
 }
-// implemente seus testes aqui
+// implemente os testes abaixo no arquivo exercisesParte1.test.js
 // 2.1 - Verifique se a chamada myRemove([1, 2, 3, 4], 3) retorna o array esperado
 // 2.2 - Verifique se a chamada myRemove([1, 2, 3, 4], 3) não retorna o array [1, 2, 3, 4]
 // 2.3 - Verifique se o array passado por parâmetro não sofreu alterações
@@ -45,9 +45,27 @@ function myRemoveWithoutCopy(arr, item) {
 
   return arr;
 }
-// implemente seus testes aqui
+// implemente os testes abaixo no arquivo exercisesParte1.test.js
 // 3.1 - Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) retorna o array esperado
 // 3.2 - Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) não retorna o array [1, 2, 3, 4]
 // 3.3 - Faça uma chamada para a função myRemoveWithoutCopy e verifique se o array passado por parâmetro sofreu alterações
 // 3.4 - Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 5) retorna o array esperado
-module.exports = { sum, myRemove, myRemoveWithoutCopy };
+
+
+// 4 - A função myFizzBuzz(num) recebe um número num e retorna "fizzbuzz" se o número for divisível por 3 e 5 , retorna "fizz" se for divisível apenas por 3 , retorna "buzz" se divisível apenas por 5 , retorna o próprio número caso não seja divisível por 3 ou 5 e retorna false caso num não seja um número
+
+function myFizzBuzz(num) {
+  if (typeof num !== 'number') return false;
+  if (num % 3 === 0 && num % 5 === 0) return 'fizzbuzz';
+  if (num % 3 === 0) return 'fizz';
+  if (num % 5 === 0) return 'buzz';
+  return num;
+}
+
+// implemente os testes abaixo no arquivo exercisesParte1.test.js
+// 4.1 - Faça uma chamada com um número divisível por 3 e 5 e verifique se o retorno é o esperado
+// 4.2 - Faça uma chamada com um número divisível por 3 e verifique se o retorno é o esperado
+// 4.3 - Faça uma chamada com um número divisível por 5 e verifique se o retorno é o esperado
+// 4.4 - Faça uma chamada com um número que não é divisível por 3 ou 5 e verifique se o retorno é o esperado
+// 4.5 - Faça uma chamada com um parâmetro que não é um número e verifique se o retorno é o esperado
+module.exports = { sum, myRemove, myRemoveWithoutCopy, myFizzBuzz };

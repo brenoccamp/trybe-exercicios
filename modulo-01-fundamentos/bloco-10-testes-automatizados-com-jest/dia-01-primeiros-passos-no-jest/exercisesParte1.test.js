@@ -1,4 +1,4 @@
-const { sum, myRemove, myRemoveWithoutCopy } = require('./exercisesParte1');
+const { sum, myRemove, myRemoveWithoutCopy, myFizzBuzz } = require('./exercisesParte1');
 
 // Exercicio 1
 describe('Verifica se a função "sum" retorna a soma de "a" + "b"', () => {
@@ -62,5 +62,29 @@ describe('Verifica se a função "myRemoveWithoutCopy" recebe um array e retorna
   // 3.4
   it('Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 5) retorna o array esperado', () => {
     expect(myRemoveWithoutCopy([1, 2, 3, 4], 5)).toEqual([1, 2, 3, 4]);
+  });
+});
+
+// Exercicio 4
+describe('Verifica se a função "myFizzBuzz" tem o comportamento esperado...', () => {
+  // 4.1
+  it('Faça uma chamada com um número divisível por 3 e 5 e verifique se o retorno é o "fizzbuzz"', () => {
+    expect(myFizzBuzz(15)).toBe('fizzbuzz');
+  });
+  // 4.2
+  it('Faça uma chamada com um número divisível por 3 e verifique se o retorno é o "fizz"', () => {
+    expect(myFizzBuzz(9)).toBe('fizz');
+  });
+  // 4.3
+  it('Faça uma chamada com um número divisível por 5 e verifique se o retorno é o "buzz"', () => {
+    expect(myFizzBuzz(20)).toBe('buzz');
+  });
+  // 4.4
+  it('Faça uma chamada com um número que não é divisível por 3 ou 5 e verifique se o retorno é o próprio parâmetro(numero)', () => {
+    expect(myFizzBuzz(13)).toBe(13);
+  });
+  // 4.5
+  it('Faça uma chamada com um parâmetro que não é um número e verifique se o retorno é o esperado', () => {
+    expect(myFizzBuzz('7')).toBe(false);
   });
 });
