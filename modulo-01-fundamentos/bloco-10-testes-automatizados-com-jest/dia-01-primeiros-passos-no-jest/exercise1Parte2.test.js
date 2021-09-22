@@ -1,4 +1,4 @@
-const { encode, decode } = require('./exercisesParte2');
+const { encode, decode } = require('./exercise1Parte2');
 
 describe('Teste se encode e decode são funções', () => {
   // 1.1 - Teste se encode e decode são funções;
