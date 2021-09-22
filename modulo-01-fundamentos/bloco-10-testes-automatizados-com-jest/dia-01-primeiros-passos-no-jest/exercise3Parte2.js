@@ -26,5 +26,5 @@ const hydrate = (string) => {
   if (glassesOfWater > 1) return `${glassesOfWater} copos de água`;
   return `${glassesOfWater} copo de água`;
 }
-console.log(hydrate('0 cerveja'))
+
 module.exports = hydrate;
