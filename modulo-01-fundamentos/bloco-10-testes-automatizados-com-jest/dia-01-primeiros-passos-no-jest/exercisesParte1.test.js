@@ -1,5 +1,4 @@
 const { sum, myRemove, myRemoveWithoutCopy, myFizzBuzz, obj1, obj2, obj3 } = require('./exercisesParte1');
-console.log(obj1, obj2, obj3)
 // Exercicio 1
 describe('Verifica se a função "sum" retorna a soma de "a" + "b"', () => {
   // 1.1 Teste se o retorno de sum(4, 5) é 9
