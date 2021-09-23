@@ -45,13 +45,56 @@ describe('Verifica os retornos de getUserName', () => {
       });
     });
   })
-  
+
 });
 
+
+//Fazendo o teste para promises utilizando a sintaxe onde substituimos as chaves do it para parênteses.
+describe('Verifica os retornos de getUserName', () => {
+  describe('Verifica o retorno getUserName quando cai em RESOLVE', () => {
+    it('getUserName retorna Mark quando recebe 1 como parâmetro', () => ( // A CHAVE QUE HAVIA AQUI FOI SUBSTITUIDA POR '('.
+      getUserName(1).then((name) => {
+        expect(name).toBe('Mark');
+      })
+    )); // A CHAVE QUE HAVIA AQUI FOI SUBSTITUIDA POR '('.
+    it('getUserName retorna Paul quando recebe 2 como parâmetro', () => ( // A CHAVE QUE HAVIA AQUI FOI SUBSTITUIDA POR '('.
+      getUserName(2).then((name) => {
+        expect(name).toBe('Paul');
+      })
+    )); // A CHAVE QUE HAVIA AQUI FOI SUBSTITUIDA POR '('.
+  });
+
+  describe('Verifica o retorno de getUserName com REJECT', () => {
+    it('getUserName retorna Error quando cair em REJECT', () => ( // A CHAVE QUE HAVIA AQUI FOI SUBSTITUIDA POR '('.
+      getUserName(3).catch((error) => {
+        expect(error.message).toBe(`User with 3 not found.`);
+      })
+    )); // A CHAVE QUE HAVIA AQUI FOI SUBSTITUIDA POR '('.
+  })
+});
+
+//Fazendo o teste para promises utilizando a sintaxe do .resolves e .rejects
+describe('Verifica se getUserName retorna o resultado esperado', () => {
+  describe('Verifica o comportamento de getUserName quando o retorno é RESOLVE', () => {
+    it('getUserName retorna Mark quando o parâmetro recebido for 1', () => {
+      return expect(getUserName(1)).resolves.toBe('Mark');
+    });
+    it('getUsername retorna Paul quando o parâmetro recebido for 2', () => {
+      return expect(getUserName(2)).resolves.toBe('Paul');
+    });
+  });
+
+  describe('Verifica o comportamento de getUserName quando o retorno é REJECT', () => {
+    it('getUserName retorna Error quando cair em REJECT', () => {
+      expect(getUserName(3)).rejects.toBe(new Error(`User with 3 not found.`));
+    });
+  });
+});
+
+// 3 - Reescreva o teste do exercício anterior, desta vez utilizando a sintaxe de async/await .
+// Dica: Utilize o try/catch para o caso de erro.
 describe('Verifica se getUserName retorna o resultado esperado', () => {
   // Fazendo o teste para promises utilizando a sintaxe ASYNC/AWAIT
-  // 3 - Reescreva o teste do exercício anterior, desta vez utilizando a sintaxe de async/await .
-  // Dica: Utilize o try/catch para o caso de erro.
   describe('Verifica o comportamento de getUserName quando o retorno é RESOLVE', () => {
     it('getUserName retorna Mark quando o parâmetro recebido for 1', async () => {
       const userName = await getUserName(1);
