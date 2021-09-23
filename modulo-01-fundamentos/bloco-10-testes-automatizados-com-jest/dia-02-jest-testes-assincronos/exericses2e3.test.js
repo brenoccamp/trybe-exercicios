@@ -86,13 +86,14 @@ describe('Verifica se getUserName retorna o resultado esperado', () => {
 
   describe('Verifica o comportamento de getUserName quando o retorno é REJECT', () => {
     it('getUserName retorna Error quando cair em REJECT', () => {
-      expect(getUserName(3)).rejects.toBe(new Error(`User with 3 not found.`));
+      expect(getUserName(3)).rejects.toEqual(new Error(`User with 3 not found.`));
     });
   });
 });
 
 // 3 - Reescreva o teste do exercício anterior, desta vez utilizando a sintaxe de async/await .
 // Dica: Utilize o try/catch para o caso de erro.
+
 describe('Verifica se getUserName retorna o resultado esperado', () => {
   // Fazendo o teste para promises utilizando a sintaxe ASYNC/AWAIT
   describe('Verifica o comportamento de getUserName quando o retorno é RESOLVE', () => {
