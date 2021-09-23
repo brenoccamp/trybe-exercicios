@@ -19,29 +19,6 @@ const getUserName = (userId) => findUserById(userId).then((user) => user.name);
 
 // 2 - Utilizando a sintaxe de Promise , faça um teste que verifique o resultado da função getUserName para o caso em que o usuário é encontrado, e também um teste para o caso em que o usuário não é encontrado.
 // Dica: Veja os dados falsos utilizados no banco de dados, disponíveis na variável users , para saber quais IDs existem.
-describe('Verifica se getUserName retorna o resultado esperado', () => {
-  // Fazendo o teste para promises utilizando a sintaxe ASYNC/AWAIT
-  describe('Verifica o comportamento de getUserName quando o retorno é RESOLVE', () => {
-    it('getUserName retorna Mark quando o parâmetro recebido for 1', async () => {
-      const userName = await getUserName(1);
-      expect(userName).toBe('Mark');
-    });
-    it('getUsername retorna Paul quando o parâmetro recebido for 2', async () => {
-      const userName = await getUserName(2);
-      expect(userName).toBe('Paul');
-    });
-  });
-
-  describe('Verifica o comportamento de getUserName quando o retorno é REJECT', () => {
-    it('getUserName retorna Error quando cair em REJECT', async () => {
-      try {
-        await getUserName(3);
-      } catch (error) {
-        expect(error.message).toBe(`User with 3 not found.`);
-      }
-    });
-  });
-});
 
 // Fazendo o teste para promises utilizando a sintaxe EXPECT.ASSERTIONS()
 describe('Verifica os retornos de getUserName', () => {
@@ -68,5 +45,31 @@ describe('Verifica os retornos de getUserName', () => {
       });
     });
   })
+  
+});
 
+describe('Verifica se getUserName retorna o resultado esperado', () => {
+  // Fazendo o teste para promises utilizando a sintaxe ASYNC/AWAIT
+  // 3 - Reescreva o teste do exercício anterior, desta vez utilizando a sintaxe de async/await .
+  // Dica: Utilize o try/catch para o caso de erro.
+  describe('Verifica o comportamento de getUserName quando o retorno é RESOLVE', () => {
+    it('getUserName retorna Mark quando o parâmetro recebido for 1', async () => {
+      const userName = await getUserName(1);
+      expect(userName).toBe('Mark');
+    });
+    it('getUsername retorna Paul quando o parâmetro recebido for 2', async () => {
+      const userName = await getUserName(2);
+      expect(userName).toBe('Paul');
+    });
+  });
+
+  describe('Verifica o comportamento de getUserName quando o retorno é REJECT', () => {
+    it('getUserName retorna Error quando cair em REJECT', async () => {
+      try {
+        await getUserName(3);
+      } catch (error) {
+        expect(error.message).toBe(`User with 3 not found.`);
+      }
+    });
+  });
 });
