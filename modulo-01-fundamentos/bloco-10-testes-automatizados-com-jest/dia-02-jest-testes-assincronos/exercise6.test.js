@@ -73,3 +73,36 @@ describe('Testando promise - findAnimalByName', () => {
     });
   });
 });
+
+
+// 6.2 - Adicione uma nova funcionalidade para buscar pela idade dos animais. O retorno deve ser um array de objetos, mas, caso não ache nenhum, retorne uma mensagem de erro. Escreva tanto a função como o seu teste.
+const getAnimalByAge = (age) => (
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const arrayOfAnimals = Animals.filter((animal) => animal.age === age);
+      if (arrayOfAnimals.length !== 0) return resolve(arrayOfAnimals);
+      return reject(new Error('Não possui nenhum animal com essa idade!'));
+    }, 500);
+})
+);
+
+
+describe('Verifica retorno da função getAnimalByAge', () => {
+  it('getAnimalByAge retorna um array de objetos com os itens procurados', () => (
+    getAnimalByAge(5).then((listAnimals) => {
+      expect(listAnimals).toContainEqual({ name: 'Preguiça', age: 5, type: 'Cat' });
+      // expect(listAnimals).toContain({ name: 'Dorminhoco', age: 1, type: 'Dog' });
+    })
+  ));
+  it('getAnimalByAge retorna um array de objetos com os itens procurados', () => (
+    getAnimalByAge(1).then((listAnimals) => {
+      // expect(listAnimals).toContain({ name: 'Preguiça', age: 5, type: 'Cat' });
+      expect(listAnimals).toContainEqual({ name: 'Dorminhoco', age: 1, type: 'Dog' });
+    })
+  ));
+  it('getAnimalByAge retorna um erro quando o parâmetro for inválido', () => (
+    getAnimalByAge(10).catch((error) => {
+      expect(error.message).toMatch('Não possui nenhum animal com essa idade!');
+    })
+  ));
+});
