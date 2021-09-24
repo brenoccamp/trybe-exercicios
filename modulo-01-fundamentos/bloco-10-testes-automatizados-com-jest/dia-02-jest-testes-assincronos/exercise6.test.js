@@ -90,14 +90,14 @@ const getAnimalByAge = (age) => (
 describe('Verifica retorno da função getAnimalByAge', () => {
   it('getAnimalByAge retorna um array de objetos com os itens procurados', () => (
     getAnimalByAge(5).then((listAnimals) => {
-      expect(listAnimals).toContainEqual({ name: 'Preguiça', age: 5, type: 'Cat' });
+      expect(listAnimals).toContainEqual({ name: 'Preguiça', age: 5, type: 'Cat' }); //toContainEqual para verificar que um item com uma estrutura específica e valores está contido em um array.
       // expect(listAnimals).toContain({ name: 'Dorminhoco', age: 1, type: 'Dog' });
     })
   ));
   it('getAnimalByAge retorna um array de objetos com os itens procurados', () => (
     getAnimalByAge(1).then((listAnimals) => {
       // expect(listAnimals).toContain({ name: 'Preguiça', age: 5, type: 'Cat' });
-      expect(listAnimals).toContainEqual({ name: 'Dorminhoco', age: 1, type: 'Dog' });
+      expect(listAnimals).toContainEqual({ name: 'Dorminhoco', age: 1, type: 'Dog' }); //toContainEqual para verificar que um item com uma estrutura específica e valores está contido em um array.
     })
   ));
   it('getAnimalByAge retorna um erro quando o parâmetro for inválido', () => (
