@@ -5,4 +5,6 @@ const sliceString = (string) => string.slice(0, 1);
 
 const concatString = (string1, string2) => string1 + string2;
 
-module.exports = { toUpperCase, sliceString, concatString};
+module.exports = { toUpperCase, sliceString, concatString };
+
+// 5 - Utilizando as mesmas funções deste exercício, repita a implementação para a primeira função. Após repetir a implementação, restaure a implementação original e crie os testes necessários para validar.
