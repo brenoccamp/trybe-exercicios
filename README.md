@@ -72,7 +72,7 @@ A Trybe conta com mais de 1.500 horas de aulas online, aborda introdução ao de
 
 ## Desenvolvimento Front-end
 
-##### Bloco 11: Introdução - React
+##### Bloco 10 (Antigo bloco 11, que foi refatorado e virou bloco 10 após a reorganização dos conteúdos): Introdução - React
 - [] 11-1: 'Hello, world!' no React!
 - [] 11-2: Componentes React
 - [] 11-3: [Projeto - Movie Cards Library]
