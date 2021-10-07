@@ -1,7 +1,6 @@
 import React from 'react';
 
 // EXERCÍCIOS DE FIXAÇÃO PARTE I
-
 // function handleClick1() {
 //   console.log('Clicou no botão 1')
 // }
@@ -31,6 +30,38 @@ import React from 'react';
 
 
 // EXERCÍCIOS DE FIXAÇAO PARTE II
+// class App extends React.Component {
+//   constructor() {
+//     super()
+//     this.handleClick1 = this.handleClick1.bind(this);
+//     this.handleClick2 = this.handleClick2.bind(this);
+//     this.handleClick3 = this.handleClick3.bind(this);
+//   }
+
+//   handleClick1() {
+//     console.log('clicou no botão1 e o this é: ', this);
+//   }
+  
+//   handleClick2() {
+//     console.log('clicou no botão2 e o this é: ', this)
+//   }
+
+//   handleClick3() {
+//     console.log('clicou no botão3 e o this é: ', this)
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <button onClick={this.handleClick1}>Botão1</button>
+//         <button onClick={this.handleClick2}>Botão2</button>
+//         <button onClick={this.handleClick3}>Botão3</button>
+//       </div>
+//     );
+
+//   }
+
+// }
 
 class App extends React.Component {
   constructor() {
@@ -38,29 +69,37 @@ class App extends React.Component {
     this.handleClick1 = this.handleClick1.bind(this);
     this.handleClick2 = this.handleClick2.bind(this);
     this.handleClick3 = this.handleClick3.bind(this);
+    this.state = {
+      numeroDeCliques1: 0,
+      numeroDeCliques2: 0,
+      numeroDeCliques3: 0,
+    }
   }
 
   handleClick1() {
-    console.log('clicou no botão1 e o this é: ', this);
+    this.setState((estadoAnterior1, _props) => ({
+      numeroDeCliques1: estadoAnterior1.numeroDeCliques1 + 1
+    }))
   }
-  
   handleClick2() {
-    console.log('clicou no botão2 e o this é: ', this)
+    this.setState((estadoAnterior2, _props) => ({
+      numeroDeCliques2: estadoAnterior2.numeroDeCliques2 + 1
+    }))
   }
-
   handleClick3() {
-    console.log('clicou no botão3 e o this é: ', this)
+    this.setState((estadoAnterior3, _props) => ({
+      numeroDeCliques3: estadoAnterior3.numeroDeCliques3 + 1
+    }))
   }
 
   render() {
     return (
       <div>
-        <button onClick={this.handleClick1}>Botão1</button>
-        <button onClick={this.handleClick2}>Botão2</button>
-        <button onClick={this.handleClick3}>Botão3</button>
+      <button onClick={this.handleClick1}>{this.state.numeroDeCliques1}</button>
+      <button onClick={this.handleClick2}>{this.state.numeroDeCliques2}</button>
+      <button onClick={this.handleClick3}>{this.state.numeroDeCliques3}</button>
       </div>
-    );
-
+    )
   }
 
 }
