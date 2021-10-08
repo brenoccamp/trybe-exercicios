@@ -1,0 +1,16 @@
+.form {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+
+label {
+  margin: 10px
+}
