@@ -4,9 +4,10 @@ class Form extends React.Component {
   constructor() {
     super()
     this.selectedSkill = this.selectedSkill.bind(this);
+    this.markedCheckbox = this.markedCheckbox.bind(this);
     this.state = {
       skills: '',
-      checkbox: false,
+      checkbox: '',
       email: '',
       textarea: '',
     }
@@ -14,6 +15,10 @@ class Form extends React.Component {
 
   selectedSkill(event) {
     this.setState(({ skills: event.target.value }))
+  }
+
+  markedCheckbox(event) {
+    this.setState(({ checkbox: event.target.value }))
   }
 
   render() {
@@ -30,7 +35,7 @@ class Form extends React.Component {
             </select>
           </label>
           <label for="checkbox">Marque a caixa:
-            <input name="checkbox" type="checkbox"></input>
+            <input name="checkbox" type="checkbox" onChange={this.markedCheckbox}></input>
           </label>
           <label for="email">Digite seu email:
             <input type="email" name="email"></input>
