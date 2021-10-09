@@ -1,21 +1,41 @@
 import React from "react";
 import './Form.css';
+import Skills from "./Skills";
+import Checkbox from './Checkbox';
+import Textarea from "./Textarea";
 
 class Form extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.fileInput = React.createRef();
+    // this.handleError = this.handleError.bind(this);
     this.state = {
-      textarea: "Escreva aqui seu texto!",
+      skills: '',
+      checkbox: '',
+      email: '',
+      textarea: '',
+      formularioComErros: false,
     };
   }
 
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === "checkbox" ? target.checked : target.value;
-    this.setState({ [name]: value });
+    this.setState({ [name]: value }, () => {
+      if (target.name === 'textarea') {
+        if (value.length > 50) {
+          this.setState(({ formularioComErros: true }))
+        } else {
+          this.setState({ formularioComErros: false })
+        }
+      } 
+    });
   }
+
+  // handleError() {
+  //   this.setState({ formularioComErros: true })
+  // }
 
   submit = (event) => {
     event.preventDefault();
@@ -26,30 +46,15 @@ class Form extends React.Component {
     return (
       <div>
         <h1>
-          Exercício de fixação Parte I - Dia 11.2 - Formulário para testar as
+          Exercício de fixação Parte I-II e III - Dia 11.2 - Formulário para testar as
           habilidades
         </h1>
         <form className="form" onSubmit={this.submit}>
           <fieldset className='fieldset'>
             <legend>Preencha o formulário abaixo:</legend>
-            <label for="skills">
-              Escolha uma habilidade:
-              <select name="skills" id="skills" onChange={this.handleChange}>
-                <option value="html5">HTML5</option>
-                <option value="js">JavaScript</option>
-                <option value="css">CSS</option>
-                <option value="react">React</option>
-              </select>
-            </label>
-            <label for="checkbox">
-              Marque a caixa:
-              <input
-                name="checkbox"
-                type="checkbox"
-                onChange={this.handleChange}
-              ></input>
-            </label>
-            <label for="email">
+            <Checkbox handleChange={this.handleChange} value={this.state.checkbox} />
+            <Skills handleChange={this.handleChange} value={this.state.skills} handleError={this.handleError}/>
+            <label htmlFor="email">
               Digite seu email:
               <input
                 type="email"
@@ -57,16 +62,7 @@ class Form extends React.Component {
                 onChange={this.handleChange}
               ></input>
             </label>
-            <label for="textarea">
-              Digite algo
-              <textarea
-                id="textarea"
-                name="textarea"
-                row="5"
-                cols="30"
-                onChange={this.handleChange}
-              ></textarea>
-            </label>
+            <Textarea handleChange={this.handleChange} value={this.state.textarea} handleError={this.handleError}/>
             <label>
               Upload file:
               <input type="file" ref={this.fileInput} />
