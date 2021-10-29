@@ -11,7 +11,13 @@ const ValidEmail = (props) => {
   return (
     <div>
       <h2 data-testid="id-email-user">{`Valor: ${email}`}</h2>
-      <h3>{(verifyEmail(email) ? 'Email Válido' : 'Email Inválido')}</h3>
+      {/* Primeira funcionalidade
+          Na primeira sugestão de funcionalidade, o exercício pede para a mensagem não aparecer caso nenhum email tenha sido enviado. Podemos resolver isso utilizando renderização condicional . */}
+      { email && (
+        // Segunda funcionalidade
+        // Na segunda sugestão de funcionalidade, o exercício pede que a mensagem mude de cor dependendo do resultado da validação do email. Para isso vamos colocar uma condicional no atributo className. Este atributo define as classes css do elemento h3, trocando sua coloração entre verde e vermelho, para casos de email válido e inválido, respectivamente.
+      <h3 data-testid="id-is-email-valid" className={verifyEmail(email) ? 'green-text' : 'red-text'}>{(verifyEmail(email) ? 'Email Válido' : 'Email Inválido')}</h3>
+      )}
     </div>
   );
 };
