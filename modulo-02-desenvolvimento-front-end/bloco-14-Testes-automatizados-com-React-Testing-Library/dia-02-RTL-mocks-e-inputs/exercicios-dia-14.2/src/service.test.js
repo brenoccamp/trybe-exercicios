@@ -58,32 +58,40 @@ describe('Testando implementação do arquivo service.js', () => {
     expect(returnFirstLetter('breno')).toBe('b');
     expect(concatStrings('breno', 'cunha')).toBe('brenocunha');
 
-    toUpperCase = jest.fn().mockImplementation((string) => string.toLowerCase());
-    returnFirstLetter = jest.fn().mockImplementation((string) => string.split('')[string.length -1]);
-    concatStrings = jest.fn().mockImplementation((string1, string2, string3) => string1 + string2 + string3);
+    toUpperCase = jest.spyOn(service, 'toUpperCase');
+    returnFirstLetter = jest.spyOn(service, 'returnFirstLetter');
+    concatStrings = jest.spyOn(service, 'concatStrings');
+
+    toUpperCase.mockImplementation((string) => string.toLowerCase());
 
     expect(toUpperCase('BRENO')).toBe('breno');
     expect(toUpperCase).toHaveBeenCalled();
     expect(toUpperCase).toHaveBeenCalledTimes(1);
     expect(toUpperCase).toHaveBeenCalledWith('BRENO');
 
+    returnFirstLetter.mockImplementation((string) => string.split('')[string.length -1]);
+
     expect(returnFirstLetter('BRENO')).toBe('O');
     expect(returnFirstLetter).toHaveBeenCalled();
     expect(returnFirstLetter).toHaveBeenCalledTimes(1);
     expect(returnFirstLetter).toHaveBeenCalledWith('BRENO');
+
+    concatStrings.mockImplementation((string1, string2, string3) => string1 + string2 + string3);
 
     expect(concatStrings('Breno', ' Cunha', ' Campanha')).toBe('Breno Cunha Campanha');
     expect(concatStrings).toHaveBeenCalled();
     expect(concatStrings).toHaveBeenCalledTimes(1);
     expect(concatStrings).toHaveBeenCalledWith('Breno', ' Cunha', ' Campanha');
 
-    // toUpperCase.mockRestore();
+    toUpperCase.mockRestore();
+    let originalUpperCase = service.toUpperCase;
+    originalUpperCase = jest.spyOn(service, 'toUpperCase');
 
-    // expect(toUpperCase).toHaveBeenCalledTimes(0);
-    // expect(toUpperCase('breno')).toBe('BRENO');
-    // expect(toUpperCase).toHaveBeenCalled();
-    // expect(toUpperCase).toHaveBeenCalledTimes(1);
-    // expect(toUpperCase).toHaveBeenCalledWith('breno');
+    expect(originalUpperCase).toHaveBeenCalledTimes(0);
+    expect(originalUpperCase('breno')).toBe('BRENO');
+    expect(originalUpperCase).toHaveBeenCalled();
+    expect(originalUpperCase).toHaveBeenCalledTimes(1);
+    expect(originalUpperCase).toHaveBeenCalledWith('breno');
   });
 });
 
