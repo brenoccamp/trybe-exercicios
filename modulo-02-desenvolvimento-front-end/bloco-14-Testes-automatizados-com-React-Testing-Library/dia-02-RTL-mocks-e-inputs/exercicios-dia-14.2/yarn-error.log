@@ -1,0 +1,40 @@
+Arguments: 
+  /snap/node/5485/bin/node /snap/node/5485/bin/yarn.js config get registry
+
+PATH: 
+  /home/adm1/.npm/_npx/9577/bin:/home/adm1/node_modules/.bin:/tmp/fnm_multishells/9458_1635868710401/bin:/home/adm1/.fnm:/tmp/fnm_multishells/9455_1635868710387/bin:/home/adm1/.fnm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  14.18.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EACCES: permission denied, write
+      at writeSync (fs.js:736:3)
+      at SyncWriteStream._write (internal/fs/sync_write_stream.js:24:3)
+      at writeOrBuffer (internal/streams/writable.js:358:12)
+      at SyncWriteStream.Writable.write (internal/streams/writable.js:303:10)
+      at ConsoleReporter._log (/snap/node/5485/lib/cli.js:96906:17)
+      at ConsoleReporter.log (/snap/node/5485/lib/cli.js:96894:10)
+      at get (/snap/node/5485/lib/cli.js:87579:14)
+      at Object.<anonymous> (/snap/node/5485/lib/cli.js:25983:25)
+      at Generator.next (<anonymous>)
+      at step (/snap/node/5485/lib/cli.js:310:30)
+
+npm manifest: 
+  {
+    "name": "fixacao-dia-14.2",
+    "version": "0.1.0",
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
