@@ -6,7 +6,7 @@ const INITIAL_STATE = {
     data: {
       children: [
       { data: {
-        title: 'breno'
+        title: '',
       }}
     ]
   }

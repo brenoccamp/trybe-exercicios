@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subredditSelected: '',
+      subredditSelected: 'reactjs',
     }
   }
 
@@ -16,6 +16,12 @@ class App extends React.Component {
     this.setState({ subredditSelected: subreddit });
     const { fetchAPI } = this.props;
     fetchAPI(subreddit);
+  }
+
+  componentDidMount() {
+    const { fetchAPI } = this.props;
+    const { subredditSelected } = this.state;
+    fetchAPI(subredditSelected);
   }
 
   render() {

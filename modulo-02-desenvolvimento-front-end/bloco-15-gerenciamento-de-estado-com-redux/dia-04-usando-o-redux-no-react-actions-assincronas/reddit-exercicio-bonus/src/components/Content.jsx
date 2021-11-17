@@ -5,13 +5,13 @@ import './Content.css';
 
 class Content extends React.Component {
   render() {
-    const { dataAPI } = this.props;
-    // console.log(dataAPI)
+    const { dataAPI: { data: { children } }, loading } = this.props;
+    if (children.length === 1 || loading) return <h1>Carregando...</h1>
     return (
       <div className="page-content">
         <section className="section-content">
           <ul>
-            {dataAPI.data.children.map(element => (
+            {children.map(element => (
               <li key={ element.data.title }>{element.data.title}</li>
             ))}
           </ul>
@@ -22,6 +22,7 @@ class Content extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  loading: state.apiReducer.loading,
   dataAPI: state.apiReducer.responseAPI,
   error: state.apiReducer.error,
 });
