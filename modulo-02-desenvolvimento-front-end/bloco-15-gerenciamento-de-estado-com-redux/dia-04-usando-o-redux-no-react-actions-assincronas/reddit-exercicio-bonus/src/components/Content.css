@@ -1,0 +1,13 @@
+.page-content {
+  display: flex;
+  justify-content: center;
+}
+
+.section-content {
+  border: 2px solid rgb(86, 119, 138);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px 40px 0px;
+  min-width: 85%;
+}
