@@ -2,11 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import './Content.css';
 
-
 class Content extends React.Component {
   render() {
-    const { dataAPI: { data: { children } }, loading } = this.props;
+    const { dataAPI: { data: { children } }, loading, error } = this.props;
     if (children.length === 1 || loading) return <h1>Carregando...</h1>
+    if (error) return <h1>{`Failed Request! ${error}`}</h1>
     return (
       <div className="page-content">
         <section className="section-content">
