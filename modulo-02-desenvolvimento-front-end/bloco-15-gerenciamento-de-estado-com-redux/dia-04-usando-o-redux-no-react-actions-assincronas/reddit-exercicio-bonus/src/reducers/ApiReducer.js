@@ -6,7 +6,7 @@ const INITIAL_STATE = {
     data: {
       children: [
       { data: {
-        title: 'breno'
+        title: '',
       }}
     ]
   }
@@ -23,6 +23,7 @@ const apiReducer = (state = INITIAL_STATE, action) => {
     };
   case COMPLETED_REQUEST:
     return {
+      ...state,
       loading: false,
       responseAPI: action.json
     }
