@@ -8,7 +8,9 @@ function InputTodos() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addTodos(typedText);
+    if (typedText !== '') {
+      addTodos(typedText);
+    }
     setText('');
   }
 

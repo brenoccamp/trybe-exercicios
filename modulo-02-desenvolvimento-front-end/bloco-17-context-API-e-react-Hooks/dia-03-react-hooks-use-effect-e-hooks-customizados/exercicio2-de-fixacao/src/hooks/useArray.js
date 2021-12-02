@@ -8,7 +8,8 @@ const useArray = () => {
   }
 
   const removeTodo = ({ target }) => {
-    const newArray = todos.filter((todo) => todo !== target.innerText);
+    const { id } = target;
+    const newArray = todos.slice(0, id).concat(todos.slice(Number(id) + 1));
     setTodos(newArray);
   }
 
