@@ -1,15 +1,21 @@
-# Exercício 2 e 3
+# Exercício 2, 3 e 4
 version: '3'
 services:
   db:
     image: mysql:5.7
     restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - my-network
     environment:
       MYSQL_ROOT_PASSWORD: example
 
   ghost_blog:
     image: ghost:1-alpine
     restart: always
+    networks:
+      - my-network
     ports:
     - "2368:2368"
     depends_on:
@@ -20,3 +26,7 @@ services:
       database__connection__user: root
       database__connection__password: example
       database__connection__database: ghost
+volumes:
+  db_data:
+networks:
+  my-network:
