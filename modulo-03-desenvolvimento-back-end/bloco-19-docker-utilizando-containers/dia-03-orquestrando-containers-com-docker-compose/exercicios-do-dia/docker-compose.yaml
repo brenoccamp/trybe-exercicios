@@ -1,0 +1,8 @@
+#Exercício 2
+version: '3'
+services:
+  ghost_blog:
+    image: ghost:1-alpine
+    restart: always
+    ports:
+    - "2368:2368"
