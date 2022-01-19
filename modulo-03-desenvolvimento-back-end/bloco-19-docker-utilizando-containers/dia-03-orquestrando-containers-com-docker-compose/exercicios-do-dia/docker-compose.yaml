@@ -1,8 +1,22 @@
-#Exercício 2
+# Exercício 2 e 3
 version: '3'
 services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
   ghost_blog:
     image: ghost:1-alpine
     restart: always
     ports:
     - "2368:2368"
+    depends_on:
+      - db
+    environment:
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: example
+      database__connection__database: ghost
