@@ -1,8 +1,8 @@
 version: '3'
 services:
-  db:
+  agora-vai:
     build: .
-    image: myapp
+    volumes:
+      - .:/app
     ports:
-      - 8080:80
-    restart: always
+      - 3000:3000
