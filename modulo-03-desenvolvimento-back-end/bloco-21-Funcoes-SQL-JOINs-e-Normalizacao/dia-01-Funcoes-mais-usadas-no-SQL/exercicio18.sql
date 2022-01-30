@@ -1,0 +1,1 @@
+SELECT first_name, last_name, DATEDIFF(CURRENT_DATE(), hire_date) AS 'days hired' FROM hr.employees;
