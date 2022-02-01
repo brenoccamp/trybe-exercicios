@@ -1,0 +1,16 @@
+
+Identificação das Entidades :
+Entidade 1: Animal ;
+Entidade 2: Cuidador ;
+Entidade 3: Gerente ;
+Entidade 4: Cuidador e Animal ;
+Identificação dos Atributos :
+Animal: animal_id , nome , especie , sexo , idade e localização ;
+Cuidador: cuidador_id , nome , gerente_id ;
+Gerente: gerente_id e nome ;
+Cuidador e Animal: cuidador_id e animal_id ;
+Identificar os Relacionamentos :
+Um animal pode ter um ou mais cuidadores;
+Um cuidador pode cuidar de um ou mais animais;
+Um gerente pode gerenciar uma ou mais cuidadores;
+Um cuidador possui um gerente;
