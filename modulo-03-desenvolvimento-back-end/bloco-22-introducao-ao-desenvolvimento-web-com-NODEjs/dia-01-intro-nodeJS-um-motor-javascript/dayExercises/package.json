@@ -4,7 +4,8 @@
   "description": "exercise of the day 2022-02-02",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "imc": "node imc.js"
   },
   "author": "brenoccamp",
   "license": "ISC"
