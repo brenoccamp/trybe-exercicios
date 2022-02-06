@@ -8,7 +8,8 @@
     "imc": "node imc.js",
     "velocidade": "node velocidade.js",
     "sorteio": "node sorteio.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "fatorial": "node fatorial.js"
   },
   "author": "brenoccamp",
   "license": "ISC",
