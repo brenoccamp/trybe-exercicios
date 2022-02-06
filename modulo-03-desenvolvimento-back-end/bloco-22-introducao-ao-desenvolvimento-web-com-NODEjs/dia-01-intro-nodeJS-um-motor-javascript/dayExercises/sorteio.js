@@ -7,7 +7,7 @@ const prizeDrawFeedback = () => {
   const numberInputedByUser = readline.questionInt("Tell me an integer between 0 and 10 to know if it's the number I'm thinking:");
 
   if (Number(numberInputedByUser) === aleatoryNumber) return console.log(aleatoryNumber, 'Congratulations, right number!');
-  if (Number(numberInputedByUser) !== aleatoryNumber) return console.log(`Oops, not this time. The number was ${aleatoryNumber}`);
+  if (Number(numberInputedByUser) !== aleatoryNumber) return console.log(`Oops, not this time. The number was ${aleatoryNumber}!`);
 }
 
 const runGame = () => {
