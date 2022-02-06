@@ -23,3 +23,5 @@ const runGame = () => {
 }
 
 runGame();
+
+module.exports = runGame;

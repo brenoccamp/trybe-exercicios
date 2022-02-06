@@ -8,3 +8,5 @@ const calcAverageSpeed = () => {
 }
 
 calcAverageSpeed();
+
+module.exports = calcAverageSpeed;

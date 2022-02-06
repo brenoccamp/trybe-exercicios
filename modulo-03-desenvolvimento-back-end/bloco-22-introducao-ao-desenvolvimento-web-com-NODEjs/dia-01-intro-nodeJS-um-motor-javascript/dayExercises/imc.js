@@ -30,3 +30,5 @@ const calcImc = () => {
 }
 
 calcImc();
+
+module.exports = calcImc;
