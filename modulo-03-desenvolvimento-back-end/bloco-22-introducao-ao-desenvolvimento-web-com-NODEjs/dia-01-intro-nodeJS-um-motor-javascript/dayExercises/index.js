@@ -4,7 +4,8 @@ const scripts = [
   {name: 'Calculate BMI', script: './imc.js'},
   {name: 'Calcute average speed', script: './velocidade.js'},
   {name: 'Guessing game', script: './sorteio.js'},
-  {name: 'Calculate factorial', script: './fatorial.js'}
+  {name: 'Calculate factorial', script: './fatorial.js'},
+  {name: 'N Fibonacci numbers', script: './fibonacci.js'}
 ];
 
 let message = scripts.map((script, index) => `${index + 1} - ${script.name}`);
