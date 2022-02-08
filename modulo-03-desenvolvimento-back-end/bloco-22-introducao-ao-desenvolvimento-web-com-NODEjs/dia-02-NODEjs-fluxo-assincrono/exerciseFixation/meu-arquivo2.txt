@@ -1,0 +1,1 @@
+Fixation exercise - using fs.readFile to read a file by the async way.
