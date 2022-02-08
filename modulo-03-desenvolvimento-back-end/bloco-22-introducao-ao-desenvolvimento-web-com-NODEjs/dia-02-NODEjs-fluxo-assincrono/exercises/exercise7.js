@@ -37,7 +37,7 @@ async function startScript() {
   console.log(newContent);
 
   const fileDestiny = await question("Type file's destiny name: ");
-  await fs.writeFile(fileDestiny, JSON.stringify(newContent));
+  await fs.writeFile(fileDestiny, newContent);
 }
 
 startScript();
