@@ -30,3 +30,16 @@ async function filterSimpsons() {
 
   await fs.writeFile('./simpsons.json', JSON.stringify(filteredSimpsons));
 }
+
+
+// 4.4
+async function newSimpsonsFile() {
+  const simpsons = await fs.readFile('./simpsons.json', 'utf-8')
+    .then((fileContent) => JSON.parse(fileContent));
+
+  const idsToRetrieve = ['1', '2', '3', '4'];
+
+  const only4firstIDs = simpsons.filter(({ id }) => idsToRetrieve.includes(id));
+
+  await fs.writeFile('./simpsonsFamily.json', JSON.stringify(only4firstIDs));
+}
