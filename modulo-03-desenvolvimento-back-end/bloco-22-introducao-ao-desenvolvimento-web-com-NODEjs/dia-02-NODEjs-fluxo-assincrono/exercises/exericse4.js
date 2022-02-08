@@ -4,7 +4,7 @@ const fs = require('fs').promises;
 fs.readFile('./simpsons.json', 'utf-8')
   .then((fileContent) => JSON.parse(fileContent))
   .then((responseJSON) => responseJSON.map(({ id, name }) => `${id} - ${name}`))
-  // .then((responseArray) => responseArray.forEach((string) => console.log(string)));
+  .then((responseArray) => responseArray.forEach((string) => console.log(string)));
 
 // 4.2
 async function getSimpsonById(simpsonId) {
@@ -58,4 +58,21 @@ async function newCharacterOnSimpsonsFamily() {
   simpsonsFamily.push(nelsonCharacter);
 
   await fs.writeFile('./simpsonsFamily.json', JSON.stringify(simpsonsFamily));
+}
+
+// 4.6
+async function changeNelsonToMaggie() {
+  const simpsons = await fs.readFile('./simpsonsFamily.json', 'utf-8')
+    .then((fileContent) => JSON.parse(fileContent));
+
+  simpsons.pop();
+
+  const maggieSimpson = {
+    id: '5',
+    name: 'Maggie Simpsons'
+  };
+
+  simpsons.push(maggieSimpson);
+
+  await fs.writeFile('./simpsonsFamily.json', JSON.stringify(simpsons));
 }
