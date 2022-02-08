@@ -1,0 +1,11 @@
+{
+  "name": "dayexercises",
+  "version": "1.0.0",
+  "description": "package to make day's exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "brenoccamp",
+  "license": "ISC"
+}
