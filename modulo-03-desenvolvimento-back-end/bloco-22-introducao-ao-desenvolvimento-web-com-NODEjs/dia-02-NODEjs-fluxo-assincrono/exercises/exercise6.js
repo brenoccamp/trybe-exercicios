@@ -17,7 +17,7 @@ const question = (message) => {
 }
 
 const startScript = async () => {
-  const fileName = await question("Type the file's path you want to read: ");
+  const fileName = await question("Type the file's name you want to read: ");
 
   try {
     const fileContent = await fs.readFile(fileName, 'utf-8');
