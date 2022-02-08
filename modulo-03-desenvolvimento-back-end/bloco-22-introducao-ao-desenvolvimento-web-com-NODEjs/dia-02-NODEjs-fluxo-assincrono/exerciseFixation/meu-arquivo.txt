@@ -1,0 +1,1 @@
+Exercise of fixation - Using readFileSync.js
