@@ -43,3 +43,19 @@ async function newSimpsonsFile() {
 
   await fs.writeFile('./simpsonsFamily.json', JSON.stringify(only4firstIDs));
 }
+
+
+// 4.5
+async function newCharacterOnSimpsonsFamily() {
+  const nelsonCharacter = {
+    id: '5',
+    name: 'Nelson Muntz'
+  };
+
+  const simpsonsFamily = await fs.readFile('./simpsonsFamily.json', 'utf-8')
+    .then((fileContent) => JSON.parse(fileContent));
+
+  simpsonsFamily.push(nelsonCharacter);
+
+  await fs.writeFile('./simpsonsFamily.json', JSON.stringify(simpsonsFamily));
+}
