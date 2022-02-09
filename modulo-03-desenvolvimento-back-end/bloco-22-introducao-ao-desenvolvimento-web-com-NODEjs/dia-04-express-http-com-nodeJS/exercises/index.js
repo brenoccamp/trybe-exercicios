@@ -4,10 +4,12 @@ const exercise3 = require('./exercise3');
 const exercise4 = require('./exercise4');
 const exercise6 = require('./exercise6');
 const exercise7 = require('./exercise7');
+const exercise8 = require('./exercise8');
 
 // exercise1();
 // exercise2();
 // exercise3();
 // exercise4();
 // exercise6();
-exercise7();
+// exercise7();
+exercise8();
