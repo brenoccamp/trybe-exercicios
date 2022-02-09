@@ -37,6 +37,12 @@ app.get('/drinks', (req, res) => {
   res.send(drinks);
 });
 
+app.get('/sorted-drinks', (req, res) => {
+  const sortedDrinks = drinks.sort((a, b) => a.name.localeCompare(b.name));
+  console.log(sortedDrinks);
+  res.send(sortedDrinks);
+});
+
 app.listen('3001', () => {
   console.log('Listening on door 3001');
 });
