@@ -96,7 +96,7 @@ app.post('/drinks', (req, res) => {
   res.status(201).json(`Drink ${name} was successfully added!`);
 });
 
-// fetch(`http://localhost:3001/recipes/`, {  -> Exemplo de fetch com method, headers e body
+// fetch(`http://localhost:3001/recipes/`, {  -> Exemplo de fetch com method, headers e body feito no front-end
 //   method: 'POST',
 //   headers: {
 //     Accept: 'application/json',
@@ -108,6 +108,19 @@ app.post('/drinks', (req, res) => {
 //     price: 30
 //   })
 // });
+
+// Making a route to update a recipe
+app.put('/recipes/:id', (req, res) => {
+  const { id } = req.params;
+  const { name, price } = req.body;
+  const recipeIndex = recipes.findIndex((recipe) => recipe.id === parseInt(id));
+
+  if (recipeIndex === -1) return res.status(404).json({ message: `Recipe with id:${id} not found!`});
+
+  recipes[recipeIndex] = { ...recipes[recipeIndex], name, price };
+
+  res.status(204).end();
+});
 
 // Port to listen to the app
 app.listen('3001', () => {
