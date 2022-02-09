@@ -9,9 +9,9 @@ app.use(bodyParser.json());
 
 app.get('/hello', handleHelloWorldRequest); // 2
 
-app.listen(3001, () => {
-  console.log('Aplicação ouvindo na porta 3001');
-}); // 3
+// app.listen(3001, () => {
+//   console.log('Aplicação ouvindo na porta 3001');
+// }); // 3
 
 function handleHelloWorldRequest(req, res) {
   res.status(200).send('Hello World!'); // 4
@@ -83,7 +83,14 @@ app.get('/drinks/:id', (req, res) => {
   res.status(200).json(drinkRecipe);
 })
 
+// Request using Method POST
+app.post('/recipes', function (req, res) {
+  const { id, name, price } = req.body;
+  recipes.push({ id, name, price});
+  res.status(201).json({ message: 'Recipe created successfully!'});
+});
+
+// Port to listen to the app
 app.listen('3001', () => {
   console.log('Listening on door 3001');
 });
-
