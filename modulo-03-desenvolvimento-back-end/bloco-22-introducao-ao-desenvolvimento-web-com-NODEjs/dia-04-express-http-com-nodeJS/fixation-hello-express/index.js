@@ -52,6 +52,16 @@ app.get('/sorted-drinks', (_req, res) => {
   res.send(sortedDrinks);
 });
 
+app.get('/drinks/:id', (req, res) => {
+  const { id } = req.params;
+
+  const drinkRecipe = drinks.find((recipe) => recipe.id === parseInt(id));
+
+  if (!drinkRecipe) return res.status(404).json({ message: 'Recipe not found!' });
+
+  res.status(200).json(drinkRecipe);
+})
+
 app.listen('3001', () => {
   console.log('Listening on door 3001');
 });
