@@ -26,9 +26,9 @@ app.get('/recipes', (_req, res) => {
 
 // Fixation using query
 app.get('/recipes/search', (req, res) => {
-  const { name, maxPrice } = req.query;
+  const { name, maxPrice, minPrice } = req.query;
   
-  const filteredRecipes = recipes.filter((recipe) => recipe.name.includes(name) && recipe.price < parseInt(maxPrice));
+  const filteredRecipes = recipes.filter((recipe) => recipe.name.includes(name) && recipe.price < parseInt(maxPrice) && recipe.price >= parseInt(minPrice));
   res.status(200).json(filteredRecipes);
 });
 
