@@ -24,6 +24,14 @@ app.get('/recipes', (_req, res) => {
   res.send(recipes);
 });
 
+// Fixation using query
+app.get('/recipes/search', (req, res) => {
+  const { name } = req.query;
+  
+  const filteredRecipes = recipes.filter((recipe) => recipe.name.includes(name));
+  res.status(200).json(filteredRecipes);
+});
+
 app.get('/recipes/:id', function (req, res) {
   const { id } = req.params;
   const recipe = recipes.find((r) => r.id === parseInt(id));
@@ -52,6 +60,7 @@ app.get('/sorted-drinks', (_req, res) => {
   res.send(sortedDrinks);
 });
 
+// Fixation using params (usually single params)
 app.get('/drinks/:id', (req, res) => {
   const { id } = req.params;
 
@@ -65,3 +74,4 @@ app.get('/drinks/:id', (req, res) => {
 app.listen('3001', () => {
   console.log('Listening on door 3001');
 });
+
