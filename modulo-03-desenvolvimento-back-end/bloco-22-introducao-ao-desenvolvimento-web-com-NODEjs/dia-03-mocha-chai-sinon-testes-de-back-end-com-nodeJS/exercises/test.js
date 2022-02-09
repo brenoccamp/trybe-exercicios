@@ -37,3 +37,17 @@ describe('Testing function typeOfTheNumber', () => {
     });
   });
 });
+
+// Exercise 4 - Create tests for a function that will write content to a specific file.
+describe('Testing a function that will write a content on a specific file', () => {
+  describe('After concludes', () => {
+    it("Function returns 'ok' and the function's return is a string", () => {
+      const file = 'exercise4.txt';
+      const content = 'Writing a content and testing using mocha and chai';
+      const response = writeFile(file, content);
+
+      expect(response).to.be.a('string');
+      expect(response).to.be.equals('ok');
+    });
+  });
+})
