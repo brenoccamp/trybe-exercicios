@@ -59,7 +59,20 @@ const sinon = require('sinon');
 describe('Testing writingInAFile function using now sinon and stub', () => {
   describe('Writed with success', () => {
     before(() => {
+      sinon.stub(fs, 'writeFileSync').returns('ok');
+    });
 
-    })
-  })
-})
+    after(() => {
+      fs.writeFileSync.restore();
+    });
+
+    it("Function returns 'ok' and the function's return is a string", () => {
+      const file = 'exercise4.txt';
+      const content = 'Writing a content and testing using mocha and chai';
+      const response = writingInAFile(file, content);
+
+      expect(response).to.be.a('string');
+      expect(response).to.be.equals('ok');
+    });
+  });
+});
