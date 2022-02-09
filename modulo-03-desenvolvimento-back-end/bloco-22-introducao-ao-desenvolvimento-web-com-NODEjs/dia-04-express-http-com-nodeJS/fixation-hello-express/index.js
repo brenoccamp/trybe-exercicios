@@ -90,6 +90,19 @@ app.post('/recipes', function (req, res) {
   res.status(201).json({ message: 'Recipe created successfully!'});
 });
 
+// fetch(`http://localhost:3001/recipes/`, {
+//   method: 'POST',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     id: 4,
+//     name: 'Macarrão com Frango',
+//     price: 30
+//   })
+// });
+
 // Port to listen to the app
 app.listen('3001', () => {
   console.log('Listening on door 3001');
