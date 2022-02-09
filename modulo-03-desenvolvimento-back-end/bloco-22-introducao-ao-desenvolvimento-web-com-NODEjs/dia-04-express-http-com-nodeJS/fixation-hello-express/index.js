@@ -85,15 +85,15 @@ app.get('/drinks/:id', (req, res) => {
 
 // Request using Method POST
 app.post('/recipes', function (req, res) {
-  const { id, name, price } = req.body;
-  recipes.push({ id, name, price});
+  const { id, name, price, waitTime } = req.body;
+  recipes.push({ id, name, price, waitTime});
   res.status(201).json({ message: 'Recipe created successfully!'});
 });
 
 app.post('/drinks', (req, res) => {
   const { id, name, price } = req.body;
   drinks.push({ id, name, price });
-  req.status(201).send(`Drink ${name} was successfully added!`);
+  res.status(201).json(`Drink ${name} was successfully added!`);
 });
 
 // fetch(`http://localhost:3001/recipes/`, {  -> Exemplo de fetch com method, headers e body
