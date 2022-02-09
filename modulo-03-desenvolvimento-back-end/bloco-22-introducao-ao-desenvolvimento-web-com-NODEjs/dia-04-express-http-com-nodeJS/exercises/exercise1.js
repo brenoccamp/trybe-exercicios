@@ -1,10 +1,7 @@
 // Create a get route called /ping
-const express = require('express');
-const bodyParser = require('body-parser');
+const appRequires = require('./helper');
 
-const app = express();
-
-app.use(bodyParser.json());
+const app = appRequires();
 
 function exercise1() {
   app.get('/ping', (req, res) => {
