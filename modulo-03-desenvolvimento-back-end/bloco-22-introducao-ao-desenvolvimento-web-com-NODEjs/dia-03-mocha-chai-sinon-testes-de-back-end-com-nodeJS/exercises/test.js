@@ -2,6 +2,7 @@
 const { expect } = require('chai');
 
 const typeOfTheNumber = require('./exercise2');
+const writingInAFile = require('./exercise5');
 
 describe('Testing function typeOfTheNumber', () => {
   describe('Number bigger than zero', () => {
@@ -44,10 +45,21 @@ describe('Testing a function that will write a content on a specific file', () =
     it("Function returns 'ok' and the function's return is a string", () => {
       const file = 'exercise4.txt';
       const content = 'Writing a content and testing using mocha and chai';
-      const response = writeFile(file, content);
+      const response = writingInAFile(file, content);
 
       expect(response).to.be.a('string');
       expect(response).to.be.equals('ok');
     });
   });
+});
+
+// Exercise 5.2 and 5.3 - Tailor the tests by adding stub to the used fs module, thus isolating the test.
+const fs = require('fs');
+const sinon = require('sinon');
+describe('Testing writingInAFile function using now sinon and stub', () => {
+  describe('Writed with success', () => {
+    before(() => {
+
+    })
+  })
 })
