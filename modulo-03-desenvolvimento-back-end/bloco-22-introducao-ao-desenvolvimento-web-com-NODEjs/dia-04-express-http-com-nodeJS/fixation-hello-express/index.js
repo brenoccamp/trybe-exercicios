@@ -148,6 +148,11 @@ app.delete('/drinks/:id', (req, res) => {
   res.status(204).end();
 });
 
+// Making a default message to route not found
+app.all('*', (req, res) => {
+  return res.status(404).json({ message: `Route '${req.path}' does not exists!`});
+});
+
 // Port to listen to the app
 app.listen('3001', () => {
   console.log('Listening on door 3001');
