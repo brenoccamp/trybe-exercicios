@@ -27,4 +27,13 @@ describe('Testing function typeOfTheNumber', () => {
       expect(response).to.be.equals('Neutral');
     });
   });
+
+  // Exercise 3 - Being certain that the function typeOfTheNumber can receive only number
+  describe('Receiving NaN', () => {
+    it('Function returns "The value must be a number!"', () => {
+      const response = typeOfTheNumber('Testing the function');
+
+      expect(response).to.be.equals('The value must be a number!');
+    });
+  });
 });
