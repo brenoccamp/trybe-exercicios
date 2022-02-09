@@ -90,7 +90,13 @@ app.post('/recipes', function (req, res) {
   res.status(201).json({ message: 'Recipe created successfully!'});
 });
 
-// fetch(`http://localhost:3001/recipes/`, {
+app.post('/drinks', (req, res) => {
+  const { id, name, price } = req.body;
+  drinks.push({ id, name, price });
+  req.status(201).send(`Drink ${name} was successfully added!`);
+});
+
+// fetch(`http://localhost:3001/recipes/`, {  -> Exemplo de fetch com method, headers e body
 //   method: 'POST',
 //   headers: {
 //     Accept: 'application/json',
