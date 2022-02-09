@@ -96,18 +96,7 @@ app.post('/drinks', (req, res) => {
   res.status(201).json(`Drink ${name} was successfully added!`);
 });
 
-// fetch(`http://localhost:3001/recipes/`, {  -> Exemplo de fetch com method, headers e body feito no front-end
-//   method: 'POST',
-//   headers: {
-//     Accept: 'application/json',
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     id: 4,
-//     name: 'Macarrão com Frango',
-//     price: 30
-//   })
-// });
+
 
 // Making a route to update a recipe
 app.put('/recipes/:id', (req, res) => {
@@ -138,3 +127,40 @@ app.delete('/recipes/:id', (req, res) => {
 app.listen('3001', () => {
   console.log('Listening on door 3001');
 });
+
+// Exemplos de requisições PUT, DELETE e POST no front-end
+// // Requisição do tipo PUT
+// fetch(`http://localhost:3001/recipes/2`, {
+//   method: 'PUT',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     name: 'Macarrão ao alho e óleo',
+//     price: 40
+//   })
+// });
+
+// // Requisição do tipo DELETE
+// fetch(`http://localhost:3001/recipes/4`, {
+//   method: 'DELETE',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//   }
+// });
+
+// // Requisição do tipo POST
+// fetch(`http://localhost:3001/recipes/`, {front-end
+//   method: 'POST',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     id: 4,
+//     name: 'Macarrão com Frango',
+//     price: 30
+//   })
+// });
