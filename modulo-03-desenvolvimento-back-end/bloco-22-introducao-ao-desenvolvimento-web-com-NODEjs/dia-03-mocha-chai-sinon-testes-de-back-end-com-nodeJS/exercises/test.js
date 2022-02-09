@@ -1,7 +1,7 @@
 // Exercise 1 - Make the tests using mocha and chai for a function to verify if a number is positive, negative or neutral
 const { expect } = require('chai');
 
-const typeOfTheNumber = require('./exercise1');
+const typeOfTheNumber = require('./exercise2');
 
 describe('Testing function typeOfTheNumber', () => {
   describe('Number bigger than zero', () => {
