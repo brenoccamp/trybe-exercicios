@@ -20,8 +20,17 @@ const recipes = [
   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
 ];
 
-app.get('/recipes', (req, res) => {
+app.get('/recipes', (_req, res) => {
   res.send(recipes);
+});
+
+app.get('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+  const recipe = recipes.find((r) => r.id === parseInt(id));
+
+  if (!recipe) return res.status(404).json({ message: 'Recipe not found!'});
+
+  res.status(200).json(recipe);
 });
 
 const drinks = [
@@ -33,11 +42,11 @@ const drinks = [
   { id: 6, name: 'Água Mineral 500 ml', price: 5.0 },
 ];
 
-app.get('/drinks', (req, res) => {
+app.get('/drinks', (_req, res) => {
   res.send(drinks);
 });
 
-app.get('/sorted-drinks', (req, res) => {
+app.get('/sorted-drinks', (_req, res) => {
   const sortedDrinks = drinks.sort((a, b) => a.name.localeCompare(b.name));
   console.log(sortedDrinks);
   res.send(sortedDrinks);
