@@ -16,7 +16,7 @@ const app = express(); // 1
 // Fixation exercise 2: Returns an array of drinks on route /drinks
 const recipes = [
   { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
-  { id: 2, name: 'Macarrão a Bolonhesa', price: 35.0, waitTime: 25 },
+  { id: 2, name: 'Macarrão a Bolonhesa', price: 30.0, waitTime: 25 },
   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
 ];
 
@@ -26,9 +26,9 @@ app.get('/recipes', (_req, res) => {
 
 // Fixation using query
 app.get('/recipes/search', (req, res) => {
-  const { name } = req.query;
+  const { name, maxPrice } = req.query;
   
-  const filteredRecipes = recipes.filter((recipe) => recipe.name.includes(name));
+  const filteredRecipes = recipes.filter((recipe) => recipe.name.includes(name) && recipe.price < parseInt(maxPrice));
   res.status(200).json(filteredRecipes);
 });
 
