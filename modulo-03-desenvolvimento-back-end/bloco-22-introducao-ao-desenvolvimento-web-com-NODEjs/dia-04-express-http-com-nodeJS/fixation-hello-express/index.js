@@ -60,6 +60,14 @@ app.get('/sorted-drinks', (_req, res) => {
   res.send(sortedDrinks);
 });
 
+// Fixation using query
+app.get('/drinks/search', (req, res) => {
+  const { name } = req.query;
+
+  const filteredDrinks = drinks.filter((drinkRecipe) => drinkRecipe.name.includes(name));
+  res.status(200).json(filteredDrinks);
+})
+
 // Fixation using params (usually single params)
 app.get('/drinks/:id', (req, res) => {
   const { id } = req.params;
