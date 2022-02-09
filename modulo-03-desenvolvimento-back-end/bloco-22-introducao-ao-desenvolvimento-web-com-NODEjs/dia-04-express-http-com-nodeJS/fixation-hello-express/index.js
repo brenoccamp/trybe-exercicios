@@ -122,6 +122,18 @@ app.put('/recipes/:id', (req, res) => {
   res.status(204).end();
 });
 
+// Making a route to delete a recipe
+app.delete('/recipes/:id', (req, res) => {
+  const { id } = req.params;
+  const recipeIndex = recipes.findIndex((recipe) => recipe.id === parseInt(id));
+
+  if (recipeIndex === -1) return res.status(404).json({ message: `Recipe with id: ${id} not found!` });
+
+  recipes.splice(recipeIndex, 1);
+
+  res.status(204).end();
+});
+
 // Port to listen to the app
 app.listen('3001', () => {
   console.log('Listening on door 3001');
