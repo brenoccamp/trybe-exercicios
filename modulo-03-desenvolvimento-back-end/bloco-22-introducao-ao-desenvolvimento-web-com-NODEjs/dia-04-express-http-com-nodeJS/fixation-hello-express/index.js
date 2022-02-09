@@ -1,17 +1,18 @@
 // Fixation exercise 1: Creating my first API using express to say "Hello World!"
 const express = require('express');
+const cors = require('cors');
 
 const app = express(); // 1
 
-// app.get('/hello', handleHelloWorldRequest); // 2
+app.get('/hello', handleHelloWorldRequest); // 2
 
-// app.listen(3001, () => {
-//   console.log('Aplicação ouvindo na porta 3001');
-// }); // 3
+app.listen(3001, () => {
+  console.log('Aplicação ouvindo na porta 3001');
+}); // 3
 
-// function handleHelloWorldRequest(req, res) {
-//   res.status(200).send('Hello World!'); // 4
-// }
+function handleHelloWorldRequest(req, res) {
+  res.status(200).send('Hello World!'); // 4
+}
 
 // Fixation exercise 2: Returns an array of drinks on route /drinks
 const recipes = [
