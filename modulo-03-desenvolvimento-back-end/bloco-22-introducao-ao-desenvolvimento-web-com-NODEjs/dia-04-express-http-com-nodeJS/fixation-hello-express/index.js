@@ -98,7 +98,7 @@ app.post('/drinks', (req, res) => {
 
 
 
-// Making a route to update a recipe
+// Making a route to PUT(update) a recipe
 app.put('/recipes/:id', (req, res) => {
   const { id } = req.params;
   const { name, price } = req.body;
@@ -111,7 +111,20 @@ app.put('/recipes/:id', (req, res) => {
   res.status(204).end();
 });
 
-// Making a route to delete a recipe
+// Making a route PUT(update) a drink
+app.put('/drinks/:id', (req, res) => {
+  const { id } = req.params;
+  const { name, price } = req.body;
+  const drinkIndex = drinks.findIndex((drinkRecipe) => drinkRecipe.id === parseInt(id));
+
+  if (drinkIndex === -1) return res.status(404).json({ message: `Drink with id:${id} not found!` });
+
+  drinks[drinkIndex] = { ...drinks[drinkIndex], name, price };
+
+  res.status(204).end();
+});
+
+// Making a route to DELETE a recipe
 app.delete('/recipes/:id', (req, res) => {
   const { id } = req.params;
   const recipeIndex = recipes.findIndex((recipe) => recipe.id === parseInt(id));
@@ -129,6 +142,7 @@ app.listen('3001', () => {
 });
 
 // Exemplos de requisições PUT, DELETE e POST no front-end
+
 // // Requisição do tipo PUT
 // fetch(`http://localhost:3001/recipes/2`, {
 //   method: 'PUT',
