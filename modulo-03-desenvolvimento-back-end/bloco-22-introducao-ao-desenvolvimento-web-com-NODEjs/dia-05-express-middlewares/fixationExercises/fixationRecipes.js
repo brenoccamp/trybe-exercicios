@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const authMiddleware = require('./auth-middleware');
 
 const app = express();
 app.use(bodyParser.json());
@@ -11,7 +12,7 @@ const recipes = [
 ];
 
 // Refactoring to create a function that validates the name and teuse it in other ones functions.
-function validateName(req, res, next) {
+function validateName(req, res, _next) {
   const { name } = req.body;
   if (!name || name === '') return res.status(404).json({ message: 'Invalid data!' });
 
