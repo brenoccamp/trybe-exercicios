@@ -11,11 +11,10 @@ const recipes = [
 ];
 
 // Refactoring to create a function that validates the name and teuse it in other ones functions.
-function validadeName(req, res, next) {
+function validateName(req, res, next) {
   const { name } = req.body;
   if (!name || name === '') return res.status(404).json({ message: 'Invalid data!' });
 
-  return false;
   // next();
 }
 
@@ -25,7 +24,7 @@ function validatePrice(req, res, next) {
   const isPriceANumber = typeof(price) === 'number';
   const isPriceBiggerThanZero = price >= 0 ? false : true;
 
-  if (!price || isPriceANumber || isPriceBiggerThanZero || validadeName(req, res, next)) {
+  if (!price || isPriceANumber || isPriceBiggerThanZero || validateName(req, res, next)) {
     return res.status(404).json({ message: 'Invalid data!' });
   }
 
