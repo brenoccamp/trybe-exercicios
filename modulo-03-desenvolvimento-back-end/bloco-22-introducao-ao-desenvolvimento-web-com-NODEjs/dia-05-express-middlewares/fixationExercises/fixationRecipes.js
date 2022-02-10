@@ -15,6 +15,7 @@ function validadeName(req, res, next) {
   const { name } = req.body;
   if (!name || name === '') return res.status(404).json({ message: 'Invalid data!' });
 
+  return false;
   // next();
 }
 
@@ -24,11 +25,9 @@ function validatePrice(req, res, next) {
   const isPriceANumber = typeof(price) === 'number';
   const isPriceBiggerThanZero = price >= 0 ? false : true;
 
-  if (!price || isPriceANumber || isPriceBiggerThanZero) {
+  if (!price || isPriceANumber || isPriceBiggerThanZero || validadeName(req, res, next)) {
     return res.status(404).json({ message: 'Invalid data!' });
   }
-
-  validadeName(req, res, next);
 
   next();
 }
