@@ -1,16 +1,13 @@
-const isEmailValid = (email) => {
-  if (!email.includes('@') || !email.includes('.com')) return false;
-  return true;
-}
+const validatePassword = require('./validatePassword');
+const validateEmail = require('./validateEmail');
 
 const userRegister = (req, res, next) => {
   const { username, email, password } = req.body;
 
   if (
     username.length <= 3
-    || !isEmailValid(email)
-    || password.toString().length < 4
-    || password.toString().length > 8
+    || !validateEmail(email)
+    || !validatePassword(password)
   ) {
     return res.status(400).json({ message: 'Invalid data!' });
   }
