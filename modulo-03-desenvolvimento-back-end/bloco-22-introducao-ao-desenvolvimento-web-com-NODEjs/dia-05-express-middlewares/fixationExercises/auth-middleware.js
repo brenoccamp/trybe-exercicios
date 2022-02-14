@@ -1,7 +1,9 @@
-const validUser = {
-  username: 'meuUsuario',
-  password: 'MinhaSenhaSegura'
-};
+const validUsers = [
+  { username: 'meuUsuario1',   password: 'MinhaSenhaSegura1' },
+  { username: 'meuUsuario2',   password: 'MinhaSenhaSegura2' },
+  { username: 'meuUsuario3',   password: 'MinhaSenhaSegura3' },
+  { username: 'meuUsuario4',   password: 'MinhaSenhaSegura4' },
+];
 
 const authMiddleware = (req, res, next) => {
   const { username, password } = req.headers;
@@ -10,7 +12,11 @@ const authMiddleware = (req, res, next) => {
     return res.status(401).json({ message: 'Username or password can\'t be blank!' });
   }
 
-  if (username !== validUser.username || password !== validUser.password) {
+  const foundUser = validUsers.find((user) => user.username === username);
+
+  if (!foundUser) return res.status(401).json({ message: 'Invalid credentials!' });
+
+  if (username !== foundUser.username || password !== foundUser.password) {
     return res.status(401).json({ message: 'Invalid credentials!' });
   }
 

@@ -42,7 +42,8 @@ function validatePrice(req, res, next) {
 }
 
 app.get('/recipes', function (req, res) {
- res.status(200).json(recipes);
+  console.log(req);
+  res.status(200).json(recipes);
 });
 
 app.get('/recipes/search', function (req, res) {
@@ -62,7 +63,8 @@ app.get('/recipes/:id', function (req, res) {
 //Now put the validateName function where we want to uses it.
 app.post('/recipes', validatePrice, function (req, res) {
   const { id, name, price, waitTime } = req.body;
-  recipes.push({ id, name, price, waitTime});
+  const { username } = req.user // -> Here we are accessing the user founded at the auth middleware
+  recipes.push({ id, name, price, waitTime, chef: username });
   res.status(201).json({ message: 'Recipe created successfully!'});
 });
 
