@@ -5,4 +5,4 @@ const app = express();
 app.use(express.json());
 app.use('/user', userController);
 
-app.listen('3002', () => console.log('Running app on port 3002'));
+app.listen('3002', () => console.log('Run server on port 3002'));
