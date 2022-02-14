@@ -11,6 +11,7 @@ app.get('/open', (req, res) => {
   res.send('open');
 });
 
+//Under this line, hole routes are secure.
 app.use(authMiddleware);
 
 const recipes = [
@@ -19,7 +20,7 @@ const recipes = [
   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
 ];
 
-// Refactoring to create a function that validates the name and teuse it in other ones functions.
+// Refactoring to create a function that validates the name and reuse it in other ones functions.
 function validateName(req, res, _next) {
   const { name } = req.body;
   if (!name || name === '') return res.status(404).json({ message: 'Invalid data!' });
@@ -39,6 +40,10 @@ function validatePrice(req, res, next) {
 
   next();
 }
+
+app.get('/recipes', function (req, res) {
+ res.status(200).json(recipes);
+});
 
 app.get('/recipes/search', function (req, res) {
   const { name, maxPrice } = req.query;
