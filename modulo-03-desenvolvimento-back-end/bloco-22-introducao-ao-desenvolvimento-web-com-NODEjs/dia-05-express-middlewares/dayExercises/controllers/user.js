@@ -3,7 +3,7 @@ const {
   isValidUsername,
   isValidEmail,
   isValidPassword
-} = require('./middlewares/dataValidations');
+} = require('../middlewares/dataValidations');
 
 const router = express.Router();
 
