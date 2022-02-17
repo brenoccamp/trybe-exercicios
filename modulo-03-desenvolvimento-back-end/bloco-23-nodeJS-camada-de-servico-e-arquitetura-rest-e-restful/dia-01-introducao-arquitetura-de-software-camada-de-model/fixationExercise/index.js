@@ -75,4 +75,19 @@ app.get('/books/:id', async (req, res) => {
   }
 });
 
+app.post('/books', async (req, res) => {
+  try {
+    const { title, author_id} = req.body;
+
+    if (!Book.isValidBook(title, author_id)) return res.status(400).json({ message: 'Invalid title' });
+    if (await Author.findById(author_id) === null) return res.status(400).json({ message: 'Invalid author id' });
+
+    await Book.createNewBook(title, author_id);
+
+    return res.status(201).json({ message: 'Book created with success' });
+  } catch (e) {
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

@@ -34,8 +34,22 @@ const bookById = async (bookId) => {
   return { id, title, authorId };
 }
 
+const isValidBook = (title, author_id) => {
+  if (!title || title.length < 3) return false;
+  if (!author_id) return false;
+
+  return true;
+}
+
+const createNewBook = async (title, authorId) => {
+  const query = 'INSERT INTO books (title, author_id) VALUES (?, ?)';
+  connection.execute(query, [title, authorId]);
+}
+
 module.exports = {
   getAll,
   getAuthorById,
   bookById,
+  isValidBook,
+  createNewBook
 }
