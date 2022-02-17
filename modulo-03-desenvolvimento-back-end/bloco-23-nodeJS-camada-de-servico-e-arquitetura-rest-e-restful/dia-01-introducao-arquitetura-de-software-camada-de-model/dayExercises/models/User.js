@@ -27,7 +27,9 @@ const createUser = async (user) => {
 
   return {
     id: created.insertId,
-    ...user
+    firstName: user.first_name,
+    lastName: user.last_name,
+    email: user.email
   };
 }
 
