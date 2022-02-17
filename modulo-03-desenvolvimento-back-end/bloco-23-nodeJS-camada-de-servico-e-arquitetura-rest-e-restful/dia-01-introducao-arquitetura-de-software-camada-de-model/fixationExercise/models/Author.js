@@ -1,7 +1,7 @@
 const connection = require('./connection');
 
 const getNewAuthor = ({id, firstName, middleName, lastName}) => {
-	const fullName = [firstNAme, middleName, lastName]
+	const fullName = [firstName, middleName, lastName]
 		.filter((name) => name).join(" ");
 	
 	return {
