@@ -16,6 +16,20 @@ app.get('/authors', async (_req, res) => {
   }
 });
 
+app.get('/authors/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const author = await Author.findById(id);
+  
+    if (!author) return res.status(404).json({ message: 'Author not found!' });
+  
+    res.status(200).json(author);
+  } catch (e) {
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 app.get('/books', async (req, res) => {
   try{
     const { author_id } = req.query
