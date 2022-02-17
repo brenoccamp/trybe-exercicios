@@ -1,4 +1,4 @@
-
+    USE model_example;
     CREATE TABLE books (
         id INT NOT NULL AUTO_INCREMENT,
         title VARCHAR(90) NOT NULL,
