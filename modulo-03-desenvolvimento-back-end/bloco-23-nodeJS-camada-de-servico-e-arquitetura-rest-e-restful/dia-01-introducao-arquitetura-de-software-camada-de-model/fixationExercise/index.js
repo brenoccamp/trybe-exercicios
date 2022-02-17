@@ -43,4 +43,18 @@ app.get('/books', async (req, res) => {
   }
 });
 
+app.get('/books/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const book = await Book.bookById(id);
+  
+    if (!book) return res.status(404).json({ message: 'Book not found!' });
+  
+    return res.status(200).json(book);
+  } catch (e) {
+    return res.status(500).json({ message: 'Internal server error!' });
+  }
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
