@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+app.use(express.json());
+
 const Author = require('./models/Author');
 const Book = require('./models/Book');
 
@@ -29,6 +31,22 @@ app.get('/authors/:id', async (req, res) => {
     return res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+app.post('/authors', async (req, res) => {
+  try {
+    const { first_name, middle_name, last_name } = req.body;
+
+    if (!Author.isValid(first_name, middle_name, last_name)) {
+      return res.status(400).json({ message: 'Invalid datas' });
+    }
+
+    await Author.createNewAuthor(first_name, middle_name, last_name);
+
+    return res.status(201).json({ message: 'Author created with success' });
+  } catch (e) {
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+})
 
 app.get('/books', async (req, res) => {
   try{
