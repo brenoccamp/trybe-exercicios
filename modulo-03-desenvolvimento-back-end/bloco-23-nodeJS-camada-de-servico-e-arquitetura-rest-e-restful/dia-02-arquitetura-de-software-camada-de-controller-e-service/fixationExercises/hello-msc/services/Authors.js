@@ -2,6 +2,7 @@
 
 const Author = require('../models/Authors');
 
+// Cria uma string com o nome completo da pessoa autora
 const getNewAuthor = (authorData) => {
   const { id, firstName, middleName, lastName } = authorData;
 
@@ -26,12 +27,17 @@ const isValid = (firstName, middleName, lastName) => {
   return true;
   }
 
+// Busca todos os autores do banco.
 const getAll = async () => {
   const authors = await Author.getAll();
 
   return authors.map(getNewAuthor);
 }
 
+/*
+Busca uma pessoa autora específica, a partir do seu ID
+@param {String} id ID da pessoa autora a ser recuperado
+*/
 const findById = async (id) => {
   const author = await Author.findById(id);
 
@@ -40,8 +46,18 @@ const findById = async (id) => {
   return getNewAuthor(author);
 };
 
+const createAuthor = async (firstName, middleName, lastName) => {
+  const validAuthor = isValid(firstName, middleName, lastName);
+
+  if (!validAuthor) return false;
+
+  await Author.createAuthor(firstName, middleName, lastName);
+
+  return true;
+};
+
 module.exports = {
   getAll,
   findById,
-  isValid
+  createAuthor,
 }
