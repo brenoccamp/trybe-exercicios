@@ -12,10 +12,9 @@ router.post(
   userController.createNewUser,
 );
 
-// router.get(
-//   '/',
-
-//   userController,
-// );
+router.get(
+  '/',
+  userController.getAllUsers,
+);
 
 module.exports = router;

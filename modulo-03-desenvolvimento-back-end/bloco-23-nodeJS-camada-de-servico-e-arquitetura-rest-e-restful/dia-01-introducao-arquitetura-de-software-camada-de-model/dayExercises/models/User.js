@@ -1,24 +1,5 @@
 const connection = require('./connection');
 
-const isValidName = (firstName, lastName) => {
-  if (!firstName) return 'Field "first name" is mandatory';
-  if (!lastName) return 'Field "last name" is mandatory';
-
-  return false;
-}
-
-const isValidEmail = (email) => {
-  if (!email || !email.includes('@') || !email.includes('.com')) return false;
-
-  return true;
-}
-
-const isValidPassword = (password) => {
-  if (!password || typeof password !== 'string' || password.length < 6) return false;
-
-  return true;
-}
-
 const createUser = async (user) => {
   const query = "INSERT INTO users_crud.users (first_name, last_name, email, password) VALUES (?, ?, ?, ?);"
 
@@ -33,9 +14,15 @@ const createUser = async (user) => {
   };
 }
 
+const getAllUsers = async () => {
+  const query = 'SELECT * FROM users_crud.users';
+
+  const [users] = await connection.execute(query);
+
+  return users;
+}
+
 module.exports = {
-  isValidName,
-  isValidEmail,
-  isValidPassword,
   createUser,
+  getAllUsers,
 }
