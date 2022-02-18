@@ -22,4 +22,12 @@ router.get(
   userController.userById,
 )
 
+router.put(
+  '/:id',
+  userValidations.isValidName,
+  userValidations.isValidEmail,
+  userValidations.isValidPassword,
+  userController.updateUser,
+)
+
 module.exports = router;

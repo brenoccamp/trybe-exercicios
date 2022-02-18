@@ -43,8 +43,28 @@ const userById = async (req, res, next) => {
   }
 }
 
+const updateUser = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const selectedUser = await User.getUserById(id);
+
+    if (!selectedUser.length) return res.status(404).json({ error: true, message: 'User not found' });
+
+    const { first_name, last_name, email, password } = req.body;
+    const user = { id, first_name, last_name, email, password };
+
+    const updated = await User.updateUser(user);
+
+    return res.status(200).json(updated);
+  } catch (e) {
+    next(e);
+  }
+}
+
 module.exports = {
   createNewUser,
   getAllUsers,
   userById,
+  updateUser,
 };
