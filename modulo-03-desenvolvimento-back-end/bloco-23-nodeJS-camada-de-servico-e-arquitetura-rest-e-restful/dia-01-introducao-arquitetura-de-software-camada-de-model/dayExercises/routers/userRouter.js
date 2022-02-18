@@ -9,8 +9,13 @@ router.post(
   userValidations.isValidName,
   userValidations.isValidEmail,
   userValidations.isValidPassword,
-  userController,
+  userController.createNewUser,
 );
-router.get('/', userController);
+
+// router.get(
+//   '/',
+
+//   userController,
+// );
 
 module.exports = router;

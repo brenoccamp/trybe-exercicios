@@ -5,7 +5,7 @@ app.use(express.json());
 
 const User = require('../models/User');
 
-const userController = async (req, res, next) => {
+const createNewUser = async (req, res, next) => {
   try {
     const { first_name, last_name, email, password } = req.body;
 
@@ -17,4 +17,6 @@ const userController = async (req, res, next) => {
   }
 }
 
-module.exports = userController;
+module.exports = {
+  createNewUser,
+};
