@@ -41,7 +41,7 @@ const updateUser = async ({ id, first_name, last_name, email, password}) => {
     lastName: last_name,
     email,
     password,
-  }
+  };
 }
 
 module.exports = {

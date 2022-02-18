@@ -1,8 +1,3 @@
-const express = require('express');
-
-const app = express();
-app.use(express.json());
-
 const User = require('../models/User');
 
 const createNewUser = async (req, res, next) => {
@@ -52,6 +47,7 @@ const updateUser = async (req, res, next) => {
     if (!selectedUser.length) return res.status(404).json({ error: true, message: 'User not found' });
 
     const { first_name, last_name, email, password } = req.body;
+
     const user = { id, first_name, last_name, email, password };
 
     const updated = await User.updateUser(user);
