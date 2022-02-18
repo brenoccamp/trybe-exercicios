@@ -1,7 +1,8 @@
 const connection = require('./connection');
 
 const createUser = async (user) => {
-  const query = "INSERT INTO users_crud.users (first_name, last_name, email, password) VALUES (?, ?, ?, ?);"
+  const query = `INSERT INTO users_crud.users (first_name, last_name, email, password)
+    VALUES (?, ?, ?, ?);`
 
   const [created] = await connection
     .execute(query, [user.first_name, user.last_name, user.email, user.password]);
@@ -31,7 +32,8 @@ const getUserById = async (id) => {
 }
 
 const updateUser = async ({ id, first_name, last_name, email, password}) => {
-  const query = 'UPDATE users_crud.users SET first_name = ?, last_name = ?, email = ?, password = ? WHERE id = ?;';
+  const query = `UPDATE users_crud.users
+    SET first_name = ?, last_name = ?, email = ?, password = ? WHERE id = ?;`;
 
   await connection.execute(query, [first_name, last_name, email, password, id]);
 
