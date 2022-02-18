@@ -22,7 +22,16 @@ const getAllUsers = async () => {
   return users;
 }
 
+const getUserById = async (id) => {
+  const query = 'SELECT * FROM users_crud.users WHERE id = ?';
+
+  const [user] = await connection.execute(query, [id]);
+
+  return user;
+}
+
 module.exports = {
   createUser,
   getAllUsers,
+  getUserById,
 }
