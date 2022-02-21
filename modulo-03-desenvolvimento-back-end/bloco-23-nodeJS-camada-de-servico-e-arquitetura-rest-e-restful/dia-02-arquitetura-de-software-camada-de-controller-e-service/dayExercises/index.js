@@ -1,12 +1,14 @@
 require('dotenv').config();
 const express = require('express');
-const routerPing = require('./routers/pingRouter');
+const pingRouter = require('./routers/pingRouter');
+const cepRouter = require('./routers/cepRouter');
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/ping', routerPing);
+app.use('/ping', pingRouter);
+app.use('/cep', cepRouter);
 
 const PORT = process.env.PORT || 3000;
 
