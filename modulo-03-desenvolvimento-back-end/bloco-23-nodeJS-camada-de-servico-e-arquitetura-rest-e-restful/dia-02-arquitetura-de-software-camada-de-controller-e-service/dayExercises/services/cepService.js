@@ -4,15 +4,13 @@ const cepValidation = async (cep) => {
   const cepRegex = /\d{5}-?\d{3}/;
 
   if (!cep.match(cepRegex)) {
-    return { status: 400 };
+    return { status: 400, message: { code: "invalidData", message: "Invalid CEP" } };
   }
 
   const modelResponse = await CepModel.queryByCep(cep);
 
-  console.log(modelResponse);
-
-  if (!modelResponse.length) {
-    return modelResponse;
+  if (!modelResponse.message) {
+    return { status: 404, message: { code: "notFound", message: "CEP not found" } };
   }
 
   return modelResponse;

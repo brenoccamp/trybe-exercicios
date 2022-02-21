@@ -5,13 +5,9 @@ const queryByCep = async (cep) => {
 
   const [queryResponse] = await connection.execute(query, [cep]);
 
-  if (!queryResponse.length) {
-    return { status: 404 };
-  }
-
   return {
-    status: 200,
-    queryResponse: {...queryResponse[0]},
+    status:200,
+    message: queryResponse[0],
   };
 }
 
