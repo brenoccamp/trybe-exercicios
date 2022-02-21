@@ -1,5 +1,9 @@
 const fetch = require('node-fetch');
 
+// Armazenamos o token numa variável.
+// Num ambiente real, esse valor viria do Local Storage, ou de uma variável de ambiente
+const API_TOKEN = '2d635ea9b637ea0f27d58985cc161d64';
+
 // Criamos um novo objeto de Headers
 const headers = new fetch.Headers({
   Authorization: API_TOKEN});
