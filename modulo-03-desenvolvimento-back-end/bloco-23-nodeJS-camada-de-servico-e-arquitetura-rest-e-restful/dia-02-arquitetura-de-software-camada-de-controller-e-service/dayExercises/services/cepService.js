@@ -13,6 +13,8 @@ const cepValidation = async (cep) => {
     return { status: 404, message: { code: "notFound", message: "CEP not found" } };
   }
 
+  modelResponse.message.cep = `${modelResponse.message.cep.substring(0, 5)}-${modelResponse.message.cep.substring(5)}`;
+
   return modelResponse;
 }
 
