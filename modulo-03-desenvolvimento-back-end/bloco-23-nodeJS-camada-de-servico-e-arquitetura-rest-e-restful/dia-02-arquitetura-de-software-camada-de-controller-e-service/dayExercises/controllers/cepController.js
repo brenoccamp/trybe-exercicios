@@ -4,22 +4,20 @@ const cepController = async (req, res, _next) => {
   try {
     const { cep } = req.params;
     
-    const { error: { code, message } } = await cepService.cepValidation(cep);
+    const response = await cepService.cepValidation(cep);
 
-    console.log(code);
-
-    if (code === 'invalidData') {
-      return res.status(400).json({ message });
+    if (response.status === 400) {
+      return res.status(400).json({ error: { code: "invalidData", message: "CEP inválido" } });
     }
 
-    if (code === 'notFound') {
-      return res.status(404).json({ message: 'teste' });
+    if (response.status === 404) {
+      return res.status(404).json({ error: { code: "notFound", message: "CEP não encontrado" } });
     }
 
-    return res.status(200).json({ message: 'sucesso' });
+    return res.status(200).json(response.queryResponse);
 
   } catch (e) {
-    return e;
+    console.error(e);
   }
 
 
