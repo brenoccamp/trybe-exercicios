@@ -29,7 +29,7 @@ describe('Insert a new movie on DB', () => {
       expect(response).to.be.a('object');
     });
 
-    it('the object has its new movie "id"', async () => {
+    it("the object has the new movie's 'id'", async () => {
       const response = await MovieModels.create(payloadMovie);
 
       expect(response).to.have.a.property('id');
