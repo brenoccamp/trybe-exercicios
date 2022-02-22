@@ -1,9 +1,8 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 
-const MoviesController = {
-  create: () => {},
-};
+const MoviesService = require('../../services/movieService');
+const MoviesController = require('../../controllers/movieController');
 
 describe('Calling create controller', () => {
   describe('when informed payload is not valid', () => {
@@ -15,6 +14,21 @@ describe('Calling create controller', () => {
 
       response.status = sinon.stub().returns(response);
       response.json = sinon.stub().returns();
+
+      /*
+        Perceba que nosso stub também simula os comportamentos do `service`,
+        dessa forma, conseguimos testar o comportamento do controller de
+        maneira isolada.
+
+        Aqui, todos os testes que requisitarem o serviço, devem receber
+        retorno `false`.
+      */
+      sinon.stub(MoviesService, 'create').resolves(false);
+    });
+
+    // Restauraremos a função `create` original após os testes.
+    after(() => {
+      MoviesService.create.restore();
     });
 
     it('is called status with its code 400', async () => {
@@ -35,7 +49,7 @@ describe('Calling create controller', () => {
     const request = {};
 
     before(() => {
-      response.body = {
+      request.body = {
         title: 'Example Movie',
         directedBy: 'Jane Dow',
         releaseYear: 1999,
@@ -43,6 +57,17 @@ describe('Calling create controller', () => {
 
       response.status = sinon.stub().returns(response);
       response.json = sinon.stub().returns();
+
+      /*
+        Aqui, todos os testes que requisitarem o serviço, devem receber
+        retorno `true`.
+      */
+      sinon.stub(MoviesService, 'create').resolves(true);
+    });
+
+    // Restauraremos a função `create` original após os testes.
+    after(() => {
+      MoviesService.create.restore();
     });
 
     it('is called status with its code 201', async () => {
