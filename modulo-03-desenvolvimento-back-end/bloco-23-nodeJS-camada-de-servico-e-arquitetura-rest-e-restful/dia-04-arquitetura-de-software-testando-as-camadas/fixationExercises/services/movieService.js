@@ -10,7 +10,6 @@ const isValid = (title, directedBy, releaseYear) => {
 
 const create = async ({ title, directedBy, releaseYear }) => {
   const isMovieValid = isValid(title, directedBy, releaseYear);
-
   if (!isMovieValid) return false;
 
   const { id } = await MoviesModel.create({ title, directedBy, releaseYear });
