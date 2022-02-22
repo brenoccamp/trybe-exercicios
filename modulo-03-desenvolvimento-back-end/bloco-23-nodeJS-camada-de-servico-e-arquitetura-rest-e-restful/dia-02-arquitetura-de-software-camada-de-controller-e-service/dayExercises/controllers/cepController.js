@@ -1,6 +1,6 @@
 const cepService = require('../services/cepService');
 
-const cepController = async (req, res, next) => {
+const getByCep = async (req, res, next) => {
   try {
     const { cep } = req.params;
 
@@ -14,4 +14,7 @@ const cepController = async (req, res, next) => {
   }
 }
 
-module.exports = cepController;
+module.exports = {
+  getByCep,
+  
+};

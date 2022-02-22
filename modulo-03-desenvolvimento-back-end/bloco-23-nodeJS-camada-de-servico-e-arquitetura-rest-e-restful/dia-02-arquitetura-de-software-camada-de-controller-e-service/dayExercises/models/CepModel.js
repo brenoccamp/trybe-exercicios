@@ -6,7 +6,7 @@ const queryByCep = async (cep) => {
   const [queryResponse] = await connection.execute(query, [cep]);
 
   return {
-    status:200,
+    status: 200,
     message: queryResponse[0],
   };
 }
