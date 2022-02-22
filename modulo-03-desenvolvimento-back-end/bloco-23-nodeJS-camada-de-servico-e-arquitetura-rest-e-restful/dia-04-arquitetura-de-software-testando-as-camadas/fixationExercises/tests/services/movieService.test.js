@@ -1,3 +1,4 @@
+const sinon = require('sinon');
 const { expect } = require('chai');
 
 const MoviesService = require('../../services/movieService');
@@ -30,6 +31,16 @@ describe('Insert a new movie on DB', () => {
       directedBy: 'Jane Dow',
       releaseYear: 1999,
     };
+
+    before(() => {
+      const ID_EXAMPLE = 1;
+
+      sinon.stub(MoviesService, 'create').resolves({ id: ID_EXAMPLE });
+    })
+
+    after(() => {
+      MoviesService.create.restore();
+    });
 
     it('it returns an object', async () => {
       const response = await MoviesService.create(payloadMovie);
