@@ -26,4 +26,24 @@ describe('Insert a new movie on DB', () => {
       expect(response).to.be.equal(false);
     });
   });
+
+  describe('when it is successfully entered', () => {
+    const payloadMovie = {
+      title: 'Example Movie',
+      directedBy: 'Jane Dow',
+      releaseYear: 1999,
+    };
+
+    it('it returns an object', async () => {
+      const response = await MoviesService.create(payloadMovie);
+
+      expect(response).to.be.an('object');
+    });
+
+    it("the returned object has the inserted movie's 'id'", async () => {
+      const response = await MoviesService.create(payloadMovie);
+
+      expect(response).to.have.a.property('id');
+    })
+  });
 });
