@@ -2,7 +2,7 @@ const sinon = require('sinon');
 const { expect } = require('chai');
 
 const connection = require('../../models/connection');
-const MovieModels = require('../../models/movieModel');
+const MoviesModel = require('../../models/movieModel');
 
 describe('Insert a new movie on DB', () => {
   const payloadMovie = {
@@ -24,13 +24,13 @@ describe('Insert a new movie on DB', () => {
 
   describe('when it is successfully entered', () => {
     it('it returns an object', async () => {
-      const response = await MovieModels.create(payloadMovie);
+      const response = await MoviesModel.create(payloadMovie);
 
       expect(response).to.be.a('object');
     });
 
     it("the object has the new movie's 'id'", async () => {
-      const response = await MovieModels.create(payloadMovie);
+      const response = await MoviesModel.create(payloadMovie);
 
       expect(response).to.have.a.property('id');
     });
