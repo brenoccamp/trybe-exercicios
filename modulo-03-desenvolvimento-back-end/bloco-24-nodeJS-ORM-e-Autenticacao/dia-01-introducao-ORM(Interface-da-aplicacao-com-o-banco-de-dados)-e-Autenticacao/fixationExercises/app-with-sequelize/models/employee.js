@@ -1,5 +1,5 @@
 const Employee = (sequelize, DataTypes) => {
-  const Employee = sequelize.define("Employees", {
+  const Employee = sequelize.define("Employee", {
     fullName: DataTypes.STRING,
     email: DataTypes.STRING,
   });
