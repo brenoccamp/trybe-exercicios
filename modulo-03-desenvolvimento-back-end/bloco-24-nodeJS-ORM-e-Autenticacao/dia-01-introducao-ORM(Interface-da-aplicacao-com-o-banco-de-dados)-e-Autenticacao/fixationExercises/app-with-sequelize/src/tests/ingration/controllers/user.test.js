@@ -25,13 +25,13 @@ describe('Get all users', () => {
     it('called User.findAll', async () => {
       await chai.request(app).get('/user');
 
-      expect(User.findAll.calledOne).to.be.equals(true);
+      expect(User.findAll.calledOnce).to.be.equals(true);
     });
 
     it('return status equals 200', async () => {
       const result = await chai.request(app).get('/user');
 
-      expect(result.status).to.be.equals(200);
+      expect(result.status).to.be.equal(200);
     });
 
     it('return is an array', async () => {
@@ -40,7 +40,7 @@ describe('Get all users', () => {
       expect(result.body).to.be.an('array');
     });
 
-    it('the array is empty', () => {
+    it('the array is empty', async () => {
       const result = await chai.request(app).get('/user');
 
       expect(result.body).to.be.empty;
