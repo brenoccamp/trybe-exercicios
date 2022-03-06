@@ -12,4 +12,5 @@ app.use('/user', userController);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
+// Export app const because test needs it
 module.exports = app;
