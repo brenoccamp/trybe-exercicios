@@ -58,9 +58,9 @@ router.delete('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const deleted = await Book.destroy({ where: { id } });
-    console.log(deleted);
-    return res.status(204).json({ message: `Id deleted: ${id}` });
+    await Book.destroy({ where: { id } });
+
+    return res.status(204).end();
   } catch (e) {
     console.error(e.message);
     next(e);
