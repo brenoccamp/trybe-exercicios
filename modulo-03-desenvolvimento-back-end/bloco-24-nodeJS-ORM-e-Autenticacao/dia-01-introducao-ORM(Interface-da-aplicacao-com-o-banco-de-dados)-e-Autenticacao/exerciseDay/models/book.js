@@ -4,6 +4,7 @@ const Book = (sequelize, DataTypes) => {
     author: DataTypes.STRING,
     pageQuantity: DataTypes.INTEGER,
   }, {
+    timestamps: true,
     underscored: true,
     tableName: 'Books',
   });
