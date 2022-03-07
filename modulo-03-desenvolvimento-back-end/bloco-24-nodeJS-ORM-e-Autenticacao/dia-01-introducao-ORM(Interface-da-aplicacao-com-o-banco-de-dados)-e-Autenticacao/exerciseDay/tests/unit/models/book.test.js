@@ -16,6 +16,6 @@ describe('BookModel', () => {
   });
 
   describe('have properties: "title", "author", "pageQuantity"', () => {
-    ["title", "author", "pageQuantity"].forEach(checkPropertyExists(book))
+    ["title", "author", "pageQuantity"].forEach(checkPropertyExists(book));
   });
 });
