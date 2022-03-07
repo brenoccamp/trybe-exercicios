@@ -1,6 +1,5 @@
 const chai = require('chai');
 const { stub } = require('sinon');
-const chatHttp = require('chai-http');
 const chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
