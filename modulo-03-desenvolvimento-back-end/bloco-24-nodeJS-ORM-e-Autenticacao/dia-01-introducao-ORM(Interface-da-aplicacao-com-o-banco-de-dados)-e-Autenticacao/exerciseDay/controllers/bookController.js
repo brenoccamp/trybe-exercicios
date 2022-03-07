@@ -5,7 +5,9 @@ const router = express.Router();
 
 router.get('/', async (_req, res, next) => {
   try {
-    const books = await Book.findAll();
+    const books = await Book.findAll({
+      order: [["title", "ASC"], ["created_at", "ASC"]]
+    });
 
     return res.status(200).json(books);
   } catch (e) {
