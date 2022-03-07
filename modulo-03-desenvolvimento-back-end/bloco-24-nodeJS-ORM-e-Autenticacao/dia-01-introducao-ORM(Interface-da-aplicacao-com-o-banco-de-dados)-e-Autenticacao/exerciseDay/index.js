@@ -15,3 +15,5 @@ app.use('/author', authorController);
 app.use(error);
 
 app.listen(PORT, () => console.log(`Runnig on PORT ${PORT}`));
+
+module.exports = app;
