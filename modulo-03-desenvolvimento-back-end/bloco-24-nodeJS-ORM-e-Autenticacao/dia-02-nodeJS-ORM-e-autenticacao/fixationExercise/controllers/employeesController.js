@@ -1,4 +1,13 @@
 const { employee, address } = require('../models');
+
+// Ferramentas necesárias para utilizar Transações:
+const Sequelize = require('sequelize');
+const config = require('../config/config');
+
+const sequelize = new Sequelize(config.development);
+// As importações acima são necessárias para fazer requisições Atomicas (ACID), onde ou todas as operações são
+// feitas com sucesso, ou caso ocorra algum erro, nenhum operação é realizada.
+
 const listAllEmployees = async (_req, res, next) => {
   try {
     const employees = await employee.findAll({
@@ -34,6 +43,38 @@ const getEmployeeId = async (req, res, next) => {
 
     return res.status(200).json(employeeById);
   } catch (e) {
+    next(e);
+  }
+};
+
+// Exemplo de Unmanaged transactions
+const createNewEmployee = async (req, res, next) => {
+   // Primeiro iniciamos a transação
+  const t = await sequelize.transaction();
+  try {
+    const { firstName, lastName, age, city, street, number } = req.body;
+
+    // Depois executamos as operações
+    const createdEmployee = await employee.create(
+      { firstName, lastName, age },
+      { transaction: t },
+    );
+
+    await address.create(
+      { city, street, number, employeeId: createdEmployee.id },
+      { transaction: t },
+    );
+
+    // Se chegou até essa linha, quer dizer que nenhum erro ocorreu.
+    // Com isso, podemos finalizar a transação usando a função `commit`.
+    await t.commit();
+
+    return res.status(201).json({ message: 'Cadastrado com sucesso' });
+  } catch (e) {
+    // Se entrou nesse bloco é porque alguma operação falhou.
+    // Nesse caso, o sequelize irá reverter as operações anteriores
+    // com a função rollback, não sendo necessário fazer manualmente
+    await t.rollback();
     next(e);
   }
 }

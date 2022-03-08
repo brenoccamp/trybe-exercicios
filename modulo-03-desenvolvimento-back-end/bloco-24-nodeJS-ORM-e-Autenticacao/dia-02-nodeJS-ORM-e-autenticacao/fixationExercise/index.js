@@ -4,6 +4,7 @@ const userBooksRouter = require('./routers/userBooksRouter');
 const error = require('./controllers/error');
 
 const app = express();
+app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
