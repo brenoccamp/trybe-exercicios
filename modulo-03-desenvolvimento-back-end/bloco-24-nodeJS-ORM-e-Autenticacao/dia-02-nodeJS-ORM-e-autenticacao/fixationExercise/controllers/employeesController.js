@@ -4,7 +4,11 @@ const { employee, address } = require('../models');
 const Sequelize = require('sequelize');
 const config = require('../config/config');
 
-const sequelize = new Sequelize(config.development);
+  // Essa linha abaixo será importante para que consigamos isolar nosso teste
+  // utilizando a configuração `test` do seu `config.{js | json}`
+const sequelize = new Sequelize(
+  process.env.NODE_ENV === 'test' ? config.test : config.development
+);
 // As importações acima são necessárias para fazer requisições Atomicas (do tipo Unmanaged Transactions) (ACID), 
 // onde ou todas as operações são feitas com sucesso, ou caso ocorra algum erro, nenhum operação é realizada.
 
@@ -69,7 +73,10 @@ const createNewEmployee = async (req, res, next) => {
     // Com isso, podemos finalizar a transação usando a função `commit`.
     await t.commit();
 
-    return res.status(201).json({ message: 'Cadastrado com sucesso Unmanaged' });
+    return res.status(201).json({
+      id: createdEmployee.id, // esse dado será nossa referência para validar a transação
+      message: 'Cadastrado com sucesso'
+    });
   } catch (e) {
     // Se entrou nesse bloco é porque alguma operação falhou.
     // Nesse caso, o sequelize irá reverter as operações anteriores
@@ -93,7 +100,10 @@ const createManagedEmployee = async (req, res, next) => {
         city, street, number, employeeId: createdEmployee.id
       }, { transaction: t });
 
-      return res.status(201).json({ message: 'Cadastrado com sucesso Managed' });
+      return res.status(201).json({
+        id: createdEmployee.id, // esse dado será nossa referência para validar a transação
+        message: 'Cadastrado com sucesso'
+      });
     });
     // Se chegou até aqui é porque as operações foram concluídas com sucesso,
     // não sendo necessário finalizar a transação manualmente.
