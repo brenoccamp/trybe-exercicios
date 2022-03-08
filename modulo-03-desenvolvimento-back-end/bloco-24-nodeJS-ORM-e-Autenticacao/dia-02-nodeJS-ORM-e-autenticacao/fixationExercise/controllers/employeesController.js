@@ -1,12 +1,12 @@
 const { employee, address } = require('../models');
 
-// Ferramentas necesárias para utilizar Transações:
+// Ferramentas necesárias para utilizar Transações Unmanaged:
 const Sequelize = require('sequelize');
 const config = require('../config/config');
 
 const sequelize = new Sequelize(config.development);
-// As importações acima são necessárias para fazer requisições Atomicas (ACID), onde ou todas as operações são
-// feitas com sucesso, ou caso ocorra algum erro, nenhum operação é realizada.
+// As importações acima são necessárias para fazer requisições Atomicas (do tipo Unmanaged Transactions) (ACID), 
+// onde ou todas as operações são feitas com sucesso, ou caso ocorra algum erro, nenhum operação é realizada.
 
 const listAllEmployees = async (_req, res, next) => {
   try {
@@ -69,7 +69,7 @@ const createNewEmployee = async (req, res, next) => {
     // Com isso, podemos finalizar a transação usando a função `commit`.
     await t.commit();
 
-    return res.status(201).json({ message: 'Cadastrado com sucesso' });
+    return res.status(201).json({ message: 'Cadastrado com sucesso Unmanaged' });
   } catch (e) {
     // Se entrou nesse bloco é porque alguma operação falhou.
     // Nesse caso, o sequelize irá reverter as operações anteriores
@@ -77,9 +77,37 @@ const createNewEmployee = async (req, res, next) => {
     await t.rollback();
     next(e);
   }
-}
+};
+
+// Abaixo tem um exemplo de Managed transactions:
+const createManagedEmployee = async (req, res, next) => {
+  try {
+    const { firstName, lastName, age, city, street, number } = req.body;
+
+    const result = await sequelize.transaction(async (t) => {
+      const createdEmployee = await employee.create({
+        firstName, lastName, age
+      }, { transaction: t });
+
+      await address.create({
+        city, street, number, employeeId: createdEmployee.id
+      }, { transaction: t });
+
+      return res.status(201).json({ message: 'Cadastrado com sucesso Managed' });
+    });
+    // Se chegou até aqui é porque as operações foram concluídas com sucesso,
+    // não sendo necessário finalizar a transação manualmente.
+    // `result` terá o resultado da transação, no caso um empregado e o endereço cadastrado
+  } catch (e) {
+    // Se entrou nesse bloco é porque alguma operação falhou.
+    // Nesse caso, o sequelize irá reverter as operações anteriores com a função rollback, não sendo necessário fazer manualmente
+    next(e);
+  }
+};
 
 module.exports = {
   listAllEmployees,
   getEmployeeId,
+  createNewEmployee,
+  createManagedEmployee,
 }
