@@ -15,7 +15,13 @@ const employee = (sequelize, DataTypes) => {
   });
 
   employee.associate = (models) => {
-    employee.hasOne(models.address, {
+    // employee.hasOne(models.address, {
+    //   foreignKey: 'employee_id', as: 'addresses',
+    // });
+
+    // podemos usar hasMany para indicar que cada employee pode ter vários endereços na tabela address
+    // desse modo, a query irá agrupar os endereços que tem o mesmo employee_id em um array
+    employee.hasMany(models.address, {
       foreignKey: 'employee_id', as: 'addresses',
     });
   };
