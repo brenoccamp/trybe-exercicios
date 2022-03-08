@@ -1,9 +1,9 @@
-{
+module.exports = {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
+    "username": "brenoccamp",
+    "password": 'Senha.123',
+    "database": "exercise-24.2-associations",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
