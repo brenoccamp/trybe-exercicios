@@ -22,7 +22,7 @@ const employee = (sequelize, DataTypes) => {
     // podemos usar hasMany para indicar que cada employee pode ter vários endereços na tabela address
     // desse modo, a query irá agrupar os endereços que tem o mesmo employee_id em um array
     employee.hasMany(models.address, {
-      foreignKey: 'employee_id', as: 'addresses',
+      foreignKey: 'employeeId', as: 'addresses',
     });
   };
 

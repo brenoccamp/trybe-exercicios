@@ -11,7 +11,7 @@ const address = (sequelize, DataTypes) => {
     // A declaração da Foreign Key é opcional no model
     employeeId: {
       type: DataTypes.INTEGER,
-      foreignKey: true,
+      foreignKey: true, // Esta linha não é obrigatória, já que estamos fazendo o associate mais abaixo.
     },
   }, {
     underscored: true,
@@ -21,7 +21,7 @@ const address = (sequelize, DataTypes) => {
 
   address.associate = (models) => {
     address.belongsTo(models.employee, {
-      foreignKey: 'employee_id', as: 'employees',
+      foreignKey: 'employeeId', as: 'employees',
     });
   };
 

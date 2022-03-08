@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up (queryInterface, _Sequelize) {
     await queryInterface.bulkInsert('addresses', [
       {
         city: 'Belo Horizonte',
@@ -31,7 +31,7 @@ module.exports = {
         city: 'Belo Horizonte',
         street: 'Rua Vicente Alvarenga',
         number: 80,
-        employee_id: 1,
+        employee_id: 5,
       },
       {
         city: 'Curitiba',
@@ -42,7 +42,7 @@ module.exports = {
     ], {});
   },
 
-  async down (queryInterface, Sequelize) {
+  async down (queryInterface, _Sequelize) {
     await queryInterface.bulkDelete('addresses', null, {});
   }
 };
