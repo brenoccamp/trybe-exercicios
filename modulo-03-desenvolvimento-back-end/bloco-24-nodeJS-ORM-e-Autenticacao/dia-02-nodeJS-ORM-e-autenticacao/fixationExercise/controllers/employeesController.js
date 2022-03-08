@@ -19,12 +19,17 @@ const getEmployeeId = async (req, res, next) => {
 
     const employeeById = await employee.findOne({
       where: { id },
-      include: [{ model: address, as: 'addresses' }],
+      // include: [{ model: address, as: 'addresses' }],
       // Se não quisermos que algum dado esteja presente no resultado, podemos utilizar a propriedade attributes:
       // include: [{ model: address, as: 'addresses', attributes: { exclude: ['number'] } }],
     });
 
     if (!employeeById) return res.status(404).json({ message: 'Employee not found' });
+
+    if (req.query.includeAddresses === 'true') {
+      const addresses = await address.findAll({ where: { employeeId: id } });
+      return res.status(200).json({ employee: employeeById, addresses});
+    }
 
     return res.status(200).json(employeeById);
   } catch (e) {
