@@ -75,7 +75,7 @@ const createNewEmployee = async (req, res, next) => {
 
     return res.status(201).json({
       id: createdEmployee.id, // esse dado será nossa referência para validar a transação
-      message: 'Cadastrado com sucesso'
+      message: 'Cadastrado com sucesso Unmanaged Transaction'
     });
   } catch (e) {
     // Se entrou nesse bloco é porque alguma operação falhou.
@@ -102,7 +102,7 @@ const createManagedEmployee = async (req, res, next) => {
 
       return res.status(201).json({
         id: createdEmployee.id, // esse dado será nossa referência para validar a transação
-        message: 'Cadastrado com sucesso'
+        message: 'Cadastrado com sucesso Managed Transaction'
       });
     });
     // Se chegou até aqui é porque as operações foram concluídas com sucesso,

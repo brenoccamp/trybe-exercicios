@@ -9,7 +9,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
 app.use('/employees', employeesRouter);
-app.use('/usersbooks', userBooksRouter);
+app.use('/userbooks', userBooksRouter);
 
 app.use(error);
 
