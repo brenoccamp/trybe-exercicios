@@ -5,7 +5,7 @@ const User = (sequelize, DataTypes) => {
     lastName: DataTypes.STRING,
     age: DataTypes.INTEGER,
   }, {
-    timestapms: false,
+    timestamps: false,
     tableName: 'Users',
     underscored: true,
   });

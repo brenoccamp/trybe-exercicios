@@ -1,5 +1,6 @@
 const express = require('express');
 const employeesRouter = require('./routers/employeesRouter');
+const userBooksRouter = require('./routers/userBooksRouter');
 const error = require('./controllers/error');
 
 const app = express();
@@ -7,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use('/employees', employeesRouter);
+app.use('/usersbooks', userBooksRouter);
 
 app.use(error);
 
