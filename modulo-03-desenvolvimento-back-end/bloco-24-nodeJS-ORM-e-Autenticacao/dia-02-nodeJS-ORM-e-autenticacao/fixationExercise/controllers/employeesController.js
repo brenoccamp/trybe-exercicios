@@ -2,7 +2,9 @@ const { employee, address } = require('../models');
 const listAllEmployees = async (_req, res, next) => {
   try {
     const employees = await employee.findAll({
-      include: [{ model: address, as: 'addresses' , attributes: { exclude: ['employeeId'] } }],
+      include: { model: address, as: 'addresses' },
+      // Usando a propriedade attributes para excluir um dado do resultado da query
+      // include: [{ model: address, as: 'addresses' , attributes: { exclude: ['employee_id'] } }],
     });
 
     return res.status(200).json(employees);
