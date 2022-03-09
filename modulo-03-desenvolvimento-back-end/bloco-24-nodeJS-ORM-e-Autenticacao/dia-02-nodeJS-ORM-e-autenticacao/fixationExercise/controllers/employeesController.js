@@ -40,7 +40,7 @@ const getEmployeeId = async (req, res, next) => {
     if (!employeeById) return res.status(404).json({ message: 'Employee not found' });
 
     // Lazy Loading
-    if (req.query.includeAddresses === 'true') {
+    if (req.query.includeAddresses) {
       const addresses = await address.findAll({ where: { employeeId: id } });
       return res.status(200).json({ employee: employeeById, addresses});
     }

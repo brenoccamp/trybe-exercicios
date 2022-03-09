@@ -36,7 +36,8 @@ describe('Rota POST /employees', () => {
         const { body : { id } } = postEmployee;
 
         getEmployee = await chai.request(app)
-          .get(`/employees/${id}`);
+          .get(`/employees/${id}`)
+          // .query({ includeAdresses: true });
       } catch (error) {
         console.error(error.message);
       }
@@ -67,11 +68,11 @@ describe('Rota POST /employees', () => {
       expect(postId).to.be.equals(getId);
     });
 
-    // it('essa consulta também retornou um atributo `addresses`, com pelo menos um item', async () => {
-    //   const { body: { addresses } } = getEmployee;
+    it('essa consulta também retornou um atributo `addresses`, com pelo menos um item', async () => {
+      const { body: { addresses } } = getEmployee;
 
-    //   expect(addresses.length).to.be.greaterThanOrEqual(1);
-    // });
+      expect(addresses.length).to.be.greaterThanOrEqual(1);
+    });
   });
 
   describe('quando os dados do `body` não são válidos', () => {
