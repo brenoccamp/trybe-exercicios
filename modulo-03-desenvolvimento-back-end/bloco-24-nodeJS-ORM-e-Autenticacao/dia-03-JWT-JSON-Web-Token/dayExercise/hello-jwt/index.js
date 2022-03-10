@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const loginRouter = require('./routers/loginRouter');
 const usersRouter = require('./routers/usersRouter');
 const topSecretRouter = require('./routers/topSecretRouter');
+const sigupRouter = require('./routers/signupRouter');
 
 const { PORT } = process.env;
 
@@ -29,6 +30,7 @@ app.get('/ping', controllers.ping);
 app.use('/login', loginRouter);
 app.use('/users', usersRouter);
 app.use('/top-secret', topSecretRouter);
+app.use('/signup', sigupRouter);
 
 app.use(middlewares.error);
 
