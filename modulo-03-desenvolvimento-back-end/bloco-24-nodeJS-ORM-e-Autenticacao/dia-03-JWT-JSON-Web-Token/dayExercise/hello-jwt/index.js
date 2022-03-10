@@ -2,7 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const loginRouter = require('./routers/loginRouter');
 const usersRouter = require('./routers/usersRouter');
+const topSecretRouter = require('./routers/topSecretRouter');
 
 const { PORT } = process.env;
 
@@ -24,7 +26,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/ping', controllers.ping);
 
-app.use('/login', usersRouter);
+app.use('/login', loginRouter);
+app.use('/users', usersRouter);
+app.use('/top-secret', topSecretRouter);
 
 app.use(middlewares.error);
 

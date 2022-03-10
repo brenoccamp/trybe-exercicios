@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const { secret } = process.env;
 
-const userLogin = (req, res, next) => {
+const login = (req, res, next) => {
   try {
     const { username, password } = req.body;
 
@@ -16,7 +16,7 @@ const userLogin = (req, res, next) => {
     }
 
     const admin = username === 'admin' && password === 's3nh4S3gur4???';
-    console.log(admin);
+    // console.log(admin);
     const jwtConfig = {
       expiresIn: '1h',
       algorithm: 'HS256',
@@ -24,12 +24,13 @@ const userLogin = (req, res, next) => {
 
     const token = jwt.sign({ username, admin }, secret, jwtConfig);
 
+    // const decoded = jwt.verify(token, secret);
+    // console.log(decoded);
+
     return res.status(200).json({ token });
   } catch (err) {
     next(err);
   }
 };
 
-module.exports = {
-  userLogin,
-};
+module.exports = login;

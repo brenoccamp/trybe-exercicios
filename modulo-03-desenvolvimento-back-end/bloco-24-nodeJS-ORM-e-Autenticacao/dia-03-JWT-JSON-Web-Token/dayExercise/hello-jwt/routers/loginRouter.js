@@ -4,6 +4,10 @@ const middlewares = require('../middlewares');
 
 const router = express.Router();
 
-router.get('/me', middlewares.auth, controllers.listUsers);
+router.post(
+  '/',
+  middlewares.loginValidation,
+  controllers.login,
+);
 
 module.exports = router;
