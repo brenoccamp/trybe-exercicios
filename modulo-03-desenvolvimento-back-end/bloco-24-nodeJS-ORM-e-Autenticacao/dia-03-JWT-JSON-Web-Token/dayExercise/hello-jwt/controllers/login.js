@@ -1,33 +1,20 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
+const { findOne } = require('../models/User');
 
 const { secret } = process.env;
 
-const login = (req, res, next) => {
+const login = async (req, res, next) => {
   try {
-    const { username, password } = req.body;
+    const { authorization: token } = req.headers;
 
-    if (username === 'admin' && password !== 's3nh4S3gur4???') {
-      const err = new Error('Invalid username or password');
+    if (!token) return res.status(422).json({ message: 'Need token to log in' });
 
-      err.statusCode = 401;
+    const decoded = jwt.verify(token, secret);
 
-      return next(err);
-    }
+    const { password, ...foundUserWithoutPass } = await findOne(decoded.username);
 
-    const admin = username === 'admin' && password === 's3nh4S3gur4???';
-    // console.log(admin);
-    const jwtConfig = {
-      expiresIn: '1h',
-      algorithm: 'HS256',
-    };
-
-    const token = jwt.sign({ username, admin }, secret, jwtConfig);
-
-    // const decoded = jwt.verify(token, secret);
-    // console.log(decoded);
-
-    return res.status(200).json({ token });
+    return res.status(200).json({ message: 'Success Log in', data: foundUserWithoutPass });
   } catch (err) {
     next(err);
   }

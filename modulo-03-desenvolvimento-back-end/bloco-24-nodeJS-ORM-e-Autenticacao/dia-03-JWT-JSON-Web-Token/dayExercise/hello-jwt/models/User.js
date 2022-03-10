@@ -11,7 +11,7 @@ const writeAll = async (content) => {
 
 const findOne = async (username) => {
   const users = await getAll();
-  console.log(users);
+  // console.log(users);
   return users.find((user) => user.username === username);
 };
 
