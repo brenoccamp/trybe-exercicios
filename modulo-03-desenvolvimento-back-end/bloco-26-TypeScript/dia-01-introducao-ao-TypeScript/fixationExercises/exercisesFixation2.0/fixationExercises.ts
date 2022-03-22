@@ -25,3 +25,15 @@ export function square(side: number): number {
 export function rectangle(base: number, height: number): number {
   return base * height;
 }
+
+export function lozenge(D: number, d: number): number {
+  return (D * d) / 2;
+}
+
+export function trapeze(height: number, B: number, b: number): number {
+  return ((B + b) * height) / 2;
+}
+
+export function circleArea(r: number, pi: number = 3.14): number {
+  return (r ** 2) * pi;
+}
