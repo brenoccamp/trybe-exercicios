@@ -10,5 +10,5 @@ function convert(value, baseUnity, conversionUnity) {
     var baseIndex = units.indexOf(baseUnity);
     var conversionIndex = units.indexOf(conversionUnity);
     var expoent = (conversionIndex - baseIndex);
-    return value * (10 ^ expoent);
+    return value * Math.pow(10, expoent);
 }

@@ -12,5 +12,5 @@ function convert(value: number, baseUnity: string, conversionUnity: string): num
   const conversionIndex = units.indexOf(conversionUnity);
   const expoent = (conversionIndex - baseIndex);
 
-  return value * (10^expoent);
+  return value * Math.pow(10, expoent);
 }
