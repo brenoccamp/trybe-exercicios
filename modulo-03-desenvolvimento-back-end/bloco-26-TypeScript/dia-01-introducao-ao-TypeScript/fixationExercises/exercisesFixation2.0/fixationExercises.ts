@@ -1,12 +1,12 @@
-export function greeter(name: string) {
+export function greeter(name: string): string {
   return `Hello ${name}!`;
 }
 
-export function personAge(name: string, age: number) {
+export function personAge(name: string, age: number): string {
   return `${name} has ${age} years old!`;
 }
 
-export function add(x: number, y: number) {
+export function add(x: number, y: number): number {
   return x + y;
 }
 
