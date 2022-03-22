@@ -1,0 +1,11 @@
+{
+  "name": "my-ts-scripts",
+  "version": "1.0.0",
+  "description": "exercises of day 26.1 - 2022/03/22",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
