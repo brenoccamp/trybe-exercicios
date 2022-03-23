@@ -1,3 +1,5 @@
+const readlineSync = require('readline-sync');
+
 const units = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
 
 function makeError(unity: string): string {
@@ -14,3 +16,15 @@ function convert(value: number, baseUnity: string, conversionUnity: string): num
 
   return value * Math.pow(10, expoent);
 }
+
+function exec(): string {
+  const value = readlineSync.question('Type a value to convert: ');
+  const baseUnity = readlineSync.question('Type the base unity: ');
+  const conversionUnity = readlineSync.question('Type the conversion unity: ');
+
+  const convertedValue = convert(value, baseUnity, conversionUnity);
+
+  return `${value}${baseUnity} é igual a ${convertedValue}${conversionUnity}`;
+}
+
+console.log(exec());
