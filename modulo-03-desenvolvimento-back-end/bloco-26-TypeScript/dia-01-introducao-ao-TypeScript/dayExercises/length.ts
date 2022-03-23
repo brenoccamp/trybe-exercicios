@@ -1,6 +1,6 @@
 const units = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
 
-function makeError(unity: string) {
+function makeError(unity: string): string {
   throw new Error(`A unidade ${unity} não é uma unidade válida.`);
 }
 

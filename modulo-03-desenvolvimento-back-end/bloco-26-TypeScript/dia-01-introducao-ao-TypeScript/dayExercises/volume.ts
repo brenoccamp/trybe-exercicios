@@ -1,7 +1,7 @@
-const units = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
+const units = ['km³', 'hm³', 'dam³', 'm³', 'dm³', 'cm³', 'mm³'];
 
 function makeError(unity: string): string {
-  throw new Error(`A unidade ${unity} não é uma unidade váida!`);
+  throw new Error(`A unidade ${unity} não é uma unidade valida!`);
 }
 
 function convert(value: number, baseUnity: string, conversionUnity: string): number {
