@@ -18,15 +18,15 @@ function convert(units: string[], value: number, baseUnity: string, conversionUn
 function exec(units: string[]) {
   const value = readline.questionFloat('Type a value to convert: \n');
 
-  const baseUnity = readline.question('Type the base unity: ', { cancel: 'EXIT' });
-  if (Number(baseUnity) === -1) return console.log('Exiting');
+  const baseUnity = readline.keyInSelect(units, 'Type the base unity: ', { cancel: 'SAIR' });
+  if ((baseUnity) === -1) return console.log('Saindo!');
 
-  const conversionUnity = readline.question('Type the conversion unity: ', { cancel: 'EXIT' });
-  if (Number(conversionUnity) === -1) return console.log('Exiting');
+  const conversionUnity = readline.keyInSelect(units, 'Type the conversion unity: ', { cancel: 'SAIR' });
+  if (conversionUnity === -1) return console.log('Saindo!');
 
-  const convertedValue = convert(units, value, baseUnity, conversionUnity);
+  const convertedValue = convert(units, value, units[baseUnity], units[conversionUnity]);
 
-  const message = `${value}${baseUnity} é igual a ${convertedValue}${conversionUnity}`;
+  const message = `${value}${units[baseUnity]} é igual a ${convertedValue}${units[conversionUnity]}`;
   console.log(message);
 }
 

@@ -16,14 +16,14 @@ function convert(units, value, baseUnity, conversionUnity) {
 }
 function exec(units) {
     var value = readline.questionFloat('Type a value to convert: \n');
-    var baseUnity = readline.question('Type the base unity: ', { cancel: 'EXIT' });
-    if (Number(baseUnity) === -1)
-        return console.log('Exiting');
-    var conversionUnity = readline.question('Type the conversion unity: ', { cancel: 'EXIT' });
-    if (Number(conversionUnity) === -1)
-        return console.log('Exiting');
-    var convertedValue = convert(units, value, baseUnity, conversionUnity);
-    var message = "".concat(value).concat(baseUnity, " \u00E9 igual a ").concat(convertedValue).concat(conversionUnity);
+    var baseUnity = readline.keyInSelect(units, 'Type the base unity: ', { cancel: 'SAIR' });
+    if ((baseUnity) === -1)
+        return console.log('Saindo!');
+    var conversionUnity = readline.keyInSelect(units, 'Type the conversion unity: ', { cancel: 'SAIR' });
+    if (conversionUnity === -1)
+        return console.log('Saindo!');
+    var convertedValue = convert(units, value, units[baseUnity], units[conversionUnity]);
+    var message = "".concat(value).concat(units[baseUnity], " \u00E9 igual a ").concat(convertedValue).concat(units[conversionUnity]);
     console.log(message);
 }
 exports["default"] = {
