@@ -18,7 +18,7 @@ function convert(value: number, baseUnity: string, conversionUnity: string): num
 }
 
 function exec(): string {
-  const value = readlineSync.question('Type a value to convert: ');
+  const value = readlineSync.questionFloat('Type a value to convert: ');
   const baseUnity = readlineSync.question('Type the base unity: ');
   const conversionUnity = readlineSync.question('Type the conversion unity: ');
 
