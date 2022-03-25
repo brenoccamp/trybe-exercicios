@@ -1,12 +1,12 @@
-import mysql from 'mysql2/promise';
+import * as mysql from 'mysql2/promise';
 
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 
-const { DB_HOSTNAME, DB_USER, DB_PASSWORD, DB_DATABASE} = dotenv.config().process.env;
+dotenv.config();
 
 export default mysql.createPool({
-  host:DB_HOSTNAME,
-  user:DB_USER,
-  password:DB_PASSWORD,
-  database:DB_DATABASE,
+  host:process.env.DB_HOSTNAME,
+  user:process.env.DB_USER,
+  password:process.env.DB_PASSWORD,
+  database:process.env.DB_DATABASE,
 });
