@@ -13,10 +13,10 @@ export default class Car {
     this._doors = doors;
   }
 
-  validateDoors(door: Doors): boolean|string {
-    if (Object.values(Doors).includes(door)) return true;
-    throw new Error('Porta inválida');
-  }
+  // validateDoors(door: Doors): boolean|string {
+  //   if (Object.values(Doors).includes(door)) return true;
+  //   throw new Error('Porta inválida');
+  // }
 
   honk(): void {
     console.log('Buzinando: BIP BIP');
