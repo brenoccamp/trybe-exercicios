@@ -17,4 +17,5 @@ const BooksController_1 = __importDefault(require("../controllers/BooksControlle
 const router = (0, express_1.Router)();
 const booksController = new BooksController_1.default();
 router.get('/books', (req, res) => __awaiter(void 0, void 0, void 0, function* () { return booksController.getAll(req, res); }));
+router.get('/books/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () { return booksController.getById(req, res); }));
 exports.default = router;

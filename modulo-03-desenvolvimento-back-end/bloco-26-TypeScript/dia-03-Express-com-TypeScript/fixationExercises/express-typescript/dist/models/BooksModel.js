@@ -27,5 +27,11 @@ class BookModel {
             return Object.assign({ id: insertId }, book);
         });
     }
+    getById(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const [[result]] = yield this.connection.execute('SELECT * FROM books WHERE id = ?', [id]);
+            return result;
+        });
+    }
 }
 exports.default = BookModel;

@@ -18,4 +18,11 @@ export default class BooksController {
 
     return res.status(StatusCodes.OK).json(book);
   }
+
+  public async create(req: Request, res: Response): Promise<Response> {
+    const book = req.body;
+
+    const bookCreated = await this.bookService.create(book);
+    return res.status(StatusCodes.CREATED).json(bookCreated);
+  }
 }

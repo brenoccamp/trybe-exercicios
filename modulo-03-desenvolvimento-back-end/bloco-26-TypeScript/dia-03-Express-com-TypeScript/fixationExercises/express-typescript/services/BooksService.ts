@@ -18,4 +18,8 @@ export default class BookService {
     const book = await this.model.getById(id);
     return book;
   }
+
+  public async create(book: Book): Promise<Book> {
+    return await this.model.create(book);
+  }
 }
