@@ -36,10 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
+var readline = require("readline-sync");
 var Book_1 = require("./models/Book");
 var connection_1 = require("./models/connection");
 var main = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var bookModel, books;
+    var bookModel, books, title, price, author, isbn, newBook, createdBook;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -48,6 +49,15 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
             case 1:
                 books = _a.sent();
                 console.log(books);
+                title = readline.question('Digite o título do livro: \n');
+                price = readline.questionFloat('Digite o preço do livro: \n');
+                author = readline.question('Digite o autor do livro: \n');
+                isbn = readline.question('Digite o isbn do livro: \n');
+                newBook = { title: title, price: price, author: author, isbn: isbn };
+                return [4 /*yield*/, bookModel.create(newBook)];
+            case 2:
+                createdBook = _a.sent();
+                console.log(createdBook);
                 return [2 /*return*/];
         }
     });

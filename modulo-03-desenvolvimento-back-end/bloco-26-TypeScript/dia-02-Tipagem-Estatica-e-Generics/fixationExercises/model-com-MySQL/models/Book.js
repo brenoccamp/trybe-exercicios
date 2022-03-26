@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,11 +47,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var Book = /** @class */ (function () {
-    function Book(connection) {
+var BookModel = /** @class */ (function () {
+    function BookModel(connection) {
         this.connection = connection;
     }
-    Book.prototype.getAll = function () {
+    BookModel.prototype.getAll = function () {
         return __awaiter(this, void 0, void 0, function () {
             var result;
             return __generator(this, function (_a) {
@@ -53,6 +64,22 @@ var Book = /** @class */ (function () {
             });
         });
     };
-    return Book;
+    BookModel.prototype.create = function (book) {
+        return __awaiter(this, void 0, void 0, function () {
+            var title, price, author, isbn, result, insertId;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        title = book.title, price = book.price, author = book.author, isbn = book.isbn;
+                        return [4 /*yield*/, this.connection.execute('INSERT INTO books (title, price, author, isbn) VALUES (?, ?, ?, ?);', [title, price, author, isbn])];
+                    case 1:
+                        result = (_a.sent())[0];
+                        insertId = result.insertId;
+                        return [2 /*return*/, __assign({ id: insertId }, book)];
+                }
+            });
+        });
+    };
+    return BookModel;
 }());
-exports["default"] = Book;
+exports["default"] = BookModel;
