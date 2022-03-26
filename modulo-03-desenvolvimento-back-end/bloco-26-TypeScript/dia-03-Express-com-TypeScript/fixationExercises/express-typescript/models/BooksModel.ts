@@ -9,7 +9,7 @@ export default class BookModel {
   }
 
   public async getAll(): Promise<Book[]> {
-    const [result] = await this.connection.execute('SELET * FROM books');
+    const [result] = await this.connection.execute('SELECT * FROM books');
     return result as Book[];
   }
 
