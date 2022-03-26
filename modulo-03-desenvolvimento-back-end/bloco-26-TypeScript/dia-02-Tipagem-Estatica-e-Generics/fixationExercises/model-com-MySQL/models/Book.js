@@ -36,20 +36,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var Book_1 = require("./models/Book");
-var connection_1 = require("./models/connection");
-var main = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var bookModel, books;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                bookModel = new Book_1["default"](connection_1["default"]);
-                return [4 /*yield*/, bookModel.getAll()];
-            case 1:
-                books = _a.sent();
-                console.log(books);
-                return [2 /*return*/];
-        }
-    });
-}); };
-main();
+var Book = /** @class */ (function () {
+    function Book(connection) {
+        this.connection = connection;
+    }
+    Book.prototype.getAll = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.connection.execute('SELECT * FROM books')];
+                    case 1:
+                        result = (_a.sent())[0];
+                        return [2 /*return*/, result];
+                }
+            });
+        });
+    };
+    return Book;
+}());
+exports["default"] = Book;
