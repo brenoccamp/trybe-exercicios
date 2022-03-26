@@ -1,6 +1,6 @@
 import connection from '../models/connection';
-import BookModel from '../models/BookModel';
-import Book from '../interfaces/bookInterface';
+import BookModel from '../models/BooksModel';
+import Book from '../interfaces/BooksInterface';
 
 export default class BookService {
   public model: BookModel;

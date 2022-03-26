@@ -1,5 +1,5 @@
 import { Pool, ResultSetHeader } from 'mysql2/promise';
-import Book from '../interfaces/bookInterface';
+import Book from '../interfaces/BooksInterface';
 
 export default class BookModel {
   public connection: Pool;
