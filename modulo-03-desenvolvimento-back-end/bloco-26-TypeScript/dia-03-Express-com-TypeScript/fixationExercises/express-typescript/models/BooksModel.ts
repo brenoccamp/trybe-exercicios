@@ -1,4 +1,4 @@
-import { Pool, ResultSetHeader } from 'mysql2/promise';
+import { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import Book from '../interfaces/BooksInterface';
 
 export default class BookModel {
@@ -22,5 +22,11 @@ export default class BookModel {
 
     const { insertId } = result;
     return { id: insertId, ...book };
+  }
+
+  public async getById(id: number): Promise<Book> {
+    const [[result]] = await this.connection.execute<RowDataPacket[]>('SELECT * FROM books WHERE id = ?', [id]);
+
+    return result as Book;
   }
 }
