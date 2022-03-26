@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import BooksController from '../controllers/BooksController';
+import validationBook from '../middlewares/BooksMiddleware';
 
 const router = Router();
 
@@ -13,6 +14,13 @@ router.get(
 router.get(
   '/books/:id',
   async (req, res) => booksController.getById(req, res),
-)
+);
+
+router.post(
+  '/books',
+  async (req, res, next) => {
+    validationBook(req, res, next);
+    booksController.create(req, res);
+});
 
 export default router;
