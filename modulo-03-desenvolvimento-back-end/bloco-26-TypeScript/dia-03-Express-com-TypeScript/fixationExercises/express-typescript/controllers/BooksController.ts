@@ -9,4 +9,13 @@ export default class BooksController {
     const books = await this.bookService.getAll();
     return res.status(StatusCodes.OK).json(books);
   }
+
+  public async getById(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const book = await this.bookService.getById(+id);
+
+    if (!book) return res.status(StatusCodes.NOT_FOUND).json({ message: 'Book not found' });
+
+    return res.status(StatusCodes.OK).json(book);
+  }
 }

@@ -10,4 +10,9 @@ router.get(
   async (req, res) => booksController.getAll(req, res),
 );
 
+router.get(
+  '/books/:id',
+  async (req, res) => booksController.getById(req, res),
+)
+
 export default router;
