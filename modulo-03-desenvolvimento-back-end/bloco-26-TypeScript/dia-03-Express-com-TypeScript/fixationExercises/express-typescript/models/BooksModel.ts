@@ -29,4 +29,12 @@ export default class BookModel {
 
     return result as Book;
   }
+
+  public async update(id: number, book: Book): Promise<void> {
+    const { title, price, author, isbn } = book;
+    await this.connection.execute<ResultSetHeader>(
+      'UPDATE books SET title=?, price=?, author=?, isbn=? WHERE id=?',
+      [title, price, author, isbn]
+    );
+  }
 }
