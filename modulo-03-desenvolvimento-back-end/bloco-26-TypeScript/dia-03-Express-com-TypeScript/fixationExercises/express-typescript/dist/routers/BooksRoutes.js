@@ -14,8 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const BooksController_1 = __importDefault(require("../controllers/BooksController"));
+const BooksMiddleware_1 = __importDefault(require("../middlewares/BooksMiddleware"));
 const router = (0, express_1.Router)();
 const booksController = new BooksController_1.default();
 router.get('/books', (req, res) => __awaiter(void 0, void 0, void 0, function* () { return booksController.getAll(req, res); }));
 router.get('/books/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () { return booksController.getById(req, res); }));
+router.post('/books', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    yield (0, BooksMiddleware_1.default)(req, res, next);
+    yield booksController.create(req, res, next);
+}));
 exports.default = router;

@@ -20,6 +20,7 @@ export default class BookService {
   }
 
   public async create(book: Book): Promise<Book> {
-    return await this.model.create(book);
+    const newBook = await this.model.create(book);
+    return newBook;
   }
 }

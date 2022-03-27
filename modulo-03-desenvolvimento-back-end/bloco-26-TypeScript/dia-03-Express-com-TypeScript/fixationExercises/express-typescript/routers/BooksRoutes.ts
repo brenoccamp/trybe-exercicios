@@ -18,9 +18,8 @@ router.get(
 
 router.post(
   '/books',
-  async (req, res, next) => {
-    validationBook(req, res, next);
-    booksController.create(req, res);
-});
+  validationBook,
+  async (req, res, next) => booksController.create(req, res, next),
+);
 
 export default router;

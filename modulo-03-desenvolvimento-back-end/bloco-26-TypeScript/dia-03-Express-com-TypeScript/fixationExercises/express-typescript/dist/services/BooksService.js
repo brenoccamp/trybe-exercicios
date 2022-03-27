@@ -30,5 +30,11 @@ class BookService {
             return book;
         });
     }
+    create(book) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const newBook = yield this.model.create(book);
+            return newBook;
+        });
+    }
 }
 exports.default = BookService;

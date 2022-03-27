@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import BookService from '../services/BooksService';
 
@@ -19,10 +19,10 @@ export default class BooksController {
     return res.status(StatusCodes.OK).json(book);
   }
 
-  public async create(req: Request, res: Response): Promise<Response> {
+  public async create (req: Request, res: Response, _next: NextFunction): Promise<Response> {
     const book = req.body;
-
     const bookCreated = await this.bookService.create(book);
+
     return res.status(StatusCodes.CREATED).json(bookCreated);
   }
 }

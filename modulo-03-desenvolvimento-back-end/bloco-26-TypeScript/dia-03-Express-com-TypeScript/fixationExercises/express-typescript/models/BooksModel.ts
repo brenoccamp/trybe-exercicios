@@ -14,11 +14,11 @@ export default class BookModel {
   }
 
   public async create(book: Book): Promise<Book> {
-    const { title, author, price, isbn } = book;
+    const { title, price, author, isbn } = book;
     const [result] = await this.connection.execute<ResultSetHeader>(
       'INSERT INTO books (title, price, author, isbn) VALUES (?, ?, ?, ?)',
-      [title, author, price, isbn]
-    );
+      [title, price, author, isbn]
+      );
 
     const { insertId } = result;
     return { id: insertId, ...book };

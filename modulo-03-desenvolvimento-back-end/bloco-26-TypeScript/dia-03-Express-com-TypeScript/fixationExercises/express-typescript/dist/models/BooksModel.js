@@ -21,8 +21,9 @@ class BookModel {
     }
     create(book) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { title, author, price, isbn } = book;
-            const [result] = yield this.connection.execute('INSERT INTO books (title, price, author, isbn) VALUES (?, ?, ?, ?)', [title, author, price, isbn]);
+            const { title, price, author, isbn } = book;
+            const [result] = yield this.connection.execute('INSERT INTO books (title, price, author, isbn) VALUES (?, ?, ?, ?)', [title, price, author, isbn]);
+            console.log('model', book);
             const { insertId } = result;
             return Object.assign({ id: insertId }, book);
         });
