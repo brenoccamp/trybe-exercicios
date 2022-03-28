@@ -13,4 +13,9 @@ export default class UserService {
     const users = await this.model.getAll();
     return users;
   }
+
+  public async getById(id: number): Promise<User> {
+    const user = await this.model.getById(id);
+    return user;
+  }
 }
