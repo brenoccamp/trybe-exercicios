@@ -19,8 +19,6 @@ const router = (0, express_1.Router)();
 const booksController = new BooksController_1.default();
 router.get('/books', (req, res) => __awaiter(void 0, void 0, void 0, function* () { return booksController.getAll(req, res); }));
 router.get('/books/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () { return booksController.getById(req, res); }));
-router.post('/books', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    yield (0, BooksMiddleware_1.default)(req, res, next);
-    yield booksController.create(req, res, next);
-}));
+router.post('/books', BooksMiddleware_1.default, (req, res, next) => __awaiter(void 0, void 0, void 0, function* () { return booksController.create(req, res, next); }));
+router.put('/books/:id', BooksMiddleware_1.default, (req, res) => __awaiter(void 0, void 0, void 0, function* () { return booksController.update(req, res); }));
 exports.default = router;

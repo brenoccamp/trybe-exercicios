@@ -17,12 +17,6 @@ const BooksService_1 = __importDefault(require("../services/BooksService"));
 class BooksController {
     constructor(bookService = new BooksService_1.default()) {
         this.bookService = bookService;
-        this.create = (req, res, _next) => __awaiter(this, void 0, void 0, function* () {
-            const book = req.body;
-            const bookCreated = yield this.bookService.create(book);
-            console.log('controller 1', book);
-            return res.status(http_status_codes_1.StatusCodes.CREATED).json(bookCreated);
-        });
     }
     getAll(_req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -37,6 +31,22 @@ class BooksController {
             if (!book)
                 return res.status(http_status_codes_1.StatusCodes.NOT_FOUND).json({ message: 'Book not found' });
             return res.status(http_status_codes_1.StatusCodes.OK).json(book);
+        });
+    }
+    create(req, res, _next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const book = req.body;
+            const bookCreated = yield this.bookService.create(book);
+            return res.status(http_status_codes_1.StatusCodes.CREATED).json(bookCreated);
+        });
+    }
+    update(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = Number(req.params.id);
+            const book = req.body;
+            console.log(book);
+            yield this.bookService.update(id, book);
+            return res.status(http_status_codes_1.StatusCodes.NO_CONTENT).end();
         });
     }
 }

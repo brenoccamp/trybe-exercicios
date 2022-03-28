@@ -25,4 +25,13 @@ export default class BooksController {
 
     return res.status(StatusCodes.CREATED).json(bookCreated);
   }
+
+  public async update (req: Request, res: Response): Promise<Response> {
+    const id = Number(req.params.id);
+    const book = req.body;
+    console.log(book);
+    await this.bookService.update(id, book);
+
+    return res.status(StatusCodes.NO_CONTENT).end();
+  }
 }

@@ -1,6 +1,7 @@
 import connection from '../models/connection';
 import BookModel from '../models/BooksModel';
 import Book from '../interfaces/BooksInterface';
+import { NotFoundError } from 'restify-errors';
 
 export default class BookService {
   public model: BookModel;
@@ -22,5 +23,13 @@ export default class BookService {
   public async create(book: Book): Promise<Book> {
     const newBook = await this.model.create(book);
     return newBook;
+  }
+
+  public async update(id: number, book: Book): Promise<void> {
+    const bookFound = await this.model.getById(id);
+
+    if (!bookFound) throw new Error('NotFoundError');
+
+    return this.model.update(id, book);
   }
 }

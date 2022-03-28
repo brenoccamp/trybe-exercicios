@@ -36,5 +36,13 @@ class BookService {
             return newBook;
         });
     }
+    update(id, book) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const bookFound = yield this.model.getById(id);
+            if (!bookFound)
+                throw new Error('NotFoundError');
+            return this.model.update(id, book);
+        });
+    }
 }
 exports.default = BookService;

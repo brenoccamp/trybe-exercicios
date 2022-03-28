@@ -22,4 +22,10 @@ router.post(
   async (req, res, next) => booksController.create(req, res, next),
 );
 
+router.put(
+  '/books/:id',
+  validationBook,
+  async (req, res) => booksController.update(req, res),
+);
+
 export default router;

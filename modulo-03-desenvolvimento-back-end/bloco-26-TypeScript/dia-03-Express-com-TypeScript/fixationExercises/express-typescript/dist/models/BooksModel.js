@@ -23,7 +23,6 @@ class BookModel {
         return __awaiter(this, void 0, void 0, function* () {
             const { title, price, author, isbn } = book;
             const [result] = yield this.connection.execute('INSERT INTO books (title, price, author, isbn) VALUES (?, ?, ?, ?)', [title, price, author, isbn]);
-            console.log('model', book);
             const { insertId } = result;
             return Object.assign({ id: insertId }, book);
         });
@@ -32,6 +31,13 @@ class BookModel {
         return __awaiter(this, void 0, void 0, function* () {
             const [[result]] = yield this.connection.execute('SELECT * FROM books WHERE id = ?', [id]);
             return result;
+        });
+    }
+    update(id, book) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { title, price, author, isbn } = book;
+            yield this.connection.execute('UPDATE books SET title=?, price=?, author=?, isbn=? WHERE id=?', [title, price, author, isbn, id]);
+            return;
         });
     }
 }
