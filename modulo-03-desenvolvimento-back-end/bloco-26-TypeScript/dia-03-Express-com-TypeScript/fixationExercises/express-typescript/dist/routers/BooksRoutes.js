@@ -20,5 +20,5 @@ const booksController = new BooksController_1.default();
 router.get('/books', (req, res) => __awaiter(void 0, void 0, void 0, function* () { return booksController.getAll(req, res); }));
 router.get('/books/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () { return booksController.getById(req, res); }));
 router.post('/books', BooksMiddleware_1.default, (req, res, next) => __awaiter(void 0, void 0, void 0, function* () { return booksController.create(req, res, next); }));
-router.put('/books/:id', BooksMiddleware_1.default, (req, res) => __awaiter(void 0, void 0, void 0, function* () { return booksController.update(req, res); }));
+router.put('/books/:id', BooksMiddleware_1.default, (req, res, next) => __awaiter(void 0, void 0, void 0, function* () { return booksController.update(req, res, next); }));
 exports.default = router;

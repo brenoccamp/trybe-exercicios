@@ -32,4 +32,16 @@ export default class BookService {
 
     return this.model.update(id, book);
   }
+
+  public async delete(id: number): Promise<void> {
+    const bookFound = await this.model.getById(id);
+
+    if (!bookFound) {
+      const err = new Error('Book not found');
+      err.name = 'NotFoundError';
+      throw err;
+    }
+    await this.model.delete(id);
+    return;
+  }
 }

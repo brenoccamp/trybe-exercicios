@@ -28,4 +28,9 @@ router.put(
   async (req, res) => booksController.update(req, res),
 );
 
+router.delete(
+  '/books/:id',
+  async (req, res, next) => booksController.delete(req, res, next),
+);
+
 export default router;

@@ -38,4 +38,9 @@ export default class BookModel {
     );
     return;
   }
+
+  public async delete(id: number): Promise<void> {
+    await this.connection.execute('DELETE FROM books WHERE id = ?', [id]);
+    return;
+  }
 }

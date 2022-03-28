@@ -40,13 +40,17 @@ class BooksController {
             return res.status(http_status_codes_1.StatusCodes.CREATED).json(bookCreated);
         });
     }
-    update(req, res) {
+    update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            const id = Number(req.params.id);
-            const book = req.body;
-            console.log(book);
-            yield this.bookService.update(id, book);
-            return res.status(http_status_codes_1.StatusCodes.NO_CONTENT).end();
+            try {
+                const id = Number(req.params.id);
+                const book = req.body;
+                yield this.bookService.update(id, book);
+                return res.status(http_status_codes_1.StatusCodes.NO_CONTENT).end();
+            }
+            catch (err) {
+                next(err);
+            }
         });
     }
 }

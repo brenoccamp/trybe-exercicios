@@ -30,7 +30,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
       res.status(409).json({ message });
       break;
     default:
-      console.error(err);
+      console.error('log switch: ', err);
       res.sendStatus(500);
   }
 

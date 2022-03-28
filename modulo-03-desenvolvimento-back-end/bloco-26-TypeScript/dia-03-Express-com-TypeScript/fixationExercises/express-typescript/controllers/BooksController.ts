@@ -29,9 +29,20 @@ export default class BooksController {
   public async update (req: Request, res: Response): Promise<Response> {
     const id = Number(req.params.id);
     const book = req.body;
-    console.log(book);
+
     await this.bookService.update(id, book);
 
     return res.status(StatusCodes.NO_CONTENT).end();
+  }
+
+  public async delete(req: Request, res: Response, next: NextFunction): Promise<Response|void> {
+    try {
+      const id = Number(req.params.id);
+      await this.bookService.delete(id);
+  
+      return res.status(StatusCodes.OK).json({ message: 'Book deleted successfully' });
+    } catch (err) {
+      next(err);
+    }
   }
 }
