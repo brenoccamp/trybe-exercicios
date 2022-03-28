@@ -8,7 +8,7 @@ function validateProperties(book: Book): [boolean, string | null] {
   for (let i = 0; i< properties.length; i += 1) {
     if (!Object.prototype.hasOwnProperty.call(book, properties[i])) return [false, properties[i]];
   }
-  
+
   return [true, null];
 }
 
