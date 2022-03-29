@@ -39,12 +39,12 @@ export default class UserController {
     }
   }
 
-  public async update(req: Request, res: Response, next: NextFunction): Promise<Response|string|void> {
+  public async update(req: Request, res: Response, next: NextFunction): Promise<Response|void> {
     try {
       const id = Number(req.params.id);
       const user: newUser = req.body;
 
-      const updatedUser = this.userService.update(id, user);
+      const updatedUser = await this.userService.update(id, user);
       if (!updatedUser) return res.status(404).json({ message: 'User not found' });
 
       return res.status(201).json({ id, ...user });
