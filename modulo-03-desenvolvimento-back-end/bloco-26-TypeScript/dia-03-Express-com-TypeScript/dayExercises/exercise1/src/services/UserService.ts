@@ -1,5 +1,5 @@
 import connection from '../models/connection';
-import User from "../interfaces/UserInterface";
+import User, { newUser } from "../interfaces/UserInterface";
 import UserModel from "../models/UserModel";
 
 export default class UserService {
@@ -17,5 +17,11 @@ export default class UserService {
   public async getById(id: number): Promise<User> {
     const user = await this.model.getById(id);
     return user;
+  }
+
+  public async create(user: newUser): Promise<User> {
+    const createdUser = await this.model.create(user);
+
+    return createdUser;
   }
 }
