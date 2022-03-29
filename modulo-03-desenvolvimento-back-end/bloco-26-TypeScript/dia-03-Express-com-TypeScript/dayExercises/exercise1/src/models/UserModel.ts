@@ -22,9 +22,17 @@ export default class UserModel {
     const { name, email, password } = user;
     const [{ insertId }] = await this.connection.execute<ResultSetHeader>(
       'INSERT INTO users (name, email, password) VALUES (?, ?, ?);',
-      [name, email, password] 
+      [name, email, password]
     );
 
     return { id: insertId, ...user }
+  }
+
+  public update(id: number, user: newUser): void {
+    const { name, email, password } = user;
+    this.connection.execute<ResultSetHeader>(
+      'UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?',
+      [name, email, password, id]
+    );
   }
 }

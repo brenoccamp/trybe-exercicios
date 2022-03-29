@@ -22,4 +22,10 @@ router.post(
   async (req, res, next) => userController.create(req, res, next),
 );
 
+router.put(
+  '/:id',
+  UserValidation,
+  async (req, res, next) => userController.update(req, res, next),
+)
+
 export default router;

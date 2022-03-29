@@ -24,4 +24,12 @@ export default class UserService {
 
     return createdUser;
   }
+
+  public async update(id: number, user: newUser): Promise<null|void> {
+    const foundUser = await this.model.getById(id);
+    if (!foundUser) return null;
+
+    this.model.update(id, user);
+    return;
+  }
 }
