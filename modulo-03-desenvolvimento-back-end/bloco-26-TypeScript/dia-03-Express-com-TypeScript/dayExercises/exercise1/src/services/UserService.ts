@@ -33,4 +33,13 @@ export default class UserService {
     this.model.update(id, user);
     return user;
   }
+
+  public async delete(id: number): Promise<null|number> {
+    const foundUser = await this.model.getById(id);
+
+    if (!foundUser) return null;
+
+    this.model.delete(id);
+    return id;
+  }
 }

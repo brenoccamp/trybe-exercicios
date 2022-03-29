@@ -52,4 +52,17 @@ export default class UserController {
       next(err);
     }
   }
+
+  public async delete(req: Request, res: Response, next: NextFunction): Promise<Response|void> {
+    try {
+      const id = Number(req.params.id);
+
+      const deletedUser = await this.userService.delete(id);
+      if (!deletedUser) return res.status(404).json({ message: 'User not found' });
+
+      return res.status(200).end();
+    } catch (err) {
+      next(err);
+    }
+  }
 }

@@ -26,6 +26,11 @@ router.put(
   '/:id',
   UserValidation,
   async (req, res, next) => userController.update(req, res, next),
-)
+);
+
+router.delete(
+  '/:id',
+  async (req, res, next) => userController.delete(req, res, next),
+);
 
 export default router;

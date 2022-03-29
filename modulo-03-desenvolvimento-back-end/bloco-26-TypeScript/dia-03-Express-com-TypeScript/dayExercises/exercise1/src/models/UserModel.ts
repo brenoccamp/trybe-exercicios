@@ -35,4 +35,8 @@ export default class UserModel {
       [name, email, password, id]
     );
   }
+
+  public delete(id: number): void {
+    this.connection.execute<ResultSetHeader>('DELETE FROM users WHERE id = ?', [id]);
+  }
 }
