@@ -3,7 +3,7 @@ class Tv {
   size: number;
   resolution: string;
   connections: string[];
-  connectedTo: string;
+  // connectedTo: string;
 
   constructor(brand: string, size: number, resol: string, connec: string[]) {
     console.log(`Creating a new ${brand} Tv!`);
@@ -23,7 +23,7 @@ const samsungTv = new Tv(
   'Samsung',
   42,
   '4k',
-  ['HDMI', 'Ethernet', 'Wi-fi', 'Bluetooth'],
+  ['HDMI', 'Ethernet', 'Wi-fi', ' and Bluetooth'],
 );
 
 samsungTv.turnOn();
