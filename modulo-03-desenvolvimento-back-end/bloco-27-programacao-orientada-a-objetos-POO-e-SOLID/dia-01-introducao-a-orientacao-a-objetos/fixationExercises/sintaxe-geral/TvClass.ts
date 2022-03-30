@@ -1,8 +1,8 @@
 class Tv {
-  brand: string;
-  size: number;
-  resolution: string;
-  connections: string[];
+  private brand: string;
+  private size: number;
+  private resolution: string;
+  readonly connections: string[];
   // connectedTo: string;
 
   constructor(brand: string, size: number, resol: string, connec: string[]) {
