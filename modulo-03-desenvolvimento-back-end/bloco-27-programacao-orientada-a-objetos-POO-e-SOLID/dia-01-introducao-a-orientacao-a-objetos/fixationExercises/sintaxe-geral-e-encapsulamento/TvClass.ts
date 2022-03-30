@@ -18,11 +18,12 @@ class Tv {
     with resolution ${this._resolution} and available connections ${this._connections}`);
   }
 
-  get connected(): string {
-    return `The Tv is now connected to ${this._connectedTo}`;
+  get connected(): any {
+    return this._connectedTo;
   }
 
   set connected(device: string) {
+    this._connectedTo = device;
     if (this._connections.includes(device)) {
       console.log(`Tv is now connecting to ${device}`);
     } else {
@@ -38,6 +39,7 @@ const samsungTv = new Tv(
   ['HDMI', 'Ethernet', 'Wi-fi', ' and Bluetooth'],
 );
 
-samsungTv.connected = 'Wi-fi';
 
 samsungTv.turnOn();
+samsungTv.connected = 'Wi-fi';
+console.log(samsungTv.connected);
