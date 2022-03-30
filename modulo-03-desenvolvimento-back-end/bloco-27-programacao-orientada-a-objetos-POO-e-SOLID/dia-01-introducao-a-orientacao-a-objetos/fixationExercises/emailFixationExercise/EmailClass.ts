@@ -1,4 +1,4 @@
-class Email {
+export default class Email {
   private _from: string;
   private _to: string;
   private _message: string;
@@ -36,6 +36,4 @@ class Email {
   }
 }
 
-const email = new Email('breno', 'trybe', 'Great content', 'Course');
-
-console.log(email.content);
+// const email = new Email('breno', 'trybe', 'Great content', 'Course');

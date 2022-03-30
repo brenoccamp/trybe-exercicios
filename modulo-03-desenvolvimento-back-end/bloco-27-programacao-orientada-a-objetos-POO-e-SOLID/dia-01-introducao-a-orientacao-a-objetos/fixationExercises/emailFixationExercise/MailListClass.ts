@@ -1,6 +1,6 @@
 import Email from './EmailClass';
 
-class MailList {
+export default class MailList {
   constructor(private mailList: Email[] = []) { }
 
   get all(): Email[] { return this.mailList; }
@@ -22,4 +22,4 @@ class MailList {
   removeEmail(mailToRemove: Email): void {
     this.mailList = this.mailList.filter((mail) => mail !== mailToRemove);
   }
-} 
+}
