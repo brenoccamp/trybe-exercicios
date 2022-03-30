@@ -40,7 +40,11 @@ export default class Student {
     allGradeList.forEach(
       (grade) => totalAverage += grade
     );
-
+    []
     return (totalAverage/allGradeList.length);
   }
 }
+
+const newStudent = new Student('Breno', 'Matrícula 1', [1, 2, 3, 4], [2, 2,]);
+
+console.log(newStudent.gradesAverage());
