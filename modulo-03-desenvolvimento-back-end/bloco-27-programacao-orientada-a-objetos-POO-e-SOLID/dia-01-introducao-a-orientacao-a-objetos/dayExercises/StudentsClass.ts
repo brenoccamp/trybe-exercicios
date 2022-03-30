@@ -50,7 +50,12 @@ export default class Student implements StudentClass {
   }
 }
 
-const newStudent = new Student('Breno', 'Matrícula 1', [1, 2, 3, 4], [2, 2,]);
+const newStudent = new Student(
+  'Breno',
+  'Matrícula 1',
+  [1, 2, 3, 4],
+  [2, 2,],
+);
 
 console.log(newStudent.gradesAverage());
 console.log(newStudent.gradesSum());
