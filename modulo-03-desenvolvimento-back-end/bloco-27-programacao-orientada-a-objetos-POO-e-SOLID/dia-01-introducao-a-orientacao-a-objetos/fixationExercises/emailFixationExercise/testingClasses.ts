@@ -39,7 +39,7 @@ const email5 = new Email(
 const personalMailList = new MailList([email1, email2, email3]);
 const professionalMailList = new MailList([email4, email5]);
 
-console.log('----- personalMailList.getByEmailFrom(\'me@personalmail.com\'):')
+console.log('\n\n----- personalMailList.getByEmailFrom(\'me@personalmail.com\'):')
 personalMailList.getByEmailFrom('me@personalmail.com').forEach(
   (mail) => console.log(mail.content)
 );
@@ -54,17 +54,22 @@ const email6 = new Email(
 personalMailList.addEmail(email6);
 personalMailList.addEmail(email5); // Adicionado erroneamente
 
-console.log('----- personalMailList.getBySubject(\'Day off\'):');
+console.log('\n\n----- personalMailList.getBySubject(\'Day off\'):');
 personalMailList.getBySubject('Day off').forEach(
   (mail) => console.log(mail.content)
 );
 personalMailList.removeEmail(email5);
-console.log('----- professionalMailList.all:');
+console.log('\n\n----- professionalMailList.all:');
 professionalMailList.all.forEach(
   (mail) => console.log(mail.content)
 );
 
-console.log('----- personalMailList.all:');
+console.log('\n\n----- personalMailList.all:');
 personalMailList.all.forEach(
+  (mail) => console.log(mail.content)
+);
+
+console.log('\n\n----- personalMailList.getByKeyWord:');
+personalMailList.getByKeyWord('Reply').forEach(
   (mail) => console.log(mail.content)
 );

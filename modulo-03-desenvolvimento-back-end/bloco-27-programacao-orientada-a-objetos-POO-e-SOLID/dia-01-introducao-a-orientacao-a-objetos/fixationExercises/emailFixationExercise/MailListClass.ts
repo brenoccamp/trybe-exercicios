@@ -22,4 +22,10 @@ export default class MailList {
   public removeEmail(mailToRemove: Email): void {
     this.mailList = this.mailList.filter((mail) => mail !== mailToRemove);
   }
+
+  public getByKeyWord(keyWord: string): Email[] {
+    return this.mailList.filter(
+      ({ content }) => content.includes(keyWord)
+    );
+  }
 }
