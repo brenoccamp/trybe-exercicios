@@ -13,7 +13,7 @@ class Email {
     this._from = from;
     this._to = to;
     this._message = message;
-    this._subject = '';
+    // this._subject = ''; -> Não entendi a necessidade dessa linha
     this._subject = subject;
   }
 
@@ -38,4 +38,4 @@ class Email {
 
 const email = new Email('breno', 'trybe', 'Great content', 'Course');
 
-email.content;
+console.log(email.content);
