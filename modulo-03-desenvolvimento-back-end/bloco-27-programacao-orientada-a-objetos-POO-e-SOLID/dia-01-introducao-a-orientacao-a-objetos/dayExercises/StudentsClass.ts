@@ -1,7 +1,12 @@
 type testsGrades = [number, number, number, number];
 type worksGrades = [number, number];
 
-export default class Student {
+interface StudentClass {
+  gradesSum: () => number;
+  gradesAverage: () => number;
+}
+
+export default class Student implements StudentClass {
   private _registry: string;
   private _studentName: string;
   private _testsGrades: testsGrades;
