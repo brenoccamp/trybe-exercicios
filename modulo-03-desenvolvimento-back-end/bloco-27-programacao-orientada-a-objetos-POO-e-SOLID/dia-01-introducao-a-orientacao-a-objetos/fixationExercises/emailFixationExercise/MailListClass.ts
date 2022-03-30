@@ -5,21 +5,21 @@ export default class MailList {
 
   get all(): Email[] { return this.mailList; }
 
-  getByEmailFrom(mailAddress: string): Email[] {
+  public getByEmailFrom(mailAddress: string): Email[] {
     return this.mailList.filter((mail) => mail.from === mailAddress);
   }
 
-  getByEmailTo(mailAddress: string): Email[] {
+  public getByEmailTo(mailAddress: string): Email[] {
     return this.mailList.filter((mail) => mail.to === mailAddress);
   }
 
-  getBySubject(searchString: string): Email[] {
+  public getBySubject(searchString: string): Email[] {
     return this.mailList.filter((mail) => mail.subject.indexOf(searchString) !== -1);
   }
 
-  addEmail(newMail: Email): void { this.mailList.push(newMail); }
+  public addEmail(newMail: Email): void { this.mailList.push(newMail); }
 
-  removeEmail(mailToRemove: Email): void {
+  public removeEmail(mailToRemove: Email): void {
     this.mailList = this.mailList.filter((mail) => mail !== mailToRemove);
   }
 }

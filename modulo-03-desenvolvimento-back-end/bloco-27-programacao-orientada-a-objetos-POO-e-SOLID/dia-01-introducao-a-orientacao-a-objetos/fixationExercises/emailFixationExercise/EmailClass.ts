@@ -7,29 +7,29 @@ export default class Email {
   constructor (
     from: string,
     to: string,
-    message: string,
     subject: string,
+    message: string,
   ) {
     this._from = from;
     this._to = to;
-    this._message = message;
     // this._subject = ''; -> Não entendi a necessidade dessa linha
+    this._message = message;
     this._subject = subject;
   }
 
-  set subject(newSubject: string) {
+  public set subject(newSubject: string) {
     if (newSubject.length <= 40) this._subject = newSubject;
   }
 
-  get subject(): string {
+  public get subject(): string {
     return this._subject;
   }
 
-  get from(): string { return this._from; }
+  public get from(): string { return this._from; }
 
-  get to(): string { return this._to; }
+  public get to(): string { return this._to; }
 
-  get content(): string {
+  public get content(): string {
     return `From ${this._from} to ${this._to}:
     ${this._subject}
     ${this._message}`;
