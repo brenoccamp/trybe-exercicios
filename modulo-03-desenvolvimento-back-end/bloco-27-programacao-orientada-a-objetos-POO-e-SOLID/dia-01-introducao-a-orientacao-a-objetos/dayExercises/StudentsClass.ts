@@ -1,25 +1,28 @@
+type testsGrades = [number, number, number, number];
+type worksGrades = [number, number];
+
 export default class Student {
   private _registry: string;
-  private _name: string;
-  private _testsGrade: number[];
-  private _worksGrade: number[];
+  private _studentName: string;
+  private _testsGrades: testsGrades;
+  private _worksGrades: worksGrades;
 
   constructor(
     registry: string,
-    name: string,
-    testsGrade: number[],
-    worksGrade: number[],
+    studentName: string,
+    testsGrades: testsGrades,
+    worksGrades: worksGrades,
   ) {
     this._registry = registry;
-    this._name = name;
-    this._testsGrade = testsGrade;
-    this._worksGrade = worksGrade;
+    this._studentName = studentName;
+    this._testsGrades = testsGrades;
+    this._worksGrades = worksGrades;
   }
 
   public gradesSum(): number {
     let totalSum = 0;
-    const allGradesList = this._testsGrade
-      .concat(this._worksGrade);
+    const allGradesList = this._testsGrades
+      .concat(this._worksGrades);
 
     allGradesList.forEach(
       (grade) => totalSum += grade
@@ -31,8 +34,8 @@ export default class Student {
   public gradesAverage(): number {
     let totalAverage = 0;
 
-    const allGradeList = this._testsGrade
-      .concat(this._worksGrade);
+    const allGradeList = this._testsGrades
+      .concat(this._worksGrades);
     
     allGradeList.forEach(
       (grade) => totalAverage += grade
