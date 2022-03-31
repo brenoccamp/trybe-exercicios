@@ -1,11 +1,6 @@
 type testsGrades = [number, number, number, number];
 type worksGrades = [number, number];
 
-enum gradeTypes {
-  Tests = 'testsGrades',
-  Works = 'worksGrades',
-};
-
 interface StudentClass {
   gradesSum: () => number;
   gradesAverage: () => number;
@@ -30,7 +25,7 @@ export default class Student implements StudentClass {
   }
 
   get studentGrades(): string {
-    return `Grades of student ${this._studentName}:
+    return `Grades of student ${this._studentName} which has registry "${this._registry}" are:
     Tests grades: ${this._testsGrades};
     Works grades: ${this._worksGrades}`;
   }
