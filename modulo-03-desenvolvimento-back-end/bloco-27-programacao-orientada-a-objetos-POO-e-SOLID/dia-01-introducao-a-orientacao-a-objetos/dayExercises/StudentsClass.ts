@@ -1,6 +1,11 @@
 type testsGrades = [number, number, number, number];
 type worksGrades = [number, number];
 
+enum gradeTypes {
+  Tests = 'testsGrades',
+  Works = 'worksGrades',
+};
+
 interface StudentClass {
   gradesSum: () => number;
   gradesAverage: () => number;
@@ -13,8 +18,8 @@ export default class Student implements StudentClass {
   private _worksGrades: worksGrades;
 
   constructor(
-    registry: string,
     studentName: string,
+    registry: string,
     testsGrades: testsGrades,
     worksGrades: worksGrades,
   ) {
@@ -22,6 +27,24 @@ export default class Student implements StudentClass {
     this._studentName = studentName;
     this._testsGrades = testsGrades;
     this._worksGrades = worksGrades;
+  }
+
+  get studentGrades(): string {
+    return `Grades of student ${this._studentName}:
+    Tests grades: ${this._testsGrades};
+    Works grades: ${this._worksGrades}`;
+  }
+
+  set newGrades(
+    newGrades: testsGrades|worksGrades
+  ) {
+    if (newGrades.length === 4) {
+      this._testsGrades = newGrades;
+      console.log(`Grades of student ${this._studentName} updated to: ${newGrades}`);
+    } else {
+      this._worksGrades = newGrades;
+      console.log(`Grades of student ${this._studentName} updated to: ${newGrades}`);
+    }
   }
 
   public gradesSum(): number {
@@ -59,3 +82,6 @@ const newStudent = new Student(
 
 console.log(newStudent.gradesAverage());
 console.log(newStudent.gradesSum());
+console.log(newStudent.studentGrades);
+newStudent.newGrades = [5, 6, 7, 8];
+console.log(newStudent.studentGrades);
