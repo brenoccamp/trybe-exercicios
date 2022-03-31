@@ -43,28 +43,18 @@ export default class Student implements StudentClass {
   }
 
   public gradesSum(): number {
-    let totalSum = 0;
-    const allGradesList = this._testsGrades
-      .concat(this._worksGrades);
-
-    allGradesList.forEach(
-      (grade) => totalSum += grade
-    );
-
-    return totalSum;
+    return [...this._testsGrades, ...this._worksGrades]
+      .reduce((sum, currentGrade) => {
+        return sum += currentGrade;
+      }, 0)
   }
 
   public gradesAverage(): number {
-    let totalAverage = 0;
+    const totalGradesSum = this.gradesSum();
 
-    const allGradeList = this._testsGrades
-      .concat(this._worksGrades);
+    const allGradesList = [...this._testsGrades, ...this._worksGrades];
     
-    allGradeList.forEach(
-      (grade) => totalAverage += grade
-    );
-    []
-    return (totalAverage/allGradeList.length);
+    return (totalGradesSum/allGradesList.length);
   }
 }
 
