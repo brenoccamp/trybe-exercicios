@@ -32,6 +32,14 @@ class OrderedItem {
   constructor(item: Item) {
     this._item = item;
   }
+
+  get orderedItem(): Item {
+    return this._item;
+  }
+
+  set orderedItem(newOrder: Item) {
+    this._item = newOrder;
+  }
 }
 
 interface OrderClass {
@@ -79,9 +87,11 @@ class Order implements OrderClass{
   }
 }
 
+const pizza = new OrderedItem({name: 'Pizza', price: 60.00});
+
 const newOrder = new Order(
   'Breno',
-  [{ name: 'Pizza', price: 110.00 }],
+  [pizza.orderedItem, pizza.orderedItem = {name: 'Juice', price: 5.00}],
   PaymentMethod.Cash,
 );
 
