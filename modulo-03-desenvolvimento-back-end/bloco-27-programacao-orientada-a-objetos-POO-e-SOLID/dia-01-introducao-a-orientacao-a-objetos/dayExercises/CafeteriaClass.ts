@@ -1,4 +1,9 @@
-class Client {
+interface ClientClass {
+  get name(): string;
+  set name(newName: string);
+}
+
+class Client implements ClientClass {
   private _name: string;
 
   constructor(name: string) {
@@ -16,24 +21,68 @@ class Client {
   }
 }
 
+type Item = {
+  name: string;
+  price: number;
+}
+
 class OrderedItem {
-  _itemName: string;
-  _price: number;
+  private _item: Item
 
-  constructor(item: string, price: number) {
-    this._itemName = item;
-    this._price = price;
+  constructor(item: Item) {
+    this._item = item;
   }
 }
 
-class Order {
-  _client: string;
-  _paymentMethod: string;
-  _percentDiscount: number;
+interface OrderClass {
+  orderTotalCost(): number;
+  totalCostWithDiscount(percentDiscount: number): number;
+}
 
-  constructor(client: string, paymentMethod: string, percentDiscount: number) {
+enum PaymentMethod {
+  Cash = 15,
+  CreditCard = 10,
+  Check = 5,
+}
+
+class Order implements OrderClass{
+  private _client: string;
+  private _consumedItems: Item[];
+  private _paymentMethod: PaymentMethod;
+
+  constructor(
+    client: string,
+    consumedItems: Item[],
+    paymentMethod: PaymentMethod, 
+  ) {
     this._client = client;
+    this._consumedItems = consumedItems;
     this._paymentMethod = paymentMethod;
-    this._percentDiscount = percentDiscount;
+  }
+
+  set paymentMethod(newPaymentMethod: number) {
+    this._paymentMethod = newPaymentMethod;
+  }
+
+  public orderTotalCost(): number {
+    return this._consumedItems.reduce(
+      (totalCost, { price }) => {
+        totalCost += price;
+        return totalCost;
+      }, 0);
+  }
+
+  public totalCostWithDiscount(): number {
+    const totalCost = this.orderTotalCost();
+    const discount = (this._paymentMethod/100)*totalCost;
+    return totalCost - discount;
   }
 }
+
+const newOrder = new Order(
+  'Breno',
+  [{ name: 'Pizza', price: 110.00 }],
+  PaymentMethod.Cash,
+);
+
+console.log(newOrder.totalCostWithDiscount());
