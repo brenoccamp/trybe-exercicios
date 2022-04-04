@@ -13,7 +13,7 @@ class Superclass {
 class Subclass extends Superclass {
   constructor() {
     super();
-    // this.isSuper = false;
+    this.isSuper = false;
   }
 }
 
