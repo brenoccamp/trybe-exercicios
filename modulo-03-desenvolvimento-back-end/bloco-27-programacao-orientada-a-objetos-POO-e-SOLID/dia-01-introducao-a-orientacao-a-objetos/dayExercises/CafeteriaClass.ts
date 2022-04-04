@@ -26,6 +26,11 @@ type Item = {
   price: number;
 }
 
+interface OrderedItemClass {
+  get orderedItem(): Item;
+  set orderedItem(item: Item);
+}
+
 class OrderedItem {
   private _item: Item
 
@@ -95,4 +100,4 @@ const newOrder = new Order(
   PaymentMethod.Cash,
 );
 
-console.log(newOrder.totalCostWithDiscount());
+console.log(newOrder.totalCostWithDiscount(), newOrder);
