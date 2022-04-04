@@ -1,4 +1,4 @@
-class Person {
+export default class Person {
   private _name: string;
   private _birthDate: Date;
 
@@ -42,8 +42,8 @@ class Person {
   }
 }
 
-const date1 = new Date();
-date1.setFullYear(1900);
-console.log(date1);
-const person1 = new Person('Jon Doe', date1);
-console.log(`${person1}`);
+// const date1 = new Date();
+// date1.setFullYear(1900);
+// console.log(date1);
+// const person1 = new Person('Jon Doe', date1);
+// console.log(`${person1}`);
