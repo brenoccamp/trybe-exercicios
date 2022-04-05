@@ -83,13 +83,18 @@ export default class Student extends Person {
 }
 
 const student1 = new Student('Student 1', new Date());
+const student2 = new Student('Student 2', new Date('200/05/22'));
 
+console.log(student1.name = 'New name');
+console.log(student1.name);
+console.log(student1.birthDate);
 console.log(student1.enrollment);
 console.log(student1.examsGrades);
 console.log(student1.worksGrades);
-console.log(student1.enrollment = 'Student1-12345678');
+console.log(student1.enrollment = 'Student1-1234567');
 console.log(student1.examsGrades = 8);
 console.log(student1.worksGrades = 7.5);
 console.log(student1.sumNotes());
 console.log(student1.sumAverageNotes());
 console.log(student1);
+console.log(student2);

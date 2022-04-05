@@ -46,4 +46,4 @@ export default class Person {
 // date1.setFullYear(1900);
 // console.log(date1);
 // const person1 = new Person('Jon Doe', date1);
-// console.log(`${person1}`);
+// console.log(`person 1: ${person1}`);
