@@ -96,3 +96,4 @@ const b = new CharacterService(new MockedDbModel());
 
 a.create({name: 'TesteA', specialMove: 'Moving like a butterfly'}).then(console.log)
 a.getAll().then(console.log)
+a.delete(1).then(() => a.getAll().then(console.log))
