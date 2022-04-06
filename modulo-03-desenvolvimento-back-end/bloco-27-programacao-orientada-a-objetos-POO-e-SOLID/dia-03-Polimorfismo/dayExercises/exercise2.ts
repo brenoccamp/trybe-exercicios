@@ -1,30 +1,21 @@
 import Person from "./exercise1";
+import { Enrollable } from "./interfaces";
 
-export default class Employee extends Person {
-  constructor(
-    name: string,
-    age: number,
-  ) {
+export default class Employee extends Person implements Enrollable {
+  constructor(name: string, age: number, public enrollment: string) {
     super(name, age);
+
+    this.enrollment = enrollment;
   }
 
-  get name(): string {
-    return this._name;
-  }
-
-  get age(): number {
-    console.log(this);
-    return this._age;
-  }
-
-  set name(newName: string) {
-    this._name = newName;
-  }
-
-  set age(newAge: number) {
-    this._age = newAge;
+  generateEnrollment(): string {
+    return 'oi';
   }
 }
 
-const newEmp = new Employee('Breno', 29);
-newEmp.age
+export class Teacher extends Employee {
+  
+}
+
+const newEmp = new Employee('Breno', 20, 'asdasd');
+console.log(newEmp.age)
