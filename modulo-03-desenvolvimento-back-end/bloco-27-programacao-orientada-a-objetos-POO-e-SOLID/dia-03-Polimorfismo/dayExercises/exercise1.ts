@@ -1,8 +1,11 @@
 export default abstract class Person {
   private _name: string;
   private _age: number;
+  static personPopulation: number = 0;
 
   constructor(name: string, age: number) {
+    Person.incrementPopulation();
+
     if (name.length <= 3) {
       throw new Error('Name must be longer than 3 characters.');
     } else this._name = name;
@@ -27,5 +30,9 @@ export default abstract class Person {
   public set age(newAge: number) {
     if (newAge > 110) throw new Error('Age must be smaller than 110 years old.');
     this._age = newAge;
+  }
+
+  private static incrementPopulation(): void {
+    Person.personPopulation += 1;
   }
 }
