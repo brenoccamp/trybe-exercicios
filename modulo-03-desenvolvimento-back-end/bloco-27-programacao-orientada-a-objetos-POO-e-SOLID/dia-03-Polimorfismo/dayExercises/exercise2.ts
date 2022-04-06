@@ -1,6 +1,7 @@
 import Person from "./exercise1";
 import { Enrollable } from "./interfaces";
 import { v4 as uuidv4 } from 'uuid';
+import { EvaluationResult } from "./exercise3";
 
 export default class Employee extends Person implements Enrollable {
   private _enrollment: string;
@@ -62,8 +63,7 @@ export default class Employee extends Person implements Enrollable {
 
 export class Student extends Person implements Enrollable {
   private _enrollment: string;
-  private _examsGrades: number[] = [];
-  private _worksGrades: number[] = [];
+  private _evaluationsResults: EvaluationResult[] = [];
 
   constructor(name: string, age: number) {
     super(name, age);
@@ -88,34 +88,12 @@ export class Student extends Person implements Enrollable {
     this._enrollment = newEnrollment;
   }
 
-  public get examsGrades(): number[] {
-    return this._examsGrades;
-  }
-
-  public set examsGrades(newExamsGrades: number[]) {
-    if (newExamsGrades.length > 4) throw new Error('Exams grades cannot have more than 4 notes.');
-    this._examsGrades = newExamsGrades;
-  }
-
-  public get worksGrades(): number[] {
-    return this._worksGrades;
-  }
-
-  public set worksGrades(newWorksGrades: number[]) {
-    if (newWorksGrades.length < 2) throw new Error('Works grades cannot have more than 2 notes.');
-    this._worksGrades = newWorksGrades;
-  }
-
   public sumNotes(): number {
-    const allGrades = [...this._examsGrades, ...this._worksGrades];
-
-    return allGrades.reduce((acc, currNote) => acc += currNote, 0);
+    return this._evaluationsResults.reduce((acc, currEvaluation) => acc += currEvaluation.score, 0);
   }
 
   public sumAverageNotes(): number {
-    const allGrades = [...this._examsGrades, ...this._worksGrades];
-
-    return this.sumNotes() / allGrades.length;
+    return this.sumNotes() / this._evaluationsResults.length;
   }
 }
 
@@ -137,13 +115,13 @@ export class Teacher extends Employee {
   }
 }
 
-const student1 = new Student('Student1', 13);
-const student2 = new Student('Student2', 20);
-console.log(student1);
-console.log(student2);
+// const student1 = new Student('Student1', 13);
+// const student2 = new Student('Student2', 20);
+// console.log(student1);
+// console.log(student2);
 
-const teacher1 = new Teacher('Teacher1', 20, 5000.00, 'Math');
-const teacher2 = new Teacher('Teacher2', 33, 5500.00, 'English');
-console.log(teacher1.enrollment = '12345678901234567');
-console.log(teacher2);
-console.log(teacher1);
+// const teacher1 = new Teacher('Teacher1', 20, 5000.00, 'Math');
+// const teacher2 = new Teacher('Teacher2', 33, 5500.00, 'English');
+// console.log(teacher1.enrollment = '12345678901234567');
+// console.log(teacher2);
+// console.log(teacher1);
