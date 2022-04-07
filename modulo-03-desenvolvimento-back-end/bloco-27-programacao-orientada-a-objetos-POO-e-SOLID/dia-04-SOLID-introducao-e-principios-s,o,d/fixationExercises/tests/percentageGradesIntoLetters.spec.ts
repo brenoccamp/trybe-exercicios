@@ -1,7 +1,7 @@
 // ./tests/percentageGradesIntoLetters.spec.ts
 
 import { expect } from "chai";
-import { percentageGradesIntoLetters } from "../src";
+import { percentageGradesIntoLetters } from "../src/MoreOrLessCodeindex";
 
 const disciplinesDict = {
   mathematics: 'matemática',

@@ -1,7 +1,7 @@
 // ./tests/approvedStudents.spec.ts
 
 import { expect } from "chai";
-import { approvedStudents } from "../src";
+import { approvedStudents } from "../src/MoreOrLessCodeindex";
 
 const disciplinesDict = {
   mathematics: 'matemática',
