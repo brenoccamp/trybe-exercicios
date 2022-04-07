@@ -11,10 +11,10 @@ export default class Employee extends Person implements Enrollable {
   constructor(name: string, age: number, salary: number) {
     if (age < 18) throw new Error('An employee must be of age.');
     super(name, age);
-
-    this._enrollment = this.generateEnrollment();
     if (salary < 1) throw new Error('Salary must be a positive number.');
     else this._salary = salary;
+
+    this._enrollment = this.generateEnrollment();
     this._admissionDate = new Date();
   }
 
@@ -23,7 +23,7 @@ export default class Employee extends Person implements Enrollable {
     const randomId = randomStr.substring(0, 13);
     const slicePersonName = this.name.substring(0, 3);
 
-    return `${randomId}${slicePersonName}`
+    return `${slicePersonName}${randomId}`
   }
 
   public get enrollment(): string {

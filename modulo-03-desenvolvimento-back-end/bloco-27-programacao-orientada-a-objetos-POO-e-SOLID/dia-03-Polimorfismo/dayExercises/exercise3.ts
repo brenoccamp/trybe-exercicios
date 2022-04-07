@@ -1,53 +1,80 @@
 import { Teacher } from "./exercise2";
 
-enum EvaluationType {
-  EXAMS = 'Exams',
-  WORKS = 'Works',
-}
-
-export default class Evaluation {
+export default abstract class Evaluation {
   private _score: number;
-  private _type: string;
   private _teacher: Teacher;
+  private static count: number = 0;
 
-  constructor(score: number, type: EvaluationType, teacher: Teacher) {
-    this.validateScore(type, score);
+  public abstract type: string;
 
+  constructor(score: number, teacher: Teacher) {
     this._score = score;
-    this._type = type;
     this._teacher = teacher;
+
+    Evaluation.addCount();
+    console.log('score: ', score, 'this._score: ', this._score);
   }
 
-  private validateScore(type: EvaluationType|string, score: number): void {
-    if (score < 0) throw new Error('Score must be a positive number.');
-    else this._score = score;
-    if (type === EvaluationType.EXAMS && score > 25) throw new Error('Exam grade cannot be bigger than 25.');
-    if (type === EvaluationType.WORKS && score > 50) throw new Error('Work grade cannot be bigger 50.');
+  private static addCount(): void {
+    Evaluation.count += 1;
   }
 
-  get score(): number {
+  public get count(): number {
+    return Evaluation.count;
+  }
+
+  public get score(): number {
+    console.log(this._score);
     return this._score;
   }
 
-  set score(newScore: number) {
-    this.validateScore(this._type, newScore);
+  public set score(newScore: number) {
+    if (newScore < 0) throw new Error('Note cannot be smaller than 0.');
     this._score = newScore;
-  }
+  };
 
-  get type(): string {
-    return this._type;
-  }
-
-  set type(newType: string) {
-    this._type = newType;
-  }
-
-  get teacher(): Teacher {
+  public get teacher(): Teacher {
     return this._teacher;
   }
 
-  set teacher(newTeacher: Teacher) {
+  public set teacher(newTeacher: Teacher) {
     this._teacher = newTeacher;
+  };
+}
+
+export class Exam extends Evaluation {
+  public type: string;
+
+  constructor(score: number, teacher: Teacher) {
+    if (score < 0 || score > 25)
+      throw new Error('Exam note must be a positive number and cannot be bigger than 25.');
+
+    super(score, teacher);
+
+    this.type = 'Exam';
+  }
+
+  public set score(newScore: number) {
+    if (newScore > 25) throw new Error('Exam note cannot be bigger than 25.');
+    super.score = newScore;
+  }
+}
+
+export class Work extends Evaluation {
+  public type: string;
+
+  constructor(score: number, teacher: Teacher) {
+    if (score < 0 || score > 50)
+      throw new Error('Exam note must be a positive number and cannot be bigger than 50.');
+
+    super(score, teacher);
+
+    this.type = 'Work';
+  }
+
+  public set score(newScore: number) {
+    if (newScore > 50) throw new Error('Work note cannot be bigger than 50.');
+    super.score = newScore;
   }
 }
 
@@ -56,16 +83,8 @@ export class EvaluationResult {
   private _score: number;
 
   constructor(evaluation: Evaluation, score: number) {
-    this.validateScore(evaluation, score);
-
     this._evaluation = evaluation;
     this._score = score;
-  }
-  
-  private validateScore(evaluation: Evaluation, score: number): void {
-    if (score < 0) throw new Error('Score must be a positive number.');
-    if (evaluation.type === 'Exams' && score > 25) throw new Error('Score cannot be bigger than 25.');
-    if (evaluation.type === 'Works' && score > 50) throw new Error('Score cannot be bigger than 50');
   }
 
   public get evaluation(): Evaluation {
@@ -81,7 +100,32 @@ export class EvaluationResult {
   }
 
   public set score(newScore: number) {
-    this.validateScore(this._evaluation, newScore);
+    this.validateScore(newScore);
     this._score = newScore;
   }
+
+  private validateScore(score: number): void {
+    console.log(this.evaluation);
+    if (score < 0 || score > this.evaluation.score)
+      throw new Error(
+        `Score must be between 0 and ${this._evaluation.score}`
+      );
+  }
 }
+
+const teacher1 = new Teacher('Teacher1', 25, 5000.0, 'Math');
+const teacher2 = new Teacher('Teacher2', 35, 6500.0, 'Philosophy');
+
+const evaluation1 = new Exam(10, teacher1);
+const evaluation2 = new Work(8, teacher2);
+
+const evaluationResult1 = new EvaluationResult(evaluation1, 8.5);
+const evaluationResult2 = new EvaluationResult(evaluation2, 8);
+
+// console.log(evaluationResult1);
+// evaluationResult1.score = 4;
+// console.log(evaluationResult1);
+// evaluationResult1.score = 11;
+// console.log(evaluationResult1);
+console.log(evaluation1.score);
+
