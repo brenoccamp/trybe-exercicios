@@ -24,12 +24,12 @@ class ReadingTracker {
   trackReadings(readsCount: number) {
     this.booksRead += readsCount;
     if (this.booksRead >= this.readingGoal) {
-      this.progressNotification(
+      ReadingTracker.progressNotification(
         'Congratulations! You\'ve reached your reading goal!',
       );
       return;
     }
-    this.progressNotification(
+    ReadingTracker.progressNotification(
       'There are still some books to go!',
     );
   }
@@ -42,7 +42,7 @@ class ReadingTracker {
     console.log(this.wishlist);
   }
 
-  progressNotification = (message: string): void => {
+  static progressNotification(message: string): void {
     console.log(message);
   }
 }
