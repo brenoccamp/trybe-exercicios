@@ -12,7 +12,6 @@ export default abstract class Evaluation {
     this._teacher = teacher;
 
     Evaluation.addCount();
-    console.log('score: ', score, 'this._score: ', this._score);
   }
 
   private static addCount(): void {
@@ -24,7 +23,6 @@ export default abstract class Evaluation {
   }
 
   public get score(): number {
-    console.log(this._score);
     return this._score;
   }
 
@@ -51,7 +49,13 @@ export class Exam extends Evaluation {
 
     super(score, teacher);
 
+    this.score = score;
+
     this.type = 'Exam';
+  }
+
+  public get score(): number {
+    return super.score;
   }
 
   public set score(newScore: number) {
@@ -70,6 +74,10 @@ export class Work extends Evaluation {
     super(score, teacher);
 
     this.type = 'Work';
+  }
+
+  public get score(): number {
+    return super.score;
   }
 
   public set score(newScore: number) {
@@ -105,7 +113,6 @@ export class EvaluationResult {
   }
 
   private validateScore(score: number): void {
-    console.log(this.evaluation);
     if (score < 0 || score > this.evaluation.score)
       throw new Error(
         `Score must be between 0 and ${this._evaluation.score}`
@@ -122,10 +129,9 @@ const evaluation2 = new Work(8, teacher2);
 const evaluationResult1 = new EvaluationResult(evaluation1, 8.5);
 const evaluationResult2 = new EvaluationResult(evaluation2, 8);
 
-// console.log(evaluationResult1);
-// evaluationResult1.score = 4;
-// console.log(evaluationResult1);
-// evaluationResult1.score = 11;
-// console.log(evaluationResult1);
-console.log(evaluation1.score);
+console.log(evaluationResult1);
+evaluationResult1.score = 4;
+console.log(evaluationResult1);
+evaluationResult1.score = 11;
+console.log(evaluationResult1);
 
