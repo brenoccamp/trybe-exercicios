@@ -1,12 +1,19 @@
 {
-  "name": "fixationExercises",
+  "name": "solid-2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx ts-node src"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mysql": "^2.15.19",
+    "@types/redis": "^2.8.32"
+  },
+  "dependencies": {
+    "ts-node": "^10.2.1",
+    "mysql": "^2.18.1",
+    "redis": "^3.1.2",
+    "typescript": "^4.4.3"
+  }
 }
