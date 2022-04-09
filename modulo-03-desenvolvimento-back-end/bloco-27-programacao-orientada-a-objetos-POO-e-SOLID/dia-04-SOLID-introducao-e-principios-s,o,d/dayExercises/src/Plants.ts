@@ -1,17 +1,21 @@
 import fs from 'fs/promises';
 
-interface IPlant {
+type SpecialCare = { waterFrequency: number };
+
+export interface IPlant {
   id: string,
   breed: string,
   needsSun: Boolean,
   origin: string,
   size: number,
-  specialCare?: { waterFrequency: number }
+  specialCare?: SpecialCare,
 }
 
 interface IOpsInfo { createdPlants: number }
 
 class Plants {
+  private static PLANTS_JSON = 'plants.json';
+
   initPlant(plant: IPlant) {
     const { id, breed, needsSun, origin, specialCare, size } = plant;
 
@@ -34,13 +38,13 @@ class Plants {
   }
 
   async getPlants() {
-    const plantsRaw = await fs.readFile('plants.json', { encoding: 'utf8' });
+    const plantsRaw = await fs.readFile(Plants.PLANTS_JSON, { encoding: 'utf8' });
     const plants: IPlant[] = JSON.parse(plantsRaw);
     return plants;
   }
 
   async getPlantById(id: string) {
-    const plantsRaw = await fs.readFile('plants.json', { encoding: 'utf8' });
+    const plantsRaw = await fs.readFile(Plants.PLANTS_JSON, { encoding: 'utf8' });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
     const plantById = plants.find((plant) => plant.id === id);
@@ -49,20 +53,20 @@ class Plants {
   }
 
   async removePlantById(id: string) {
-    const plantsRaw = await fs.readFile('plants.json', { encoding: 'utf8' });
+    const plantsRaw = await fs.readFile(Plants.PLANTS_JSON, { encoding: 'utf8' });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
     const removedPlant = plants.find((plant) => plant.id === id);
     if (!removedPlant) return null;
 
     const newPlants = plants.filter((plant) => plant.id !== id);
-    await fs.writeFile('plants.json', JSON.stringify(newPlants));
+    await fs.writeFile(Plants.PLANTS_JSON, JSON.stringify(newPlants));
 
     return removedPlant;
   }
 
   async getPlantsThatNeedsSunWithId(id: string) {
-    const plantsRaw = await fs.readFile('plants.json', { encoding: 'utf8' });
+    const plantsRaw = await fs.readFile(Plants.PLANTS_JSON, { encoding: 'utf8' });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
     const filteredPlants = plants.filter((plant) => {
@@ -70,6 +74,7 @@ class Plants {
         if (!plant.specialCare || plant.specialCare.waterFrequency > 2) {
           return true;
         }
+        return false;
       }
 
       return false;
@@ -78,7 +83,7 @@ class Plants {
   }
 
   async editPlant(plantId: string, newPlant: IPlant) {
-    const plantsRaw = await fs.readFile('plants.json', { encoding: 'utf8' });
+    const plantsRaw = await fs.readFile(Plants.PLANTS_JSON, { encoding: 'utf8' });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
     const updatedPlants = plants.map((plant) => {
@@ -86,12 +91,12 @@ class Plants {
       return plant;
     });
 
-    await fs.writeFile('plants.json', JSON.stringify(updatedPlants));
+    await fs.writeFile(Plants.PLANTS_JSON, JSON.stringify(updatedPlants));
     return newPlant;
   }
 
   async savePlant(plant: IPlant) {
-    const plantsRaw = await fs.readFile('plants.json', { encoding: 'utf8' });
+    const plantsRaw = await fs.readFile(Plants.PLANTS_JSON, { encoding: 'utf8' });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
     const newPlant = this.initPlant({ ...plant });
@@ -102,7 +107,7 @@ class Plants {
     createdPlants += 1;
     await fs.writeFile('opsInfo.json', JSON.stringify({ createdPlants }));
 
-    await fs.writeFile('plants.json', JSON.stringify(plants));
+    await fs.writeFile(Plants.PLANTS_JSON, JSON.stringify(plants));
     return newPlant;
   }
 }
