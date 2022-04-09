@@ -1,0 +1,15 @@
+env:
+  node: true
+  es2021: true
+  mocha: true
+extends:
+  - trybe-backend
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: 12
+  sourceType: module
+plugins:
+  - '@typescript-eslint'
+rules:
+  class-methods-use-this: 0
+  "@typescript-eslint/no-unused-vars": "error"
