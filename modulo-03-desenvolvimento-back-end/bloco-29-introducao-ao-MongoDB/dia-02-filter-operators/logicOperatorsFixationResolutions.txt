@@ -20,3 +20,9 @@ R: Query -> db.restaurants.find().sort({ name: 1 }).toArray();
 
 Ordene os restaurantes de forma decrescente baseado nas avaliações.
 R: Query -> db.restaurants.find().sort({ rating: -1 }).toArray();
+
+Remova o primeiro restaurante que possua culinária do tipo Ice Cream, Gelato, Yogurt, Ices.
+R: Query -> db.restaurants.deleteOne({ cuisine: 'Ice Cream, Gelato, Yogurt, Ices' });
+
+Remova todos os restaurantes que possuem culinária do tipo American.
+R: Query -> db.restaurants.deleteMany({ cuisine: 'American' });
