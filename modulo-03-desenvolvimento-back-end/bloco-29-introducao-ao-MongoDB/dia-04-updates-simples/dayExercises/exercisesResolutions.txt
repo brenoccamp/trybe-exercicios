@@ -1,0 +1,90 @@
+Verifique se você tem três documentos na coleção.
+Para cada execução, utilize o método find() para conferir as alterações nos documentos.
+O MongoDB possui diversas ferramentas, como, por exemplo, mongo, mongo sh, Compass e outras ferramentas de terceiros. Você pode utilizar o que achar melhor para executar as queries, o importante é realizá-las.
+
+Exercício 1: Altere o imdbRating para 7.7 no filme Batman.
+R: Query -> db.movies.update(
+  { title: 'Batman'},
+  { $set: { imdbRating: 7.7 } }
+);
+
+
+Exercício 2: Altere budget para 1 no filme Godzilla.
+R: Query -> db.movies.update(
+  { title: 'Godzilla'},
+  { $set: { budget: 1 } }
+);
+
+Exercício 3: Altere budget para 15 e imdbRating para 5.5 no filme Home Alone.
+R: Query -> db.movies.update(
+  { title: 'Home Alone'},
+  { $set: { imdbRating: 5.5, budget: 15 } }
+);
+
+
+Exercício 4: Aumente em 2 o imdbRating do filme Batman.
+R: Query -> db.movies.update(
+  { title: 'Batman'},
+  { $inc: { imdbRating: 2 } }
+);
+
+Exercício 5: Aumente em 5 o budget do filme Home Alone.
+R: Query -> db.movies.update(
+  { title: 'Home Alone'},
+  { $inc: { budget: 5 } }
+);
+
+Exercício 6: Multiplique por 4 o imdbRating do filme Batman.
+R: Query -> db.movies.update(
+  { title: 'Batman'},
+  { $mul: { imdbRating: 4 } }
+);
+
+Exercício 7: Renomeie o campo budget para estimatedBudget do filme Batman.
+R: Query -> db.movies.update(
+  { title: 'Batman'},
+  { $rename: { budget: 'estimatedBudget' } }
+);
+
+Exercício 8: Utilize o operador $min para alterar o budget para 5 do filme Home Alone.
+R: Query -> db.movies.updateMany(
+  { title: 'Home Alone'},
+  { $min: { budget: 5 } }
+);
+
+Exercício 9: Utilize o operador $max para alterar o imdbRating para 8.6 do filme Godzilla. Além disso, altere a categoria "adventure" para "thriller" do filme Godzilla.
+R: Query -> db.movies.updateMany(
+  { title: 'Godzilla'},
+  {
+    $max: { imdbRating: 8.6 },
+    $set: { 'category.1': 'thriller' }
+  }
+);
+
+Exercício 10: Utilizando o operador $currentDate, crie um campo chamado lastUpdated com o tipo timestamp no filme Home Alone.
+R: Query -> db.movies.updateMany(
+  { title: 'Home Alone'},
+  { $currentDate: {
+      lastUpdated: { $type: 'timestamp' }
+    }
+  }
+);
+
+
+Exercício 11: Utilizando uma única operação, crie um campo chamado sequels e atribua a ele o valor 0 em todos os documentos.
+R: Query -> db.movies.updateMany(
+  {},
+  { $set: { sequels: 0 } }
+);
+
+Exercício 12: Utilizando uma única operação, remova os campos budget e estimatedBudget em todos os documentos.
+R: Query -> db.movies.updateMany(
+  {},
+  { $unset: { budget: '', estimatedBudget: '' } }
+);
+
+Exercício 13: Para os filmes Batman ou Home Alone, atribua a imdbRating o valor 17, caso o valor de imdbRating seja menor que 17.
+R: Query -> db.movies.updateMany(
+  { title: { $in: ['Batman', 'Home Alone' ] } },
+  { $max: { imdbRating: 17 } }
+);
