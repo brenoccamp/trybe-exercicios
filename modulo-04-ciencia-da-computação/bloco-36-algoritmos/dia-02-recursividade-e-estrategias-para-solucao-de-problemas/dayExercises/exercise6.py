@@ -15,4 +15,13 @@ def reverse_list(list):
     return make_reverse(0, list, list_length)
 
 
+# Outra forma de resolver:
+def reverse(list):
+    if len(list) < 2:
+        return list
+    else:
+        return reverse(list[1:]) + [list[0]]
+
+
 print(reverse_list([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+print(reverse([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))

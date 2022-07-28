@@ -2,7 +2,7 @@
 
 
 def check_is_odd(n, divisor):
-    print(n, divisor)
+    # print(n, divisor)
     if divisor == n:
         return f'{n} is odd'
     if n % divisor == 0:
@@ -11,7 +11,9 @@ def check_is_odd(n, divisor):
 
 
 def is_odd(n):
+    if n == 2:
+        return f'{n} is odd'
     return check_is_odd(n, 2)
 
 
-print(is_odd(179))
+print(is_odd(30))
